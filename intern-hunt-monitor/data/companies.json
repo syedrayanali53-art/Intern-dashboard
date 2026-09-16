@@ -1,0 +1,1398 @@
+{
+  "feeds": [
+    "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/.github/scripts/listings.json"
+  ],
+  "alerts_watchlist_only": true,
+  "companies": [
+    {
+      "id": "s000",
+      "name": "38 North Security",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s001",
+      "name": "Alarm.com",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://alarm.com/careers"
+      ],
+      "url_provenance": "https://alarm.com/careers/"
+    },
+    {
+      "id": "s002",
+      "name": "Allegion",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://allegion.wd5.myworkdayjobs.com/en-US/careers"
+      ],
+      "url_provenance": "https://allegion.wd5.myworkdayjobs.com/en-US/careers"
+    },
+    {
+      "id": "s003",
+      "name": "Accelevation LLC",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s004",
+      "name": "Accenture",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.accenture.com/us-en/careers"
+      ],
+      "url_provenance": "https://www.accenture.com/us-en/careers"
+    },
+    {
+      "id": "s005",
+      "name": "Aryaka",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.jobvite.com/aryaka/jobs/viewall"
+      ],
+      "url_provenance": "https://jobs.jobvite.com/aryaka/jobs/viewall"
+    },
+    {
+      "id": "s006",
+      "name": "Aireon LLC",
+      "priority": "P3",
+      "aliases": [
+        "Aireon"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://aireon.pinpointhq.com"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s007",
+      "name": "Amazon",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.amazon.jobs/en/search?base_query=internship"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s008",
+      "name": "AnaVation LLC",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://anavationllc.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s009",
+      "name": "Audley Consulting Group",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.audleyconsultinggroup.com/careers"
+      ],
+      "url_provenance": "https://www.audleyconsultinggroup.com/careers/"
+    },
+    {
+      "id": "s010",
+      "name": "Axiologic Solutions LLC",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s011",
+      "name": "Appian Corporation",
+      "priority": "P2",
+      "aliases": [
+        "Appian"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.appian.com/jobs?jobs-experience-level=jobs-experience-level%3Acampus&jobs-location=jobs-location%3Amclean--virginia",
+        "https://job-boards.greenhouse.io/appian"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s012",
+      "name": "Apple",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.apple.com/en-us/details/200606142/business-marketing-and-g-a-internships?team=STDNT"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s013",
+      "name": "Blue Ridge ESOP Associates",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s014",
+      "name": "Bluefoot Inc.",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s015",
+      "name": "Asurion",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.asurion.com/us/en"
+      ],
+      "url_provenance": "https://careers.asurion.com/us/en/"
+    },
+    {
+      "id": "s016",
+      "name": "AT-RISK International LLC",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://at-riskinternational.com/join-our-team"
+      ],
+      "url_provenance": "https://at-riskinternational.com/join-our-team/"
+    },
+    {
+      "id": "s017",
+      "name": "AT&T",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.att.jobs/technology-programs-and-internships",
+        "https://att.wd1.myworkdayjobs.com/en-US/ATTcollege"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s018",
+      "name": "CapCenter",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.capcenter.com/about-us"
+      ],
+      "url_provenance": "https://www.capcenter.com/about-us"
+    },
+    {
+      "id": "s019",
+      "name": "Capital Edge Consulting",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://capitaledgeconsulting.com/company/careers"
+      ],
+      "url_provenance": "https://capitaledgeconsulting.com/company/careers/"
+    },
+    {
+      "id": "s020",
+      "name": "CLA (CliftonLarsonAllen)",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.claconnect.com/en/careers"
+      ],
+      "url_provenance": "https://www.claconnect.com/en/careers"
+    },
+    {
+      "id": "s021",
+      "name": "Bank of America",
+      "priority": "P1",
+      "aliases": [
+        "Bank of America Corporation"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.bankofamerica.com/en-us/students/job-detail/12943/global-technology-summer-analyst-2026-business-analyst-multiple-locations"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s022",
+      "name": "Creative Information Technology Inc.",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.citi-us.com/careers"
+      ],
+      "url_provenance": "https://www.citi-us.com/careers"
+    },
+    {
+      "id": "s023",
+      "name": "Bloomberg",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s024",
+      "name": "Boeing",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.boeing.com/search-jobs?k=internships",
+        "https://boeing.wd1.myworkdayjobs.com/en-US/EXTERNAL_CAREERS"
+      ],
+      "url_provenance": "https://jobs.boeing.com/search-jobs?k=internships"
+    },
+    {
+      "id": "s025",
+      "name": "Boldyn Networks",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://baicommunications.wd3.myworkdayjobs.com/en-US/External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s026",
+      "name": "Booz Allen Hamilton",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.boozallen.com/careers/candidate-resources/application-process-questions.html",
+        "https://bah.wd1.myworkdayjobs.com/en-US/BAH_Jobs"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s027",
+      "name": "BruckEdwards",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://recruiting.paylocity.com/recruiting/jobs/All/7535baaa-92d9-4c38-aeaa-481adb5b1494/BruckEdwards-Inc"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s028",
+      "name": "DCU Solutions",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s029",
+      "name": "Carahsoft",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.carahsoft.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s030",
+      "name": "Delta Consulting Group",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://delta-cgi.com/careers"
+      ],
+      "url_provenance": "https://delta-cgi.com/careers/"
+    },
+    {
+      "id": "s031",
+      "name": "Construction Specialties",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://csgroup.taleo.net/careersection/cs_external_career_section/jobsearch.ftl?lang=en&portal=10100020157"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s032",
+      "name": "Credence Management Solutions LLC",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers-credence-llc.icims.com/jobs/search?searchKeyword=internship&ss=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s033",
+      "name": "CrowdStrike",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://crowdstrike.wd5.myworkdayjobs.com/en-US/crowdstrikecareers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s034",
+      "name": "EMCOR Government Services",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://recruiting.ultipro.com/EMC1002EMCGI/JobBoard/cc563430-39f7-4c82-bdfe-62f295bd857a?o=relevance&q=intern&w=Virginia%2C+USA&wc=-78.697948713%2C37.512820504&we=-81.413998713%2C40.228870504%7C-75.98189871299999%2C34.796770504&wpst=3"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s035",
+      "name": "CVS Health",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.cvshealth.com/us/en"
+      ],
+      "url_provenance": "https://jobs.cvshealth.com/us/en"
+    },
+    {
+      "id": "s036",
+      "name": "ESET North America",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.eset.com/en-US/ESET_External?q=intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s037",
+      "name": "Exor Solutions",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://exorsolutions.com/31-2"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s038",
+      "name": "FanDuel",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.fanduel.careers/future-teammates/early-careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s039",
+      "name": "Dark Wolf Solutions",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://darkwolfsolutions.com/join-the-pack",
+        "https://job-boards.greenhouse.io/darkwolfsolutions"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s040",
+      "name": "Darktrace",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.darktrace.com/careers"
+      ],
+      "url_provenance": "https://www.darktrace.com/careers"
+    },
+    {
+      "id": "s041",
+      "name": "FINRA",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.finra.org/careers/internships"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s042",
+      "name": "Freddie Mac",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+        "https://careers.freddiemac.com/us/en/c/university-jobs",
+        "https://freddiemac.wd5.myworkdayjobs.com/en-US/External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s043",
+      "name": "Frontpoint Security",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.frontpointsecurity.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s044",
+      "name": "Deloitte",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy",
+        "https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Data-Analytics-Summer-2026/309450",
+        "https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Discovery-Intern-Sophomore-Junior-Business-Technology-Profile-Summer-2026/306703"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s045",
+      "name": "Deltek",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=25397&siteid=5259"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s046",
+      "name": "General Atomics Aeronautical Systems Inc.",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.ga-careers.com/search-jobs"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s047",
+      "name": "Dev Technology Group Inc.",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://devtechnology.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s048",
+      "name": "Global Impact",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://charity.org/about/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s049",
+      "name": "Goldkiang Group CPA's",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://ggroupcpas.com/career-planning/current-openings"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s050",
+      "name": "Draper",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://draper.wd5.myworkdayjobs.com/en-US/Draper_Careers",
+        "https://draper.wd5.myworkdayjobs.com/en-US/draper_careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s051",
+      "name": "GroupM",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.jobvite.com/groupm-na/search?r=USA"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s052",
+      "name": "Groupon",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://job-boards.greenhouse.io/groupon"
+      ],
+      "url_provenance": "https://job-boards.greenhouse.io/groupon"
+    },
+    {
+      "id": "s053",
+      "name": "Guidehouse",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://guidehouse.wd1.myworkdayjobs.com/en-US/External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s054",
+      "name": "Halfaker and Associates LLC",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.saic.com/pages/candidate-resources"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s055",
+      "name": "ECS Federal",
+      "priority": "P2",
+      "aliases": [
+        "ECS"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://myjobs.adp.com/ecsdataandaijobs/cx/job-listing?keyword=intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s056",
+      "name": "Ellucian",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.ellucian.com/jobs?page=1&tags1=Intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s057",
+      "name": "ID.me",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://job-boards.greenhouse.io/idme"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s058",
+      "name": "ImageX",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://imagexmedia.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s059",
+      "name": "Intellias",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://career.intellias.com"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s060",
+      "name": "Epic Systems",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.epic.com/jobs?search=intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s061",
+      "name": "Ernst & Young",
+      "priority": "P1",
+      "aliases": [
+        "EY"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://usearlycareers.ey.com/search-jobs/Virginia%2C%20US/39053/3/6252001-6254928/37x54812/-77x44675/50/2"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s062",
+      "name": "Kerecis",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://recruiting.paylocity.com/Recruiting/Jobs/All/8c93875e-3025-4992-8cf6-e0631956008f/Kerecis-LLC?department=All+Departments&location=All+Locations"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s063",
+      "name": "Fannie Mae",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.fanniemae.com/careers/search-all-jobs",
+        "https://fanniemae.wd1.myworkdayjobs.com/en-US/FannieMaeCareers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s064",
+      "name": "FedEx",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.fedex.com/career-areas/student-programs/jobs?keyword=Internships&page_number=1&page_size=10&sort_by=score&sort_order=DESC",
+        "https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s065",
+      "name": "Linked XL",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s066",
+      "name": "Lockwood Hills",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.akima.com/jobs?_gl=1%2Aoym7fo%2A_gcl_au%2AMjExNTgyMTgxMy4xNzU0NDg2MjM1%2A_ga%2AMTcxOTA3ODYuMTc1NDQ4NjIzNg..%2A_ga_TWXK1S15BJ%2AczE3NTQ0ODYyMzYkbzEkZzEkdDE3NTQ0ODYyNDMkajUzJGwwJGgw&keywords=internship&page=1&sortBy=relevance"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s067",
+      "name": "Lovelytics",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://lovelytics.com/careers-culture"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s068",
+      "name": "Lumen",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.lumen.com/global/en/university-entry-level"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s069",
+      "name": "MassMutual",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s070",
+      "name": "Metaformers",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://metaformers.catsone.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s071",
+      "name": "MicroHealth LLC",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://microhealthllc.applytojob.com/apply"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s072",
+      "name": "Freeman",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://career8.successfactors.com/career?_s.crb=7nqXXzAxCmIiH24GOz1h6eUHSl5zPQYVqlMJXhTPgZo%3D&career_ns=job_listing_summary&company=freemanP1&navBarLevel=JOB_SEARCH"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s073",
+      "name": "Gartner",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s074",
+      "name": "GDIT",
+      "priority": "P1",
+      "aliases": [
+        "General Dynamics Information Technology"
+      ],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.gdit.com/careers/search?q=internship",
+        "https://gdit.wd5.myworkdayjobs.com/en-US/External_Career_Site"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s075",
+      "name": "Mythics",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s076",
+      "name": "GEICO",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.geico.com"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s077",
+      "name": "GDIT (Early Talent)",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://gdit.wd5.myworkdayjobs.com/en-US/GDIT_EarlyTalent"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s078",
+      "name": "Google",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.google.com/about/careers/applications/jobs/results?company=Fitbit&company=Google&company=YouTube&distance=50&employment_type=INTERN&location=Virginia%2C+USA&location=Washington+D.C.%2C+DC%2C+USA"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s079",
+      "name": "Hilton",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.hilton.com/us/en/us-early-talent?from=10&rk=l-us-early-talent&s=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s080",
+      "name": "NVR Settlement Services Inc.",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?cws=52&org=NVRINC"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s081",
+      "name": "OAG Aviation Worldwide",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.oag.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s082",
+      "name": "IBM",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.ibm.com/careers/search?field_keyword_05%5B0%5D=United+States&field_keyword_18%5B0%5D=Internship"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s083",
+      "name": "Peloton Interactive",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.onepeloton.com/en/all-jobs?page=2"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s084",
+      "name": "PepsiCo",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.pepsicojobs.com/internshipsprograms/jobs?keywords=intern&page=1&sortBy=relevance"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s085",
+      "name": "Perfecta",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.perfecta.com/careers"
+      ],
+      "url_provenance": "https://www.perfecta.com/careers/"
+    },
+    {
+      "id": "s086",
+      "name": "Quadrant Strategies",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://quadrantstrategies.com/careers-4"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s087",
+      "name": "Quorum",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.quorum.us/about/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s088",
+      "name": "Ignyte Group",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://ignytegroup1.applytojob.com/apply"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s089",
+      "name": "JDSAT Inc.",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.jdsat.com/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s090",
+      "name": "SES Networks",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.ses.com/go/Interns-and-Students/4312101"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s091",
+      "name": "Sherwin-Williams",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://ejhp.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=CATEGORIES&mode=job-location&selectedCategoriesFacet=300000128388599"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s092",
+      "name": "Software AG",
+      "priority": "P4",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.dayforcehcm.com/en-US/sagann/CANDIDATEPORTAL"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s093",
+      "name": "Splunk",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s094",
+      "name": "Surescripts",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://surescripts.wd1.myworkdayjobs.com/en-US/surescriptscareers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s095",
+      "name": "Kearney & Company",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.kearneyco.com/jobs?tags3=College+Hires+and+Interns"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s096",
+      "name": "TaylorMade",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://taylormadegolf.wd5.myworkdayjobs.com/en-US/taylormadegolf"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s097",
+      "name": "TechOp Solutions International",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://techopsolutions.net/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s098",
+      "name": "The Cobalt Company",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://cobalt.net/careers/open-positions"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s099",
+      "name": "Vanguard",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s100",
+      "name": "TrueNorth",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://truenorthcompanies.com/about-truenorth/careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s101",
+      "name": "United Educators",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.ue.org/about-ue/careers/job-openings"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s102",
+      "name": "Universal Service Administrative Company",
+      "priority": "P3",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?ccId=9200542707248_2&cid=0c6b0a23-8ff0-4520-97d1-344989a89879&lang=en_US&type=JS"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s103",
+      "name": "KPMG",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.kpmguscareers.com/job-search?career-level=Internship%7C&spage=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s104",
+      "name": "Leidos",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.leidos.com/pages/intern-jobs?ns_landing_page_jobs=%2Fsearch%2Fjob-level%2Fintern%2Fjobs%2Fin%2Fcountry%2Funited-states%3Fns_landing_page%3D1",
+        "https://leidos.wd5.myworkdayjobs.com/en-US/External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s105",
+      "name": "Lidl US",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.lidl.com/job-search?filter=%7B%22contract_type%22%3A%5B%5D%2C%22employment_area%22%3A%5B%5D%2C%22entry_level%22%3A%5B%5D%7D&midpoint_lat=38.9376&midpoint_lon=-77.1838&midpoint_name=McLean%2C+Fairfax+County&page=1&query=intern&radius=null&sort_field=location.distance&sort_order=asc&with_event=true"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s106",
+      "name": "Maximus",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s107",
+      "name": "Micron Technology Inc.",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.micron.com/careers?domain=micron.com&pid=27170503&query=Intern&sort_by=solr&start=0",
+        "https://micron.wd1.myworkdayjobs.com/en-US/External"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s108",
+      "name": "Microsoft",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s109",
+      "name": "MITRE",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.mitre.org/us/en/search-results?keywords=student"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s110",
+      "name": "Navy Federal Credit Union",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/nfcu/jobs?keyword=Interns&lastSelectedFacet=LOCATIONS&selectedCategoriesFacet=300000025815473&selectedLocationsFacet=300000010045164%3B300000010092226"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s111",
+      "name": "Nestlé",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.nestle.com/jobs/search-jobs?career_area=4711&country=US"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s112",
+      "name": "Netimpact Strategies Inc.",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers-netimpactstrategies.icims.com/jobs/search?searchKeyword=intern&ss=1"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s113",
+      "name": "NTT Data",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.services.global.ntt/global/en/search-results?keywords=intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s114",
+      "name": "Oracle",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.oracle.com/en/sites/jobsearch/jobs?keyword=internship&lastSelectedFacet=locations&mode=location&selectedFlexFieldsFacets=%22AttributeChar14%7CSDR%22&selectedLocationsFacet=300000000106749%3B300000000149325"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s115",
+      "name": "Samsung",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://sec.wd3.myworkdayjobs.com/en-US/Samsung_Careers"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s116",
+      "name": "SAP",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.sap.com/search?createNewAlert=false&optionsFacetsDD_country=US&optionsFacetsDD_customfield3=Student"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s117",
+      "name": "SimonComputing",
+      "priority": "P2",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://simoncomputing.applicantpro.com/jobs"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s118",
+      "name": "SPS Consulting",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://spsconsult.com"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s119",
+      "name": "T-Mobile",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://careers.t-mobile.com/jobs?keyword=internships"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s120",
+      "name": "TekSynap",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.teksynap.com/careers/internship-program"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s121",
+      "name": "UPS",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s122",
+      "name": "Verizon",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://mycareer.verizon.com/jobs?pagesize=20&search=internship"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s123",
+      "name": "Xcelerate Solutions",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://jobs.jobvite.com/xceleratesolutions"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    },
+    {
+      "id": "s124",
+      "name": "MetroStar",
+      "priority": "P1",
+      "aliases": [],
+      "enabled": true,
+      "careers_urls": [
+        "https://www.metrostar.com/internships"
+      ],
+      "url_provenance": "Original sheet; additional ATS boards discovered from imported postings"
+    }
+  ]
+}

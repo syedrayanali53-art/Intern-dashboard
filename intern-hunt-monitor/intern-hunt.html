@@ -1,0 +1,940 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intern Hunt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600;12..96,75..100,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F0F1EC; --panel:#FBFBF7; --ink:#16181A; --ink-soft:#5C6168;
+  --pink:#FF48B0; --orange:#FF6C2F; --blue:#0078BF; --green:#00A95C;
+  --yellow:#FFE800; --grey:#8A9099; --rule:#D6D8D0;
+  --font-d:"Bricolage Grotesque","Archivo",system-ui,sans-serif;
+  --font-b:"Archivo",system-ui,-apple-system,sans-serif;
+  --font-m:"Space Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--font-b);
+  font-size:15px;line-height:1.45;padding:0 0 90px;
+  -webkit-font-smoothing:antialiased;
+}
+/* paper grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+
+.wrap{max-width:1500px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--font-m);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+
+/* ---------- masthead ---------- */
+.masthead{padding:26px 0 16px;border-bottom:3px solid var(--ink)}
+.eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;color:var(--ink-soft)}
+.eyebrow b{color:var(--ink)}
+.title-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-top:6px}
+h1{
+  font-family:var(--font-d);font-weight:800;font-size:clamp(46px,8.4vw,104px);
+  line-height:.83;letter-spacing:-.035em;text-transform:uppercase;position:relative;
+  isolation:isolate;
+}
+h1 .ghost{position:absolute;left:-3px;top:3px;color:var(--pink);mix-blend-mode:multiply;z-index:-1;opacity:.85}
+.tagline{max-width:34ch;color:var(--ink-soft);font-size:14.5px;padding-bottom:6px}
+.tagline b{color:var(--ink);font-weight:700}
+
+/* ---------- ink bar (signature) ---------- */
+.ink-wrap{margin:20px 0 0}
+.ink-bar{position:relative;height:42px;border:2px solid var(--ink);background:var(--panel);overflow:hidden;isolation:isolate}
+.ink-seg{position:absolute;top:0;bottom:0;mix-blend-mode:multiply;transition:width .55s cubic-bezier(.2,.8,.25,1),left .55s cubic-bezier(.2,.8,.25,1)}
+.ink-seg::after{
+  content:"";position:absolute;inset:0;opacity:.34;
+  background-image:radial-gradient(currentColor 1.1px,transparent 1.2px);
+  background-size:6px 6px;color:#000;
+}
+.ink-key{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:9px}
+.key{display:flex;align-items:center;gap:7px;background:none;padding:2px 0;border-bottom:2px solid transparent}
+.key[aria-pressed="true"]{border-bottom-color:var(--ink)}
+.key .swatch{width:13px;height:13px;border:1.5px solid var(--ink)}
+.key .n{font-family:var(--font-m);font-weight:700;font-size:13px}
+.key .l{font-size:12.5px;color:var(--ink-soft)}
+
+/* ---------- toolbar ---------- */
+.toolbar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  padding:14px 0;border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:60;
+  background:var(--paper);
+}
+.search{
+  flex:1 1 210px;min-width:180px;display:flex;align-items:center;gap:8px;
+  border:2px solid var(--ink);background:var(--panel);padding:7px 11px;
+}
+.search input{border:none;background:none;outline:none;width:100%;font-size:14px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{
+  border:2px solid var(--ink);padding:5px 11px;background:var(--panel);
+  font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  transition:transform .08s;
+}
+.chip:active{transform:translateY(1px)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip.p1[aria-pressed="true"]{background:var(--pink);color:var(--ink)}
+.chip.p2[aria-pressed="true"]{background:var(--orange);color:var(--ink)}
+.chip.p3[aria-pressed="true"]{background:var(--blue);color:#fff}
+.chip.p4[aria-pressed="true"]{background:var(--grey);color:#fff}
+.btn{
+  border:2px solid var(--ink);background:var(--ink);color:var(--paper);
+  padding:7px 13px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;box-shadow:3px 3px 0 var(--pink);transition:.1s;
+}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--pink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
+.btn.ghost{background:var(--panel);color:var(--ink);box-shadow:3px 3px 0 var(--blue)}
+.btn.ghost:hover{box-shadow:4px 4px 0 var(--blue)}
+.seg{display:flex;border:2px solid var(--ink)}
+.seg button{padding:6px 12px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;background:var(--panel)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.spacer{flex:1}
+
+/* ---------- scoreboard ---------- */
+.score{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch;padding:16px 0 4px}
+.lvl{
+  border:2px solid var(--ink);background:var(--panel);padding:11px 15px;
+  display:flex;align-items:center;gap:14px;min-width:250px;box-shadow:4px 4px 0 var(--yellow);
+}
+.lvl .num{font-family:var(--font-d);font-weight:800;font-size:42px;line-height:.8;letter-spacing:-.04em}
+.lvl .meta{flex:1}
+.xpbar{height:9px;border:1.5px solid var(--ink);background:var(--paper);margin-top:6px;position:relative;overflow:hidden}
+.xpbar i{position:absolute;inset:0 auto 0 0;background:var(--green);transition:width .6s cubic-bezier(.2,.8,.25,1)}
+.stat{border:2px solid var(--ink);background:var(--panel);padding:10px 15px;min-width:104px}
+.stat .n{font-family:var(--font-d);font-weight:800;font-size:31px;line-height:1;letter-spacing:-.03em}
+.stat .l{color:var(--ink-soft);font-size:11.5px;margin-top:2px}
+.stamps{display:flex;flex-wrap:wrap;gap:9px;align-items:center;padding:14px 0 0}
+.stamp{
+  font-family:var(--font-m);font-weight:700;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  border:2.5px solid var(--pink);color:#D0227F;padding:5px 10px;border-radius:3px;
+  transform:rotate(-2.5deg);opacity:.92;mix-blend-mode:multiply;white-space:nowrap;
+}
+.stamp:nth-child(even){transform:rotate(2deg);border-color:var(--blue);color:#00629C}
+.stamp:nth-child(3n){transform:rotate(-1deg);border-color:var(--green);color:#00713D}
+.stamp.locked{border-color:var(--rule);color:#979C92;transform:none;mix-blend-mode:normal}
+
+/* ---------- board ---------- */
+.board{display:flex;gap:14px;padding:20px 0 0;overflow-x:auto;align-items:flex-start;scrollbar-width:thin}
+.col{flex:0 0 268px;min-width:268px}
+.col-head{
+  border:2px solid var(--ink);padding:7px 11px;display:flex;align-items:center;gap:9px;
+}
+.col-head .dot{width:12px;height:12px;border:1.5px solid var(--ink)}
+.col-head h2{font-family:var(--font-m);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;flex:1}
+.col-head .ct{font-family:var(--font-m);font-size:12px;font-weight:700}
+.col-body{min-height:70px;padding:9px 0;display:flex;flex-direction:column;gap:9px}
+.col-body.over{background:rgba(255,72,176,.1);outline:2.5px dashed var(--pink);outline-offset:3px}
+
+.card{
+  position:relative;border:2px solid var(--ink);background:var(--panel);padding:10px 11px 9px;
+  cursor:grab;transition:transform .1s;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border:2px solid var(--pink);
+  mix-blend-mode:multiply;opacity:0;transform:translate(0,0);transition:.13s;pointer-events:none;
+}
+.card:hover::before{opacity:1;transform:translate(-3px,3px)}
+.card:hover{transform:translate(1px,-1px)}
+.card.dragging{opacity:.42;cursor:grabbing}
+.card .pri{
+  position:absolute;top:-2px;right:10px;width:26px;height:16px;border:2px solid var(--ink);
+  font-family:var(--font-m);font-size:9px;font-weight:700;display:grid;place-items:center;
+}
+.card h3{font-size:14.5px;font-weight:700;line-height:1.22;padding-right:32px;letter-spacing:-.012em}
+.card .sub{color:var(--ink-soft);font-size:11.5px;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .foot{display:flex;align-items:center;gap:7px;margin-top:8px;flex-wrap:wrap}
+.tagx{font-family:var(--font-m);font-size:9px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--rule);padding:1px 5px;color:var(--ink-soft)}
+.tagx.warn{border-color:var(--orange);color:#C0421A}
+.tagx.new{border-color:var(--green);color:#00713D}
+.card .go{margin-left:auto;font-family:var(--font-m);font-size:10px;text-decoration:none;border-bottom:1.5px solid var(--blue);color:var(--blue)}
+.empty{border:2px dashed var(--rule);padding:14px 11px;color:var(--ink-soft);font-size:12.5px;text-align:center}
+
+/* ---------- list ---------- */
+table{width:100%;border-collapse:collapse;margin-top:18px;background:var(--panel)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1.5px solid var(--rule);font-size:13.5px;vertical-align:top}
+th{font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2.5px solid var(--ink);position:sticky;top:var(--tbh,68px);z-index:5;background:var(--paper);cursor:pointer;white-space:nowrap}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:rgba(0,120,191,.075)}
+td.c-note{color:var(--ink-soft);font-size:12px;max-width:330px}
+.pill{display:inline-block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:1px 6px;white-space:nowrap}
+
+/* ---------- drawer / modal ---------- */
+.scrim{position:fixed;inset:0;background:rgba(22,24,26,.42);z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--paper);
+  border-left:3px solid var(--ink);z-index:201;transform:translateX(101%);
+  transition:transform .28s cubic-bezier(.2,.85,.3,1);overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.sheet-hd{flex:0 0 auto;position:relative;padding:18px 22px 13px;border-bottom:2px solid var(--ink);background:var(--paper)}
+.sheet-bd{flex:1 1 auto;overflow-y:auto;padding:4px 22px 70px;-webkit-overflow-scrolling:touch}
+.sheet.on{transform:none}
+.sheet h2{font-family:var(--font-d);font-weight:800;font-size:29px;line-height:.98;letter-spacing:-.03em;padding-right:44px}
+.sheet .close{position:absolute;top:15px;right:18px;font-size:24px;line-height:1;width:34px;height:34px;border:2px solid var(--ink);background:var(--panel)}
+.field{margin-top:15px}
+.field > label{display:block;font-family:var(--font-m);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+.field input,.field textarea,.field select{
+  width:100%;border:2px solid var(--ink);background:var(--panel);padding:8px 10px;font-size:14px;outline:none;
+}
+.field textarea{min-height:76px;resize:vertical;line-height:1.4}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.statgrid button{border:2px solid var(--ink);background:var(--panel);padding:7px 4px;font-family:var(--font-m);font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+.statgrid button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.linklist{display:flex;flex-direction:column;gap:6px}
+.linklist a{font-family:var(--font-m);font-size:11.5px;word-break:break-all;border:2px solid var(--blue);padding:7px 9px;text-decoration:none;display:block;background:var(--panel)}
+.linklist a:hover{background:var(--blue);color:#fff}
+.rowbtns{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.danger{border:2px solid var(--orange);color:var(--orange);background:var(--panel);padding:7px 13px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+
+/* ---------- scout ---------- */
+.tabs{display:flex;margin-top:13px}
+.tabs button{flex:1;border:2px solid var(--ink);padding:7px 5px;font-family:var(--font-m);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;background:var(--panel)}
+.tabs button+button{border-left:none}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.feed-tools{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0 12px;position:sticky;top:0;background:var(--paper);padding:8px 0 7px;z-index:3;border-bottom:1.5px solid var(--rule)}
+.feed-tools input{flex:1 1 100%;border:2px solid var(--ink);background:var(--panel);padding:7px 10px;font-size:13.5px;outline:none}
+.scout-item .role{font-size:12.5px;font-weight:600;margin-top:2px;color:var(--ink)}
+.scout-item .when{font-family:var(--font-m);font-size:9.5px;color:var(--ink-soft);position:absolute;top:11px;right:12px}
+.more{width:100%;border:2px dashed var(--ink);padding:11px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;background:var(--panel);margin-top:4px}
+.attrib{margin-top:20px;padding-top:12px;border-top:1.5px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.55}
+.attrib a{color:var(--blue)}
+.scout-item{border:2px solid var(--ink);background:var(--panel);padding:11px 12px;margin-bottom:9px;position:relative}
+.scout-item h4{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.scout-item .meta{display:flex;gap:7px;flex-wrap:wrap;margin:5px 0 6px}
+.scout-item p{font-size:12.5px;color:var(--ink-soft);line-height:1.42}
+.scout-item .acts{display:flex;gap:7px;margin-top:9px;align-items:center;flex-wrap:wrap}
+.mini{border:2px solid var(--ink);background:var(--panel);padding:4px 9px;font-family:var(--font-m);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.mini.add{background:var(--green);color:#fff;border-color:var(--ink)}
+.mini.done{background:var(--rule);color:var(--ink-soft);pointer-events:none}
+
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:400;
+  background:var(--ink);color:var(--paper);padding:11px 19px;font-family:var(--font-m);
+  font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:transform .3s cubic-bezier(.2,.9,.3,1);
+  box-shadow:5px 5px 0 var(--pink);max-width:90vw;text-align:center;
+}
+.toast.on{transform:translate(-50%,0)}
+.footnote{margin-top:34px;padding-top:14px;border-top:2px solid var(--ink);color:var(--ink-soft);font-size:12px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .col{flex:0 0 84vw;min-width:84vw}
+  .lvl{min-width:100%}
+  .stat{flex:1 1 40%}
+  th{top:0}
+  .toolbar{position:static}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+<link rel="stylesheet" href="monitor.css">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow mono">
+      <span>Log <b id="issueNo">Nº1</b></span>
+      <span>Compiled from your sheet</span>
+      <span id="saveState">Saving locally</span>
+    </div>
+    <div class="title-row">
+      <h1><span class="ghost" aria-hidden="true">Intern<br>Hunt</span>Intern<br>Hunt</h1>
+      <p class="tagline" id="tagline"></p>
+    </div>
+
+    <div class="ink-wrap">
+      <div class="ink-bar" id="inkBar" role="img" aria-label="Pipeline breakdown"></div>
+      <div class="ink-key" id="inkKey"></div>
+    </div>
+  </header>
+
+  <section id="monitor" aria-label="Daily job monitor"></section>
+  <div class="score" id="score"></div>
+  <div class="stamps" id="stamps"></div>
+
+  <div class="toolbar">
+    <label class="search">
+      <span class="mono" aria-hidden="true">⌕</span>
+      <input id="q" type="search" placeholder="Search companies, notes…" aria-label="Search companies">
+    </label>
+    <div class="chips" id="priChips"></div>
+    <button class="chip" id="hideClosed" aria-pressed="true">Hide closed</button>
+    <button class="chip" id="onlyLive" aria-pressed="false">No visa block</button>
+    <span class="spacer"></span>
+    <div class="seg" role="group" aria-label="View">
+      <button id="viewBoard" aria-pressed="true">Board</button>
+      <button id="viewList" aria-pressed="false">List</button>
+    </div>
+    <button class="btn ghost" id="openScout">Scout ▸</button>
+    <button class="btn" id="openAdd">+ Company</button>
+  </div>
+
+  <main id="main"></main>
+
+  <div class="footnote">
+    <span class="mono">Drag a card between columns, or click it to edit.</span>
+    <span class="spacer"></span>
+    <button class="mini" id="backupBtn">Back up tracking</button>
+    <button class="mini" id="restoreBtn">Restore backup</button>
+    <input id="restoreFile" type="file" accept="application/json,.json" hidden>
+    <button class="mini" id="exportBtn">Export CSV</button>
+    <button class="mini" id="resetBtn">Reset to original sheet</button>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Company details"></aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="data/monitor-data.js"></script>
+<script src="storage.js"></script>
+<script>
+/* ===================== data ===================== */
+const SEED = [{"name":"38 North Security","priority":"P3","links":[],"notes":"no website","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s000"},{"name":"Alarm.com","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s001"},{"name":"Allegion","priority":"P3","links":[],"notes":"none in VA · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s002"},{"name":"Accelevation LLC","priority":"P3","links":["https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s003"},{"name":"Accenture","priority":"P1","links":[],"notes":"none · check","status":"closed","blocker":"","reason":"Applications closed","referral":"","applyDate":"","src":"sheet","id":"s004"},{"name":"Aryaka","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s005"},{"name":"Aireon LLC","priority":"P3","links":["https://aireon.pinpointhq.com/#js-careers-jobs-block"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s006"},{"name":"Amazon","priority":"P1","links":["https://amazon.jobs/en/jobs/2996918/2026-business-analyst-intern","https://amazon.jobs/en/jobs/3037587/2026-program-manager-intern"],"notes":"","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s007"},{"name":"AnaVation LLC","priority":"P2","links":["https://anavationllc.com/careers"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s008"},{"name":"Audley Consulting Group","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s009"},{"name":"Axiologic Solutions LLC","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s010"},{"name":"Appian Corporation","priority":"P2","links":["https://careers.appian.com/jobs?jobs-experience-level=jobs-experience-level%3Acampus&jobs-location=jobs-location%3Amclean--virginia"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s011"},{"name":"Apple","priority":"P1","links":["https://jobs.apple.com/en-us/details/200606142/business-marketing-and-g-a-internships?team=STDNT"],"notes":"acc issue","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s012"},{"name":"Blue Ridge ESOP Associates","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s013"},{"name":"Bluefoot Inc.","priority":"P3","links":[],"notes":"couldnt find","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s014"},{"name":"Asurion","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s015"},{"name":"AT-RISK International LLC","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s016"},{"name":"AT&T","priority":"P1","links":["https://www.att.jobs/technology-programs-and-internships"],"notes":"location issue","status":"tocheck","blocker":"location","reason":"","referral":"","applyDate":"","src":"sheet","id":"s017"},{"name":"CapCenter","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s018"},{"name":"Capital Edge Consulting","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s019"},{"name":"CLA (CliftonLarsonAllen)","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s020"},{"name":"Bank of America","priority":"P1","links":["https://careers.bankofamerica.com/en-us/students/job-detail/12943/global-technology-summer-analyst-2026-business-analyst-multiple-locations"],"notes":"visa issue","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"no","applyDate":"","src":"sheet","id":"s021"},{"name":"Creative Information Technology Inc.","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s022"},{"name":"Bloomberg","priority":"P1","links":["https://bloomberg.avature.net/careers/SearchJobs/?1686=%5B55479%5D&1686_format=2312&listFilterMode=1&jobRecordsPerPage=12&"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s023"},{"name":"Boeing","priority":"P1","links":[],"notes":"no internships · check/visa issue","status":"applied","blocker":"visa","reason":"","referral":"","applyDate":"","src":"sheet","id":"s024"},{"name":"Boldyn Networks","priority":"P1","links":["https://baicommunications.wd3.myworkdayjobs.com/External"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s025"},{"name":"Booz Allen Hamilton","priority":"P1","links":["https://www.boozallen.com/careers/candidate-resources/application-process-questions.html"],"notes":"check 1 / apply if not other","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s026"},{"name":"BruckEdwards","priority":"P2","links":["https://recruiting.paylocity.com/recruiting/jobs/All/7535baaa-92d9-4c38-aeaa-481adb5b1494/BruckEdwards-Inc"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s027"},{"name":"DCU Solutions","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s028"},{"name":"Carahsoft","priority":"P3","links":["https://www.carahsoft.com/careers"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s029"},{"name":"Delta Consulting Group","priority":"P4","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s030"},{"name":"Construction Specialties","priority":"P1","links":["https://csgroup.taleo.net/careersection/cs_external_career_section/jobsearch.ftl?lang=en&portal=10100020157"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s031"},{"name":"Credence Management Solutions LLC","priority":"P2","links":["https://careers-credence-llc.icims.com/jobs/search?ss=1&searchKeyword=internship"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s032"},{"name":"CrowdStrike","priority":"P1","links":["https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers?Job_Family=1408861ee6e2015adbe3e7f6b000de0b"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s033"},{"name":"EMCOR Government Services","priority":"P4","links":["https://recruiting.ultipro.com/EMC1002EMCGI/JobBoard/cc563430-39f7-4c82-bdfe-62f295bd857a/?q=intern&o=relevance&w=Virginia%2C+USA&wc=-78.697948713%2C37.512820504&we=-81.413998713%2C40.228870504%7C-75.98189871299999%2C34.796770504&wpst=3"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s034"},{"name":"CVS Health","priority":"P2","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s035"},{"name":"ESET North America","priority":"P4","links":["https://jobs.eset.com/en-US/ESET_External?q=intern"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s036"},{"name":"Exor Solutions","priority":"P4","links":["https://exorsolutions.com/31-2"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s037"},{"name":"FanDuel","priority":"P4","links":["https://www.fanduel.careers/future-teammates/early-careers"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s038"},{"name":"Dark Wolf Solutions","priority":"P2","links":["https://darkwolfsolutions.com/join-the-pack#positions"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s039"},{"name":"Darktrace","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s040"},{"name":"FINRA","priority":"P3","links":["https://www.finra.org/careers/internships"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s041"},{"name":"Freddie Mac","priority":"P2","links":["https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1","https://careers.freddiemac.com/us/en/c/university-jobs"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s042"},{"name":"Frontpoint Security","priority":"P4","links":["https://www.frontpointsecurity.com/careers?srsltid=AfmBOorCE99WiVsdL-DnXct66Fcw0ryh53BE9l02e7uTtHyTRhhJbRKw"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s043"},{"name":"Deloitte","priority":"P1","links":["https://apply.deloitte.com/en_US/careers/SearchJobs/?9339=%5B478%5D&9339_format=5915&listFilterMode=1&jobSort=relevancy&jobRecordsPerPage=10&jobOffset=0&sort=relevancy","https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Data-Analytics-Summer-2026/309450","https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Discovery-Intern-Sophomore-Junior-Business-Technology-Profile-Summer-2026/306703"],"notes":"checking for referral","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s044"},{"name":"Deltek","priority":"P2","links":["https://sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=25397&siteid=5259#keyWordSearch=internship&locationSearch="],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s045"},{"name":"General Atomics Aeronautical Systems Inc.","priority":"P4","links":["https://www.ga-careers.com/search-jobs"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s046"},{"name":"Dev Technology Group Inc.","priority":"P2","links":["https://devtechnology.com/careers"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s047"},{"name":"Global Impact","priority":"P4","links":["https://charity.org/about/careers"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s048"},{"name":"Goldkiang Group CPA's","priority":"P4","links":["https://ggroupcpas.com/career-planning/current-openings"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s049"},{"name":"Draper","priority":"P3","links":["https://draper.wd5.myworkdayjobs.com/Draper_Careers?q=student+&workerSubType=b9bd15164d241000cf9857a64e2e0000"],"notes":"check nov","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s050"},{"name":"GroupM","priority":"P4","links":["https://jobs.jobvite.com/groupm-na/search?r=USA&c=&s=&q="],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s051"},{"name":"Groupon","priority":"P4","links":[],"notes":"Jobs at Groupon · no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s052"},{"name":"Guidehouse","priority":"P4","links":["https://guidehouse.wd1.myworkdayjobs.com/External?q=internship&locationCountry=bc33aa3152ec42d4995f4791a106ed09&locations=56903c4a7d6b1000e2161c3768580000&locations=ed8529cfb16d100154b01576edca0000&locations=9f4c046589611000e2262c0431020000&locations=56903c4a7d6b1000e215f18d84d20000&locations=9f4c046589611000e22604de25580000&locations=56903c4a7d6b1000e214e8ad7bb40000&locations=56903c4a7d6b1000e2167ec7fdfd0000"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s053"},{"name":"Halfaker and Associates LLC","priority":"P3","links":["https://jobs.saic.com/pages/candidate-resources"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s054"},{"name":"ECS Federal","priority":"P2","links":["https://myjobs.adp.com/ecsdataandaijobs/cx/job-listing?keyword=intern"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s055"},{"name":"Ellucian","priority":"P2","links":["https://careers.ellucian.com/jobs?tags1=Intern&page=1"],"notes":"def check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s056"},{"name":"ID.me","priority":"P4","links":["https://job-boards.greenhouse.io/idme?keyword=internship"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s057"},{"name":"ImageX","priority":"P4","links":["https://imagexmedia.com/careers"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s058"},{"name":"Intellias","priority":"P4","links":["https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjR-JvZ8fOOAxURITQIHdmrFJAQFnoECBwQAQ&url=https%3A%2F%2Fcareer.intellias.com%2F&usg=AOvVaw34j7SAVUrGKF54ci8PhfPJ&opi=89978449"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s059"},{"name":"Epic Systems","priority":"P2","links":["https://careers.epic.com/jobs/?search=intern&educationTypeIds=&positionTypeIds="],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s060"},{"name":"Ernst & Young","priority":"P1","links":["https://usearlycareers.ey.com/search-jobs/Virginia%2C%20US/39053/3/6252001-6254928/37x54812/-77x44675/50/2"],"notes":"checking for referral","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s061"},{"name":"Kerecis","priority":"P4","links":["https://recruiting.paylocity.com/Recruiting/Jobs/All/8c93875e-3025-4992-8cf6-e0631956008f/Kerecis-LLC?location=All%20Locations&department=All%20Departments"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s062"},{"name":"Fannie Mae","priority":"P2","links":["https://www.fanniemae.com/careers/search-all-jobs#q=intern&first=10&sort=relevancy&f:@joblocation=[Reston%2C%20Virginia,Washington%2C%20District%20of%20Columbia]&f:@jobfamilycluster=[Technology,Risk%20Management,Analytics%20and%20Modeling]"],"notes":"def check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s063"},{"name":"FedEx","priority":"P2","links":["https://careers.fedex.com/career-areas/student-programs/jobs?page_size=10&sort_by=score&sort_order=DESC&page_number=1&keyword=Internships"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s064"},{"name":"Linked XL","priority":"P4","links":[],"notes":"meh","status":"idea","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s065"},{"name":"Lockwood Hills","priority":"P3","links":["https://careers.akima.com/jobs?keywords=internship&page=1&sortBy=relevance&_gl=1*oym7fo*_gcl_au*MjExNTgyMTgxMy4xNzU0NDg2MjM1*_ga*MTcxOTA3ODYuMTc1NDQ4NjIzNg..*_ga_TWXK1S15BJ*czE3NTQ0ODYyMzYkbzEkZzEkdDE3NTQ0ODYyNDMkajUzJGwwJGgw"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s066"},{"name":"Lovelytics","priority":"P3","links":["https://lovelytics.com/careers-culture"],"notes":"apply anyway, check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s067"},{"name":"Lumen","priority":"P3","links":["https://jobs.lumen.com/global/en/university-entry-level"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s068"},{"name":"MassMutual","priority":"P3","links":["https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s069"},{"name":"Metaformers","priority":"P3","links":["https://metaformers.catsone.com/careers"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s070"},{"name":"MicroHealth LLC","priority":"P3","links":["https://microhealthllc.applytojob.com/apply"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s071"},{"name":"Freeman","priority":"P3","links":["https://career8.successfactors.com/career?company=freemanP1&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH&_s.crb=7nqXXzAxCmIiH24GOz1h6eUHSl5zPQYVqlMJXhTPgZo%3d"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s072"},{"name":"Gartner","priority":"P2","links":["https://jobs.gartner.com/jobs/?search=\"internships\"&contractType=&pagesize=20"],"notes":"def check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s073"},{"name":"GDIT","priority":"P1","links":["https://www.gdit.com/careers/search/?q=internship"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s074"},{"name":"Mythics","priority":"P3","links":["https://external-mythics.icims.com/jobs/search?ss=1&searchCategory=19787"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s075"},{"name":"GEICO","priority":"P1","links":["https://careers.geico.com"],"notes":"visa issue","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s076"},{"name":"GDIT (Early Talent)","priority":"P2","links":["https://gdit.wd5.myworkdayjobs.com/GDIT_EarlyTalent"],"notes":"apply","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s077"},{"name":"Google","priority":"P1","links":["https://www.google.com/about/careers/applications/jobs/results/?company=Fitbit&company=Google&company=YouTube&distance=50&employment_type=INTERN&location=Virginia%2C%20USA&location=Washington%20D.C.%2C%20DC%2C%20USA"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s078"},{"name":"Hilton","priority":"P1","links":["https://jobs.hilton.com/us/en/us-early-talent?from=10&s=1&rk=l-us-early-talent"],"notes":"check","status":"closed","blocker":"","reason":"Rejected","referral":"","applyDate":"","src":"sheet","id":"s079"},{"name":"NVR Settlement Services Inc.","priority":"P3","links":["https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?org=NVRINC&cws=52"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s080"},{"name":"OAG Aviation Worldwide","priority":"P4","links":["https://www.oag.com/careers"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s081"},{"name":"IBM","priority":"P1","links":["https://www.ibm.com/careers/search?field_keyword_18[0]=Internship&field_keyword_05[0]=United%20States"],"notes":"def check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s082"},{"name":"Peloton Interactive","priority":"P4","links":["https://careers.onepeloton.com/en/all-jobs/?page=2#results"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s083"},{"name":"PepsiCo","priority":"P3","links":["https://www.pepsicojobs.com/internshipsprograms/jobs?page=1&keywords=intern&sortBy=relevance"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s084"},{"name":"Perfecta","priority":"P4","links":[],"notes":"Careers – Perfecta · prob not","status":"idea","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s085"},{"name":"Quadrant Strategies","priority":"P3","links":["https://quadrantstrategies.com/careers-4"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s086"},{"name":"Quorum","priority":"P3","links":["https://www.quorum.us/about/careers/#available-positions"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s087"},{"name":"Ignyte Group","priority":"P3","links":["https://ignytegroup1.applytojob.com/apply"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s088"},{"name":"JDSAT Inc.","priority":"P2","links":["https://www.jdsat.com/careers"],"notes":"defo check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s089"},{"name":"SES Networks","priority":"P3","links":["https://careers.ses.com/go/Interns-and-Students/4312101"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s090"},{"name":"Sherwin-Williams","priority":"P3","links":["https://ejhp.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=CATEGORIES&mode=job-location&selectedCategoriesFacet=300000128388599"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s091"},{"name":"Software AG","priority":"P4","links":["https://jobs.dayforcehcm.com/en-US/sagann/CANDIDATEPORTAL"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s092"},{"name":"Splunk","priority":"P1","links":["https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s093"},{"name":"Surescripts","priority":"P3","links":["https://surescripts.wd1.myworkdayjobs.com/surescriptscareers?q=intern"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s094"},{"name":"Kearney & Company","priority":"P1","links":["https://careers.kearneyco.com/jobs?tags3=College%20Hires%20and%20Interns"],"notes":"apply","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s095"},{"name":"TaylorMade","priority":"P3","links":["https://taylormadegolf.wd5.myworkdayjobs.com/taylormadegolf?q=internship"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s096"},{"name":"TechOp Solutions International","priority":"P3","links":["https://techopsolutions.net/careers"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s097"},{"name":"The Cobalt Company","priority":"P3","links":["https://cobalt.net/careers/open-positions"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s098"},{"name":"Vanguard","priority":"P1","links":["https://www.vanguardjobs.com/job-search-results/?level[]=Students"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s099"},{"name":"TrueNorth","priority":"P3","links":["https://truenorthcompanies.com/about-truenorth/careers"],"notes":"check","status":"closed","blocker":"location","reason":"Wrong location","referral":"","applyDate":"","src":"sheet","id":"s100"},{"name":"United Educators","priority":"P3","links":["https://www.ue.org/about-ue/careers/job-openings"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s101"},{"name":"Universal Service Administrative Company","priority":"P3","links":["https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=0c6b0a23-8ff0-4520-97d1-344989a89879&ccId=9200542707248_2&type=JS&lang=en_US"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s102"},{"name":"KPMG","priority":"P1","links":["https://www.kpmguscareers.com/job-search/?career-level=Internship%7C&career-level-parents=&spage=1"],"notes":"defo check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s103"},{"name":"Leidos","priority":"P1","links":["https://careers.leidos.com/pages/intern-jobs?ns_landing_page_jobs=/search/job-level/intern/jobs/in/country/united-states?ns_landing_page=1"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s104"},{"name":"Lidl US","priority":"P1","links":["https://careers.lidl.com/job-search?page=1&query=intern&midpoint_name=McLean,%20Fairfax%20County&midpoint_lat=38.9376&midpoint_lon=-77.1838&radius=null&sort_field=location.distance&sort_order=asc&filter={\"contract_type\":[],\"employment_area\":[],\"entry_level\":[]}&with_event=true&hash="],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s105"},{"name":"Maximus","priority":"P1","links":["https://maximus.avature.net/careers/SearchJobs/intern/?listFilterMode=1&folderRecordsPerPage=6&folderOffset=24"],"notes":"defoo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s106"},{"name":"Micron Technology Inc.","priority":"P2","links":["https://careers.micron.com/careers?domain=micron.com&query=Intern&start=0&pid=27170503&sort_by=solr"],"notes":"defo check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s107"},{"name":"Microsoft","priority":"P1","links":["https://jobs.careers.microsoft.com/global/en/search?q=internships&lc=United%20States&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s108"},{"name":"MITRE","priority":"P2","links":["https://careers.mitre.org/us/en/search-results?keywords=student"],"notes":"defo check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s109"},{"name":"Navy Federal Credit Union","priority":"P1","links":["https://fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/nfcu/jobs?keyword=Interns&lastSelectedFacet=LOCATIONS&selectedCategoriesFacet=300000025815473&selectedLocationsFacet=300000010045164%3B300000010092226"],"notes":"apply","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s110"},{"name":"Nestlé","priority":"P1","links":["https://www.nestle.com/jobs/search-jobs?keyword=&country=US&location=&career_area=4711"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s111"},{"name":"Netimpact Strategies Inc.","priority":"P1","links":["https://careers-netimpactstrategies.icims.com/jobs/search?ss=1&searchKeyword=intern"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s112"},{"name":"NTT Data","priority":"P2","links":["https://careers.services.global.ntt/global/en/search-results?keywords=intern"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s113"},{"name":"Oracle","priority":"P1","links":["https://careers.oracle.com/en/sites/jobsearch/jobs?keyword=internship&lastSelectedFacet=locations&mode=location&selectedFlexFieldsFacets=\"AttributeChar14%7CSDR\"&selectedLocationsFacet=300000000106749%3B300000000149325"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s114"},{"name":"Samsung","priority":"P1","links":["https://sec.wd3.myworkdayjobs.com/Samsung_Careers?workerSubType=189767dd6c920145d5c3e59c2c297819&workerSubType=189767dd6c92017ca7ab47a42c298419&locations=189767dd6c9201c7ec227985a529067b"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s115"},{"name":"SAP","priority":"P2","links":["https://jobs.sap.com/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=Student&optionsFacetsDD_country=US"],"notes":"defo check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s116"},{"name":"SimonComputing","priority":"P2","links":["https://simoncomputing.applicantpro.com/jobs"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s117"},{"name":"SPS Consulting","priority":"P1","links":["https://spsconsult.com"],"notes":"apply","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s118"},{"name":"T-Mobile","priority":"P1","links":["https://careers.t-mobile.com/jobs?keyword=internships"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s119"},{"name":"TekSynap","priority":"P1","links":["https://www.teksynap.com/careers/internship-program"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s120"},{"name":"UPS","priority":"P1","links":["https://www.jobs-ups.com/us/en/search-results?keywords=intern"],"notes":"","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s121"},{"name":"Verizon","priority":"P1","links":["https://mycareer.verizon.com/jobs/?search=internship&pagesize=20#results"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s122"},{"name":"Xcelerate Solutions","priority":"P1","links":["https://jobs.jobvite.com/xceleratesolutions"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s123"},{"name":"MetroStar","priority":"P1","links":["https://www.metrostar.com/internships/#internshipseason"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s124"}];
+const SCOUT = [{"name":"Capital One","area":"McLean, VA","tag":"Fintech","visa":"friendly","pri":"P1","why":"The largest tech intern program in your own zip code, and somehow not on your sheet. TDP and software tracks, 10 weeks, McLean HQ."},{"name":"Meta","area":"Remote / Bellevue / NYC","tag":"Big Tech","visa":"friendly","pri":"P1","why":"You have Google, Amazon, Apple and Microsoft but not Meta. Routinely hires F-1 interns on CPT."},{"name":"NVIDIA","area":"Santa Clara / Remote","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Huge intern class across software, hardware and AI. Known for hiring international students."},{"name":"Salesforce","area":"Remote / SF / Atlanta","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Futureforce program is one of the more structured intern pipelines, with a big non-SWE surface too."},{"name":"Adobe","area":"San Jose / Remote","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Appears consistently on CPT-friendly employer lists. Strong product and design internships, not just engineering."},{"name":"Cisco","area":"Reston, VA + San Jose","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Real Reston presence, so you can stay local. Their intern program spans software, networking and security."},{"name":"Intel","area":"Remote / multiple","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Long history of hiring CPT students into engineering and IT internships."},{"name":"ServiceNow","area":"Vienna, VA + Santa Clara","tag":"Big Tech","visa":"check","pri":"P1","why":"Has an office minutes from you in Vienna and a growing early-careers program."},{"name":"Datadog","area":"NYC / Remote","tag":"Big Tech","visa":"check","pri":"P2","why":"Well-regarded, well-paid internship. Applications open early and close fast."},{"name":"Intuit","area":"Remote / Mountain View","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Runs a large summer program across software, data science and business analytics."},{"name":"PayPal","area":"Remote / San Jose","tag":"Fintech","visa":"friendly","pri":"P2","why":"Frequently listed among employers comfortable with CPT paperwork."},{"name":"Workday","area":"Remote / Pleasanton","tag":"Big Tech","visa":"check","pri":"P2","why":"Enterprise software with a structured intern program. You already use their job boards constantly."},{"name":"Atlassian","area":"Remote (US)","tag":"Big Tech","visa":"check","pri":"P2","why":"Fully distributed internships, which sidesteps the location problem that killed a few of your leads."},{"name":"Snowflake","area":"Remote / Bellevue","tag":"Big Tech","visa":"check","pri":"P2","why":"Data platform with a small but high-quality intern cohort."},{"name":"MongoDB","area":"NYC / Remote","tag":"Big Tech","visa":"check","pri":"P3","why":"Runs a well-structured summer program and hires beyond pure backend engineering."},{"name":"Databricks","area":"Remote / SF","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Shows up on CPT employer lists and hires heavily into data and ML roles."},{"name":"Qualcomm","area":"San Diego / Remote","tag":"Big Tech","visa":"friendly","pri":"P3","why":"Very large intern intake, and a reliable sponsor historically."},{"name":"Dell Technologies","area":"Round Rock, TX / Remote","tag":"Big Tech","visa":"check","pri":"P3","why":"Big corporate IT and software intern program with a wide net of majors."},{"name":"Mastercard","area":"Arlington, VA","tag":"Fintech","visa":"friendly","pri":"P1","why":"Arlington tech hub, close to home, and their Launch program takes interns across data and engineering."},{"name":"JPMorgan Chase","area":"Remote / multiple","tag":"Fintech","visa":"friendly","pri":"P2","why":"Their software engineering program is enormous and they process CPT routinely."},{"name":"Cvent","area":"Tysons, VA","tag":"NoVA tech","visa":"check","pri":"P1","why":"Event-tech company right in Tysons. Local, mid-size, and far less contested than the big names on your list."},{"name":"Tenable","area":"Columbia, MD","tag":"Cyber","visa":"check","pri":"P2","why":"Cybersecurity company about 45 minutes out, and commercial rather than cleared work."},{"name":"EAB","area":"Washington, DC","tag":"NoVA tech","visa":"check","pri":"P2","why":"Education technology in DC with a genuinely good intern program and a Metro-accessible office."},{"name":"Anthology","area":"Reston, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"The old Blackboard, still headquartered in Reston. Edtech engineering and product roles."},{"name":"ICF International","area":"Reston, VA","tag":"NoVA tech","visa":"check","pri":"P2","why":"Consulting firm with real data and technology practices, and much of the work is unclassified."},{"name":"Iridium Communications","area":"McLean, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Satellite operator headquartered in McLean. Small intern cohort, so less competition."},{"name":"ATPCO","area":"Dulles, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Airline pricing data company in Dulles. Quiet, technical, and almost nobody applies."},{"name":"Volkswagen Group of America","area":"Herndon, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"US headquarters is in Herndon with IT, data and digital internships."},{"name":"PenFed Credit Union","area":"Tysons, VA","tag":"Fintech","visa":"check","pri":"P3","why":"Local credit union with a real technology org, similar shape to the Navy Federal role you applied for."},{"name":"Marriott International","area":"Bethesda, MD","tag":"Corporate IT","visa":"check","pri":"P3","why":"Big corporate technology group across the river, in the same vein as your Hilton application."},{"name":"Optum (UnitedHealth)","area":"Remote / NoVA","tag":"Corporate IT","visa":"check","pri":"P3","why":"Health technology with a large intern program and lots of remote-eligible roles."},{"name":"World Bank Group","area":"Washington, DC","tag":"International","visa":"friendly","pri":"P1","why":"Explicitly built for international candidates and runs a paid internship with data and technology tracks. Unusual fit for your situation."},{"name":"International Monetary Fund","area":"Washington, DC","tag":"International","visa":"friendly","pri":"P2","why":"Same logic as the World Bank. The Fund Internship Program sponsors its own visas and takes technology and data students."},{"name":"PwC","area":"McLean, VA + remote","tag":"Consulting","visa":"check","pri":"P2","why":"You have Deloitte, EY and KPMG but not PwC. Their digital and technology assurance tracks hire in McLean."},{"name":"RSM US","area":"McLean, VA","tag":"Consulting","visa":"check","pri":"P3","why":"Rounds out the accounting and consulting firms you are already chasing, with a technology consulting track."},{"name":"RIVA Solutions","area":"McLean, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Small McLean IT services firm that advertises a STEM internship covering AI, cloud and analytics."},{"name":"CACI International","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Major Reston contractor, but most roles want US citizenship and a clearance. Worth a look only for their commercial side."},{"name":"Peraton","area":"Herndon, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Large Herndon contractor. Same caveat as the others in your sheet that came back as visa restrictions."},{"name":"SAIC","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"You already touched this through the Halfaker link. Almost entirely cleared work."},{"name":"Noblis","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Reston research nonprofit with a good intern program, but clearance-heavy like MITRE was for you."},{"name":"Northrop Grumman","area":"Falls Church, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Enormous intern class but effectively US citizens only. Listed so you can rule it out deliberately."},{"name":"Lockheed Martin","area":"Bethesda, MD","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Same story. Included for completeness rather than as a real lead."}];
+const REPO = [];
+const REPO_STAMP = "See daily monitor";
+
+const STATUSES = [
+  {k:"idea",     label:"Not started", color:"#8A9099"},
+  {k:"tocheck",  label:"To check",    color:"#0078BF"},
+  {k:"applied",  label:"Applied",     color:"#00A95C"},
+  {k:"interview",label:"Interview",   color:"#FFE800"},
+  {k:"offer",    label:"Offer",       color:"#FF48B0"},
+  {k:"closed",   label:"Closed",      color:"#4A4E54"}
+];
+const SMAP = new Proxy(Object.fromEntries(STATUSES.map(s=>[s.k,s])),
+  {get:(t,k)=> t[k] || t.idea});
+const PCOLOR = {P1:"#FF48B0",P2:"#FF6C2F",P3:"#0078BF",P4:"#8A9099"};
+const XP = {idea:0,tocheck:3,applied:12,interview:45,offer:220,closed:1};
+const KEY = "internhunt.v1";
+
+/* ===================== state ===================== */
+let state = null;
+const ui = {q:"",pri:new Set(),hideClosed:true,onlyLive:false,view:"board",sort:"pri"};
+
+let storageOK = true;
+
+function freshState(){
+  return {companies:SEED.map(c=>({...c})), xp:0, created:Date.now()};
+}
+
+async function load(){
+  // some hosts attach the storage API after the document parses
+  for(let i=0; i<20 && !window.storage; i++) await new Promise(r=>setTimeout(r,50));
+  if(!window.storage){
+    storageOK = false; state = freshState();
+    document.getElementById("saveState").textContent = "No storage — export before you close";
+    return;
+  }
+  try{
+    const r = await window.storage.get(KEY);
+    if(r && r.value){
+      const parsed = JSON.parse(r.value);
+      if(parsed && parsed.companies && parsed.companies.length){
+        state = parsed;
+        document.getElementById("saveState").textContent = "Saved";
+        flag("Restored your saved log");
+        return;
+      }
+    }
+  }catch(e){ /* nothing saved yet — fall through and seed */ }
+  state = freshState();
+  save();
+}
+
+let saveTimer=null;
+function save(){
+  if(!storageOK) return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    const el = document.getElementById("saveState");
+    try{
+      const ok = await window.storage.set(KEY, JSON.stringify(state));
+      el.textContent = ok ? "Saved" : "Save failed — use Export";
+    }catch(e){
+      el.textContent = "Save failed — use Export";
+    }
+  },420);
+}
+
+/* ===================== helpers ===================== */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+function flag(msg){
+  const t=$("#toast"); t.textContent=msg; t.classList.add("on");
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("on"),2400);
+}
+function levelFor(xp){
+  let lvl=1, need=120, acc=0;
+  while(xp >= acc+need){ acc+=need; lvl++; need=Math.round(need*1.34); }
+  return {lvl, into:xp-acc, need};
+}
+function recalcXP(){
+  state.xp = state.companies.reduce((s,c)=>s+(XP[c.status]||0),0);
+}
+function daysAgo(d){
+  if(!d) return null;
+  const t=Date.parse(d); if(isNaN(t)) return null;
+  return Math.floor((Date.now()-t)/86400000);
+}
+
+/* ===================== filtering ===================== */
+function visible(){
+  const q = ui.q.trim().toLowerCase();
+  return state.companies.filter(c=>{
+    if(ui.pri.size && !ui.pri.has(c.priority)) return false;
+    if(ui.hideClosed && c.status==="closed") return false;
+    if(ui.onlyLive && c.blocker) return false;
+    if(q){
+      const hay = (c.name+" "+(c.notes||"")+" "+(c.reason||"")+" "+(c.area||"")+" "+(c.tag||"")).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+/* ===================== header render ===================== */
+function counts(){
+  const o={}; STATUSES.forEach(s=>o[s.k]=0);
+  state.companies.forEach(c=>{ if(o[c.status]!=null) o[c.status]++; });
+  return o;
+}
+
+function renderHeader(){
+  const c = counts(), total = state.companies.length;
+  const live = total - c.closed;
+  $("#issueNo").textContent = "Nº"+total;
+  $("#tagline").innerHTML =
+    `<b>${live}</b> live leads out of ${total}. <b>${c.applied}</b> applications sent, ` +
+    `<b>${c.tocheck}</b> still waiting on you to open the link.`;
+
+  // overprinted pipeline bar
+  const bar = $("#inkBar"); bar.innerHTML="";
+  const shown = STATUSES.filter(s=>c[s.k]>0);
+  const sum = shown.reduce((a,s)=>a+c[s.k],0) || 1;
+  let acc=0;
+  shown.forEach(s=>{
+    const pct = c[s.k]/sum*100;
+    const el=document.createElement("div");
+    el.className="ink-seg";
+    el.style.left = acc+"%";
+    el.style.width = "calc("+pct+"% + 16px)";
+    el.style.background = s.color;
+    bar.appendChild(el);
+    acc += pct;
+  });
+
+  const key=$("#inkKey"); key.innerHTML="";
+  STATUSES.forEach(s=>{
+    const b=document.createElement("button");
+    b.className="key"; b.type="button";
+    b.setAttribute("aria-pressed", String(!(ui.hideClosed && s.k==="closed")));
+    b.innerHTML = `<span class="swatch" style="background:${s.color}"></span>
+      <span class="n">${c[s.k]}</span><span class="l">${s.label}</span>`;
+    b.title = "Jump to "+s.label;
+    b.onclick=()=>{
+      if(s.k==="closed" && ui.hideClosed){
+        ui.hideClosed=false; $("#hideClosed").setAttribute("aria-pressed","false"); render();
+      }
+      const col = document.querySelector('.col[data-status="'+s.k+'"]');
+      const board = document.querySelector(".board");
+      if(col && board){
+        board.scrollTo({left: col.offsetLeft - board.offsetLeft - 8, behavior:"smooth"});
+        if(col.querySelector(".col-head").animate) col.querySelector(".col-head").animate(
+          [{transform:"translateY(0)"},{transform:"translateY(-5px)"},{transform:"translateY(0)"}],
+          {duration:420,easing:"ease-out"});
+      }
+      const m=document.getElementById("main");
+      if(m.scrollIntoView) m.scrollIntoView({behavior:"smooth",block:"nearest"});
+    };
+    key.appendChild(b);
+  });
+
+  // scoreboard
+  recalcXP();
+  const L = levelFor(state.xp);
+  const recent = state.companies.filter(c=>{const d=daysAgo(c.applyDate); return d!=null && d<=7;}).length;
+  const replies = c.interview + c.offer + state.companies.filter(x=>x.status==="closed" && x.reason==="Rejected").length;
+  const decided = total - c.idea - c.tocheck;
+  $("#score").innerHTML = `
+    <div class="lvl">
+      <div class="num">${L.lvl}</div>
+      <div class="meta">
+        <div class="mono">Level · ${state.xp} XP</div>
+        <div class="xpbar"><i style="width:${Math.round(L.into/L.need*100)}%"></i></div>
+        <div class="mono" style="margin-top:5px;color:var(--ink-soft)">${L.need-L.into} XP to next</div>
+      </div>
+    </div>
+    <div class="stat"><div class="n">${c.applied}</div><div class="l">Applied</div></div>
+    <div class="stat"><div class="n">${c.tocheck}</div><div class="l">To check</div></div>
+    <div class="stat"><div class="n">${c.interview+c.offer}</div><div class="l">In play</div></div>
+    <div class="stat"><div class="n">${recent}</div><div class="l">Sent this week</div></div>
+    <div class="stat"><div class="n">${replies}</div><div class="l">Heard back</div></div>
+    <div class="stat"><div class="n">${Math.round(decided/(total||1)*100)}%</div><div class="l">Triaged</div></div>`;
+
+  renderStamps(c);
+}
+
+const STAMPS = [
+  {id:"first",  t:"First sent",     f:c=>c.applied>=1},
+  {id:"ten",    t:"10 out",         f:c=>c.applied>=10},
+  {id:"25",     t:"25 out",         f:c=>c.applied>=25},
+  {id:"50",     t:"50 out",         f:c=>c.applied>=50},
+  {id:"triage", t:"Fully triaged",  f:c=>c.idea===0},
+  {id:"p1",     t:"P1 cleared",     f:()=>state.companies.filter(x=>x.priority==="P1"&&(x.status==="idea"||x.status==="tocheck")).length===0},
+  {id:"inbox",  t:"Nothing left to check", f:c=>c.tocheck===0},
+  {id:"talk",   t:"First interview",f:c=>c.interview+c.offer>=1},
+  {id:"offer",  t:"Offer in hand",  f:c=>c.offer>=1}
+];
+function renderStamps(c){
+  const el=$("#stamps"); el.innerHTML="";
+  STAMPS.forEach(s=>{
+    const got=s.f(c);
+    const d=document.createElement("span");
+    d.className="stamp"+(got?"":" locked");
+    d.textContent = got ? s.t : "· · ·";
+    d.title = got ? s.t+" — earned" : s.t+" — not yet";
+    el.appendChild(d);
+  });
+}
+
+/* ===================== board ===================== */
+function cardHTML(c){
+  const link = (c.links&&c.links[0]) || (c.q ? "https://www.google.com/search?q="+encodeURIComponent(c.q) : "");
+  const sub = c.area || c.reason || (c.notes||"").slice(0,60) || "&nbsp;";
+  return `<article class="card" draggable="true" data-id="${c.id}" tabindex="0" role="button" aria-label="${esc(c.name)}">
+      <span class="pri" style="background:${PCOLOR[c.priority]||"#8A9099"};color:${c.priority==="P3"||c.priority==="P4"?"#fff":"#16181A"}">${esc(c.priority)}</span>
+      <h3>${esc(c.name)}</h3>
+      <div class="sub">${esc(sub)}</div>
+      <div class="foot">
+        ${c.blocker==="visa"?'<span class="tagx warn">Visa</span>':""}
+        ${c.blocker==="location"?'<span class="tagx warn">Location</span>':""}
+        ${c.src==="scout"?'<span class="tagx new">Scouted</span>':""}
+        ${c.applyDate?`<span class="tagx">${esc(c.applyDate)}</span>`:""}
+        ${link?`<a class="go" href="${esc(link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Open ↗</a>`:""}
+      </div>
+    </article>`;
+}
+
+function renderBoard(){
+  const list = visible();
+  const cols = STATUSES.filter(s=>!(ui.hideClosed && s.k==="closed"));
+  const c = counts();
+  $("#main").innerHTML = `<div class="board">${cols.map(s=>{
+    const items = list.filter(x=>x.status===s.k)
+      .sort((a,b)=> a.priority.localeCompare(b.priority) || a.name.localeCompare(b.name));
+    return `<section class="col" data-status="${s.k}">
+      <div class="col-head" style="background:${s.color}22">
+        <span class="dot" style="background:${s.color}"></span>
+        <h2>${s.label}</h2><span class="ct">${items.length}</span>
+      </div>
+      <div class="col-body" data-status="${s.k}">
+        ${items.map(cardHTML).join("") || `<div class="empty">${s.k==="offer"?"Waiting on you.":"Nothing here yet."}</div>`}
+      </div>
+    </section>`;
+  }).join("")}</div>`;
+  wireBoard();
+}
+
+function wireBoard(){
+  document.querySelectorAll(".card").forEach(el=>{
+    el.addEventListener("dragstart",e=>{
+      el.classList.add("dragging");
+      e.dataTransfer.setData("text/plain", el.dataset.id);
+      e.dataTransfer.effectAllowed="move";
+    });
+    el.addEventListener("dragend",()=>el.classList.remove("dragging"));
+    el.addEventListener("click",()=>openSheet(el.dataset.id));
+    el.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();openSheet(el.dataset.id);} });
+  });
+  document.querySelectorAll(".col-body").forEach(body=>{
+    body.addEventListener("dragover",e=>{e.preventDefault();body.classList.add("over");});
+    body.addEventListener("dragleave",()=>body.classList.remove("over"));
+    body.addEventListener("drop",e=>{
+      e.preventDefault(); body.classList.remove("over");
+      const id=e.dataTransfer.getData("text/plain");
+      setStatus(id, body.dataset.status);
+    });
+  });
+}
+
+/* ===================== list ===================== */
+function renderList(){
+  const list = visible().slice().sort((a,b)=>{
+    if(ui.sort==="name") return a.name.localeCompare(b.name);
+    if(ui.sort==="status") return STATUSES.findIndex(s=>s.k===a.status)-STATUSES.findIndex(s=>s.k===b.status) || a.name.localeCompare(b.name);
+    if(ui.sort==="date") return (b.applyDate||"").localeCompare(a.applyDate||"");
+    return a.priority.localeCompare(b.priority) || a.name.localeCompare(b.name);
+  });
+  $("#main").innerHTML = `<table>
+    <thead><tr>
+      <th data-s="pri">Pri</th><th data-s="name">Company</th><th data-s="status">Status</th>
+      <th>Flag</th><th data-s="date">Applied</th><th>Notes</th><th>Link</th>
+    </tr></thead>
+    <tbody>${list.map(c=>{
+      const link=(c.links&&c.links[0])||(c.q?"https://www.google.com/search?q="+encodeURIComponent(c.q):"");
+      return `<tr data-id="${c.id}">
+        <td><span class="pill" style="background:${PCOLOR[c.priority]};color:${c.priority==="P3"||c.priority==="P4"?"#fff":"#16181A"}">${esc(c.priority)}</span></td>
+        <td><b>${esc(c.name)}</b>${c.area?`<div style="color:var(--ink-soft);font-size:11.5px">${esc(c.area)}</div>`:""}</td>
+        <td><span class="pill" style="border-color:${SMAP[c.status].color};color:${c.status==="interview"?"#8a7a00":SMAP[c.status].color}">${SMAP[c.status].label}</span></td>
+        <td>${c.blocker?`<span class="pill" style="border-color:var(--orange);color:var(--orange)">${esc(c.blocker)}</span>`:""}</td>
+        <td class="mono" style="font-size:11px">${esc(c.applyDate||"")}</td>
+        <td class="c-note">${esc((c.notes||c.reason||"").slice(0,110))}</td>
+        <td>${link?`<a href="${esc(link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="mono" style="font-size:10px">Open ↗</a>`:""}</td>
+      </tr>`;}).join("")}</tbody></table>`;
+  document.querySelectorAll("tbody tr").forEach(tr=>tr.onclick=()=>openSheet(tr.dataset.id));
+  document.querySelectorAll("th[data-s]").forEach(th=>th.onclick=()=>{ui.sort=th.dataset.s;render();});
+}
+
+/* ===================== mutations ===================== */
+function setStatus(id, status){
+  const c = state.companies.find(x=>x.id===id);
+  if(!c || c.status===status) return;
+  const before = levelFor(state.xp).lvl;
+  c.status = status;
+  if(status==="applied" && !c.applyDate) c.applyDate = new Date().toISOString().slice(0,10);
+  if(status!=="closed") c.reason = "";
+  recalcXP(); save(); render();
+  const after = levelFor(state.xp).lvl;
+  if(after>before) flag("Level "+after+" — "+c.name+" moved to "+SMAP[status].label);
+  else flag(c.name+" → "+SMAP[status].label);
+}
+
+/* ===================== detail sheet ===================== */
+function openSheet(id){
+  const c = state.companies.find(x=>x.id===id); if(!c) return;
+  const links = (c.links||[]).slice();
+  if(!links.length && c.q) links.push("https://www.google.com/search?q="+encodeURIComponent(c.q));
+  $("#sheet").innerHTML = `
+    <div class="sheet-hd">
+      <button class="close" aria-label="Close">×</button>
+      <div class="mono" style="color:var(--ink-soft)">${esc(c.area||c.tag||"From your sheet")}</div>
+      <h2>${esc(c.name)}</h2>
+    </div>
+    <div class="sheet-bd">
+    <div class="field"><label>Status</label>
+      <div class="statgrid">${STATUSES.map(s=>
+        `<button data-st="${s.k}" aria-pressed="${c.status===s.k}">${s.label}</button>`).join("")}</div>
+    </div>
+    <div class="field"><label>Priority</label>
+      <select id="fPri">${["P1","P2","P3","P4"].map(p=>`<option ${c.priority===p?"selected":""}>${p}</option>`).join("")}</select>
+    </div>
+    <div class="field"><label>Date applied</label><input id="fDate" type="date" value="${esc(c.applyDate||"")}"></div>
+    <div class="field"><label>Referral contact</label><input id="fRef" value="${esc(c.referral||"")}" placeholder="Who can introduce you?"></div>
+    <div class="field"><label>Notes</label><textarea id="fNotes" placeholder="What happened, what's next…">${esc(c.notes||"")}</textarea></div>
+    ${c.reason?`<div class="field"><label>Closed because</label><input id="fReason" value="${esc(c.reason)}"></div>`:""}
+    ${links.length?`<div class="field"><label>Links</label><div class="linklist">${
+      links.map(l=>`<a href="${esc(l)}" target="_blank" rel="noopener">${esc(l.length>78?l.slice(0,78)+"…":l)}</a>`).join("")}</div></div>`:""}
+    <div class="field"><label>Add a link</label><input id="fNewLink" placeholder="https://… then press Enter"></div>
+    <div class="rowbtns">
+      <button class="btn" id="saveBtn">Save changes</button>
+      <button class="danger" id="delBtn">Remove</button>
+    </div></div>`;
+  const sheet=$("#sheet");
+  sheet.querySelector(".close").onclick=closeSheet;
+  sheet.querySelectorAll("[data-st]").forEach(b=>b.onclick=()=>{
+    sheet.querySelectorAll("[data-st]").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");
+  });
+  sheet.querySelector("#fNewLink").addEventListener("keydown",e=>{
+    if(e.key==="Enter" && e.target.value.trim()){
+      c.links=c.links||[]; c.links.push(e.target.value.trim()); save(); openSheet(id); flag("Link added");
+    }
+  });
+  sheet.querySelector("#saveBtn").onclick=()=>{
+    const st = sheet.querySelector('[data-st][aria-pressed="true"]').dataset.st;
+    c.priority = sheet.querySelector("#fPri").value;
+    c.applyDate = sheet.querySelector("#fDate").value;
+    c.referral = sheet.querySelector("#fRef").value;
+    c.notes = sheet.querySelector("#fNotes").value;
+    const rs = sheet.querySelector("#fReason"); if(rs) c.reason = rs.value;
+    if(st!==c.status){ setStatus(id, st); } else { recalcXP(); save(); render(); flag("Saved"); }
+    closeSheet();
+  };
+  sheet.querySelector("#delBtn").onclick=()=>{
+    state.companies = state.companies.filter(x=>x.id!==id);
+    save(); render(); closeSheet(); flag("Removed "+c.name);
+  };
+  showSheet();
+}
+
+function showSheet(){ $("#sheet").classList.add("on"); $("#scrim").classList.add("on"); }
+function closeSheet(){ $("#sheet").classList.remove("on"); $("#scrim").classList.remove("on"); }
+
+/* ===================== add + scout ===================== */
+function openAdd(){
+  $("#sheet").innerHTML = `
+    <div class="sheet-hd">
+      <button class="close" aria-label="Close">×</button>
+      <div class="mono" style="color:var(--ink-soft)">New entry</div>
+      <h2>Add a company</h2>
+    </div>
+    <div class="sheet-bd">
+    <div class="field"><label>Company</label><input id="aName" placeholder="Who are you applying to?"></div>
+    <div class="field"><label>Link</label><input id="aLink" placeholder="https://…"></div>
+    <div class="field"><label>Location</label><input id="aArea" placeholder="Reston, VA"></div>
+    <div class="field"><label>Priority</label><select id="aPri"><option>P1</option><option>P2</option><option selected>P3</option><option>P4</option></select></div>
+    <div class="field"><label>Notes</label><textarea id="aNotes"></textarea></div>
+    <div class="rowbtns"><button class="btn" id="aSave">Add to board</button></div></div>`;
+  $("#sheet").querySelector(".close").onclick=closeSheet;
+  $("#aSave").onclick=()=>{
+    const n=$("#aName").value.trim();
+    if(!n){ flag("Give it a name first"); return; }
+    const l=$("#aLink").value.trim();
+    state.companies.unshift({
+      id:"u"+Date.now(), name:n, priority:$("#aPri").value, links:l?[l]:[],
+      notes:$("#aNotes").value, status:l?"tocheck":"idea", blocker:"", reason:"",
+      referral:"", applyDate:"", area:$("#aArea").value, src:"user"
+    });
+    save(); render(); closeSheet(); flag(n+" added");
+  };
+  showSheet();
+}
+
+function normName(n){
+  return String(n).toLowerCase()
+    .replace(/\b(inc|llc|corp|corporation|ltd|co|company|technologies|technology|group|international|solutions|systems)\b\.?/g,"")
+    .replace(/[^a-z0-9]/g,"");
+}
+
+let feedData = REPO.slice();
+window.setMonitorFeed = jobs => { feedData = jobs; };
+window.trackMonitorRole = role => { const result=addListing(role); save(); render(); flag(result.msg); };
+ui.tab = "picks";
+ui.feed = {q:"",dmv:false,rem:false,spon:false,hideUS:true,n:40};
+
+function openScout(){
+  const picks = SCOUT.length, roles = feedData.length;
+  $("#sheet").innerHTML = `
+    <div class="sheet-hd">
+      <button class="close" aria-label="Close">×</button>
+      <div class="mono" style="color:var(--ink-soft)">${picks} handpicked · ${roles} open roles</div>
+      <h2>Scout</h2>
+      <div class="tabs">
+        <button data-tab="picks" aria-pressed="${ui.tab==="picks"}">My picks (${picks})</button>
+        <button data-tab="feed"  aria-pressed="${ui.tab==="feed"}">Repo feed (${roles})</button>
+      </div>
+    </div>
+    <div class="sheet-bd" id="scoutBody"></div>`;
+  const sh = $("#sheet");
+  sh.querySelector(".close").onclick = closeSheet;
+  sh.querySelectorAll("[data-tab]").forEach(t=>t.onclick=()=>{ ui.tab=t.dataset.tab; openScout(); });
+  ui.tab==="picks" ? renderPicks() : renderFeed();
+  showSheet();
+}
+
+function renderPicks(){
+  const have = new Set(state.companies.map(c=>normName(c.name)));
+  const items = SCOUT.filter(s=>!(ui.scoutHideUS && s.visa==="uspersons"));
+  $("#scoutBody").innerHTML = `
+    <p style="color:var(--ink-soft);font-size:13px;margin-top:13px">
+      Gaps I found against your list: local Northern Virginia names you missed, big tech you skipped,
+      and a few unusually open to international students. Always confirm work authorisation on the posting itself.</p>
+    <div class="rowbtns" style="margin-top:14px">
+      <button class="chip" id="scoutFilter" aria-pressed="${ui.scoutHideUS?"true":"false"}">Hide US-citizen-only</button>
+      <button class="chip" id="addAll">Add all shown</button>
+    </div>
+    <div style="margin-top:16px">${items.map(s=>{
+      const added = have.has(normName(s.name));
+      const badge = s.visa==="friendly" ? '<span class="tagx new">Often sponsors</span>'
+                  : s.visa==="uspersons" ? '<span class="tagx warn">Usually US citizens</span>'
+                  : '<span class="tagx">Check authorisation</span>';
+      return `<div class="scout-item">
+        <h4>${esc(s.name)}</h4>
+        <div class="meta"><span class="tagx">${esc(s.area)}</span><span class="tagx">${esc(s.tag)}</span>${badge}</div>
+        <p>${esc(s.why)}</p>
+        <div class="acts">
+          <button class="mini ${added?"done":"add"}" data-add="${esc(s.name)}">${added?"On your board":"Add as "+s.pri}</button>
+          <a class="mini" target="_blank" rel="noopener"
+             href="https://www.google.com/search?q=${encodeURIComponent(s.name+" internship 2027 careers")}">Find postings ↗</a>
+        </div></div>`;}).join("")}</div>`;
+  const bd=$("#scoutBody");
+  bd.querySelector("#scoutFilter").onclick=()=>{ ui.scoutHideUS=!ui.scoutHideUS; renderPicks(); };
+  bd.querySelector("#addAll").onclick=()=>{
+    let n=0; items.forEach(s=>{ if(addScout(s,true)) n++; });
+    save(); render(); renderPicks(); flag(n?n+" companies added":"Already on your board");
+  };
+  bd.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
+    const s=SCOUT.find(x=>x.name===b.dataset.add);
+    if(addScout(s)){ save(); render(); renderPicks(); flag(s.name+" added to To check"); }
+  });
+}
+
+function feedMatches(){
+  const f=ui.feed, q=f.q.trim().toLowerCase();
+  return feedData.filter(r=>{
+    if(f.dmv && !r.dmv) return false;
+    if(f.rem && !r.rem) return false;
+    if(f.spon && r.s!=="yes") return false;
+    if(f.hideUS && (r.s==="us"||r.s==="no")) return false;
+    if(q && !(r.c+" "+r.t+" "+r.l+" "+(r.g||"")).toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function renderFeed(){
+  const f=ui.feed, hits=feedMatches(), shown=hits.slice(0,f.n);
+  const taken = state.taken || (state.taken={});
+  const tracking = new Set(state.companies.map(c=>normName(c.name)));
+  $("#scoutBody").innerHTML = `
+    <div class="feed-tools">
+      <input id="fq" type="search" placeholder="Search company, role, location…" value="${esc(f.q)}">
+      <button class="chip" data-f="dmv"    aria-pressed="${f.dmv}">DC · MD · VA</button>
+      <button class="chip" data-f="rem"    aria-pressed="${f.rem}">Remote</button>
+      <button class="chip" data-f="spon"   aria-pressed="${f.spon}">Sponsors</button>
+      <button class="chip" data-f="hideUS" aria-pressed="${f.hideUS}">Hide US-only</button>
+    </div>
+    <div class="mono" style="color:var(--ink-soft);margin-bottom:10px">${hits.length} roles${hits.length>f.n?" · showing "+shown.length:""}</div>
+    ${shown.map(r=>{
+      const on = !!taken[r.u];
+      const badge = r.s==="yes"?'<span class="tagx new">Offers sponsorship</span>'
+                  : r.s==="us"?'<span class="tagx warn">US citizens only</span>'
+                  : r.s==="no"?'<span class="tagx warn">No sponsorship</span>':"";
+      const known = tracking.has(normName(r.c));
+      return `<div class="scout-item">
+        <span class="when">${esc(r.d)}</span>
+        <h4>${esc(r.c)}${known?' <span class="tagx" style="vertical-align:2px">already tracking</span>':""}</h4>
+        <div class="role">${esc(r.t)}</div>
+        <div class="meta">${r.l?`<span class="tagx">${esc(r.l)}</span>`:""}<span class="tagx">${esc(r.m)}</span>${r.g?`<span class="tagx">${esc(r.g)}</span>`:""}${badge}</div>
+        <div class="acts">
+          <button class="mini ${on?"done":"add"}" data-u="${esc(r.u)}">${on?"On your board":(known?"Add role":"Add")}</button>
+          <a class="mini" href="${esc(r.u)}" target="_blank" rel="noopener">Open posting ↗</a>
+        </div></div>`;}).join("") || `<div class="empty">No roles match. Loosen a filter.</div>`}
+    ${hits.length>f.n?`<button class="more" id="moreBtn">Show ${Math.min(40,hits.length-f.n)} more</button>`:""}
+    <div class="attrib">
+      Last daily check: ${esc(window.INTERN_MONITOR?.generated_at || "Not run yet")}. Jobs come from your careers watchlist and <b>vanshb03 / CSCareers</b>. Postings close fast — always
+      confirm on the employer's own page.
+      <div style="margin-top:9px"><button class="mini" id="syncBtn">Reload daily results</button></div>
+    </div>`;
+  const bd=$("#scoutBody");
+  const qi=bd.querySelector("#fq");
+  qi.oninput=()=>{ f.q=qi.value; f.n=40; renderFeed();
+    const el=$("#scoutBody").querySelector("#fq"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); };
+  bd.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{ f[b.dataset.f]=!f[b.dataset.f]; f.n=40; renderFeed(); });
+  const mb=bd.querySelector("#moreBtn"); if(mb) mb.onclick=()=>{ f.n+=40; renderFeed(); };
+  bd.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>{
+    const r=feedData.find(x=>x.u===b.dataset.u); if(!r) return;
+    const res=addListing(r); save(); render(); renderFeed(); flag(res.msg);
+  });
+  bd.querySelector("#syncBtn").onclick=e=>liveSync(e.currentTarget);
+}
+
+function addListing(r){
+  state.taken = state.taken || {};
+  state.taken[r.u] = 1;
+  const hit = state.companies.find(c=>normName(c.name)===normName(r.c));
+  if(hit){
+    hit.links = hit.links || [];
+    if(!hit.links.includes(r.u)) hit.links.push(r.u);
+    hit.notes = (hit.notes ? hit.notes+" · " : "") + r.t + (r.l?" ("+r.l+")":"");
+    // Monitoring and adding a role do not overwrite personal application status.
+    recalcXP();
+    return {msg:"Role added to "+hit.name};
+  }
+  state.companies.unshift({
+    id:"r"+Math.random().toString(36).slice(2,8), name:r.c,
+    priority: r.dmv ? "P1" : (r.rem ? "P2" : "P3"),
+    links:[r.u], notes:r.t, status:"tocheck",
+    blocker: (r.s==="us"||r.s==="no") ? "visa" : "",
+    reason:"", referral:"", applyDate:"", area:r.l, tag:r.g||"From repo", src:"repo"
+  });
+  recalcXP();
+  return {msg:r.c+" added to To check"};
+}
+
+async function liveSync(btn){
+  btn.disabled=true;
+  try { await window.refreshMonitor(); renderFeed(); flag("Loaded latest daily results"); }
+  catch { flag("Could not reload results. Showing saved snapshot."); }
+  finally { btn.disabled=false; }
+}
+
+function addScout(s, quiet){
+  if(state.companies.some(c=>normName(c.name)===normName(s.name))) return false;
+  state.companies.unshift({
+    id:"g"+Math.random().toString(36).slice(2,8), name:s.name, priority:s.pri,
+    links:[], q:s.name+" internship 2027 careers", notes:s.why, status:"tocheck",
+    blocker:s.visa==="uspersons"?"visa":"", reason:"", referral:"", applyDate:"",
+    area:s.area, tag:s.tag, src:"scout"
+  });
+  if(!quiet) recalcXP();
+  return true;
+}
+
+/* ===================== export / reset ===================== */
+function exportCSV(){
+  const head=["Priority","Company","Status","Blocker","Applied","Referral","Notes","Links"];
+  const rows=state.companies.map(c=>[
+    c.priority,c.name,SMAP[c.status].label,c.blocker||"",c.applyDate||"",
+    c.referral||"",(c.notes||c.reason||""),(c.links||[]).join(" | ")
+  ]);
+  const csv=[head,...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+  a.download="intern-hunt.csv"; a.click(); URL.revokeObjectURL(a.href);
+  flag("CSV downloaded");
+}
+
+/* ===================== wiring ===================== */
+function render(){ renderHeader(); ui.view==="board"?renderBoard():renderList(); }
+
+function wire(){
+  const pc=$("#priChips");
+  ["P1","P2","P3","P4"].forEach(p=>{
+    const b=document.createElement("button");
+    b.className="chip "+p.toLowerCase(); b.textContent=p; b.setAttribute("aria-pressed","false");
+    b.onclick=()=>{ ui.pri.has(p)?ui.pri.delete(p):ui.pri.add(p);
+      b.setAttribute("aria-pressed",String(ui.pri.has(p))); render(); };
+    pc.appendChild(b);
+  });
+  $("#q").addEventListener("input",e=>{ui.q=e.target.value;render();});
+  $("#hideClosed").onclick=e=>{ui.hideClosed=!ui.hideClosed;e.currentTarget.setAttribute("aria-pressed",String(ui.hideClosed));render();};
+  $("#onlyLive").onclick=e=>{ui.onlyLive=!ui.onlyLive;e.currentTarget.setAttribute("aria-pressed",String(ui.onlyLive));render();};
+  $("#viewBoard").onclick=()=>{ui.view="board";$("#viewBoard").setAttribute("aria-pressed","true");$("#viewList").setAttribute("aria-pressed","false");render();};
+  $("#viewList").onclick=()=>{ui.view="list";$("#viewList").setAttribute("aria-pressed","true");$("#viewBoard").setAttribute("aria-pressed","false");render();};
+  $("#openAdd").onclick=openAdd;
+  $("#openScout").onclick=openScout;
+  $("#scrim").onclick=closeSheet;
+  $("#exportBtn").onclick=exportCSV;
+  $("#resetBtn").onclick=()=>{
+    if(!confirm("Reset the board to your original sheet? Everything you've changed here is lost.")) return;
+    state=freshState(); save(); render(); flag("Back to the original sheet");
+  };
+  const tb=document.querySelector(".toolbar");
+  const setTbh=()=>document.documentElement.style.setProperty("--tbh",
+    (getComputedStyle(tb).position==="sticky" ? tb.offsetHeight : 0)+"px");
+  if(window.ResizeObserver) new ResizeObserver(setTbh).observe(tb);
+  window.addEventListener("resize",setTbh); setTbh();
+
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape") closeSheet();
+    if(e.key==="/" && document.activeElement.tagName!=="INPUT" && document.activeElement.tagName!=="TEXTAREA"){
+      e.preventDefault(); $("#q").focus();
+    }
+  });
+}
+
+(async function init(){
+  wire();
+  await load();
+  render();
+})();
+</script>
+
+<script src="monitor-ui.js"></script>
