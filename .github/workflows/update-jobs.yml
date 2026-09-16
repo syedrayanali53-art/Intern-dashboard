@@ -1,0 +1,112 @@
+name: Daily internship monitor
+
+on:
+  schedule:
+    - cron: '17 12 * * *'
+  workflow_dispatch:
+    inputs:
+      send_alerts:
+        description: Send pending GitHub issue digests
+        type: boolean
+        default: true
+  push:
+    paths:
+      - intern-hunt.html
+      - index.html
+      - monitor-ui.js
+      - monitor.css
+      - storage.js
+      - scripts/**
+      - data/companies.json
+      - .github/workflows/update-jobs.yml
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: internship-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    # Keep all scheduled data updates on the repository's default branch.
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test detection rules
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Check feeds and careers pages
+        id: check
+        continue-on-error: true
+        run: python scripts/monitor.py
+      - name: Save results before delivering alerts
+        run: |
+          git config user.name "Intern Hunt Monitor"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/monitor.json data/monitor-data.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Update internship monitoring results"
+            git push
+          fi
+      - name: Send new and reopened role digest
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_alerts)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/monitor.py --notify
+      - name: Save alert receipts
+        if: always()
+        run: |
+          git add data/monitor.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Save internship alert receipts"
+            git push
+          fi
+      - name: Downloadable updated board
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intern-hunt-board
+          path: |
+            intern-hunt.html
+            storage.js
+            monitor-ui.js
+            monitor.css
+            data/monitor-data.js
+          retention-days: 14
+      - name: Prepare GitHub Pages site
+        if: steps.check.outcome == 'success'
+        run: |
+          mkdir -p _site/data
+          cp index.html intern-hunt.html monitor-ui.js monitor.css storage.js _site/
+          cp data/monitor-data.js _site/data/
+      - name: Configure GitHub Pages
+        if: steps.check.outcome == 'success'
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        if: steps.check.outcome == 'success'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Report a failed check
+        if: steps.check.outcome == 'failure'
+        run: exit 1
+
+  deploy:
+    needs: monitor
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

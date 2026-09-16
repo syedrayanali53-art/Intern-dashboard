@@ -4,6 +4,8 @@ Your original company board now includes a daily job monitor, with company prior
 
 ## Open the board
 
+The hosted dashboard is available at **https://syedrayanali53-art.github.io/Intern-dashboard/** after the first successful workflow deployment.
+
 Open **intern-hunt.html** in your browser. Keep the accompanying files and the `data` folder together. The included data is an actual first-run snapshot. Nothing needs to be installed to view the board.
 
 The HTML file does not perform background checks by itself. The checker runs on GitHub or on your computer. “Reload results” reads the latest generated data; it does not scrape employers.
@@ -16,11 +18,11 @@ Your personal application changes stay in this browser. Use **Back up tracking**
 2. Commit to the repository's default branch. The workflow needs **Read and write permissions** under Settings → Actions → General. Issues must be enabled. If branch protection prohibits bot commits, allow this workflow's data updates or use a dedicated repository.
 3. Go to **Actions → Daily internship monitor → Run workflow**. Leave “Send pending GitHub issue digests” selected when you want alerts.
 4. Use **Watch → Custom → Issues** on the repository and enable email notifications in your GitHub notification settings. Issue creation by the automation is not a guarantee of email delivery; your notification settings control it.
-5. Each completed run has an **intern-hunt-board** download under Artifacts. Extract it and open the HTML, or use the generated files in your existing hosted board.
+5. Each successful run updates the GitHub Pages dashboard and includes an **intern-hunt-board** download under Artifacts.
 
 The schedule is **12:17 UTC daily**: 8:17 a.m. New York time during daylight saving time, 7:17 a.m. during standard time. GitHub schedules can be delayed. Schedules run from the default branch; inactive public repositories can have schedules disabled. [GitHub scheduling documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
-Publishing the board is a separate step. This package does not publish your notes. A bot commit using `GITHUB_TOKEN` does not reliably trigger a separate Pages build; use the workflow artifact, or explicitly deploy the generated files in the same workflow if you choose to host it. Do not expect an old downloaded copy on your computer to update just because GitHub has new data.
+The included workflow deploys the updated board to GitHub Pages in the same run. An old downloaded copy on your computer does not update when GitHub has new data.
 
 ## Run it on your computer
 
