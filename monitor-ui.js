@@ -6,19 +6,23 @@
   let preferences = {};
   try { preferences = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { /* recover with defaults */ }
   let model = window.INTERN_MONITOR || {jobs:{},sources:{},events:[],companies:[]};
-  let query='', filter='open', watchlist=true, location='all', limit=8;
+  let query='', filter='open', watchlist=true, location='all', hideCitizenOnly=preferences.hideCitizenOnly!==false, limit=8;
   const savePreferences = () => {try {localStorage.setItem(KEY,JSON.stringify(preferences));} catch {window.alert('Browser storage is unavailable. Tracking cannot be saved here.');}};
   const date = value => value ? new Date(value).toLocaleString() : 'Never';
+  const citizenshipKey = r => (r.company+'\0'+r.title).toLowerCase();
+  const citizenOnlyJobs = () => new Set(Object.values(model.jobs).filter(r=>r.sponsorship==='U.S. Citizenship is Required').map(citizenshipKey));
+  const citizenshipRequired = (r, keys) => r.sponsorship === 'U.S. Citizenship is Required' || keys.has(citizenshipKey(r));
   const toFeed = r => ({c:r.company,t:r.title,u:r.url,l:r.locations.join(' · '),m:r.season||'Season not confirmed',g:'',s:({'Does Not Offer Sponsorship':'no','U.S. Citizenship is Required':'us','Offers Sponsorship':'yes'})[r.sponsorship]||'',d:r.first_seen.slice(0,10),dmv:r.locations.some(l=>/\b(VA|Virginia|DC|MD|Maryland|Arlington|Reston|McLean|Herndon|Bethesda)\b/i.test(l))?1:0,rem:r.remote||r.locations.some(l=>/remote/i.test(l))?1:0});
-  function syncFeed(){window.setMonitorFeed(Object.values(model.jobs).filter(j=>j.status==='open').map(toFeed));}
+  function syncFeed(){const citizenOnly=citizenOnlyJobs();window.setMonitorFeed(Object.values(model.jobs).filter(j=>j.status==='open'&&(!hideCitizenOnly||!citizenshipRequired(j,citizenOnly))).map(toFeed));}
   function render(){
-    const all=Object.values(model.jobs), sources=Object.values(model.sources).filter(s=>s.enabled!==false);
+    const all=Object.values(model.jobs), citizenOnly=citizenOnlyJobs(), sources=Object.values(model.sources).filter(s=>s.enabled!==false);
     const latest=new Map();
     for(const event of model.events) if(event.job_id) latest.set(event.job_id,event);
     const unread=model.events.filter(e=>['new','reopened'].includes(e.kind)&&e.at>(preferences.readThrough||'')&&(!watchlist||e.company_id));
     const ignored=preferences.ignored||{};
     const selected=all.filter(r=>{
       if(watchlist&&!r.company_id)return false;
+      if(hideCitizenOnly&&citizenshipRequired(r,citizenOnly))return false;
       if(filter==='ignored')return !!ignored[r.id];
       if(ignored[r.id])return false;
       if(filter==='open'&&r.status!=='open')return false;
@@ -44,6 +48,7 @@
         <select id="mf" aria-label="Job status"><option value="open">Open roles</option><option value="new">Unread updates</option><option value="closed">Closed roles</option><option value="ignored">Ignored roles</option></select>
         <select id="ml" aria-label="Job location"><option value="all">All locations</option><option value="dmv">DC / MD / VA</option><option value="remote">Remote</option></select>
         <label><input type="checkbox" id="mw" ${watchlist?'checked':''}>My companies only</label>
+        <label><input type="checkbox" id="mc" ${hideCitizenOnly?'checked':''}>Hide U.S.-citizen-only</label>
         <button class="mini" id="markRead">Mark updates read</button><button class="mini" id="reloadMonitor">Reload results</button>
       </div>
       <p>${selected.length} matching roles. Alerts start after a source’s first successful check. “Open” means last reported open by a source.</p>
@@ -66,6 +71,7 @@
     document.getElementById('mf').onchange=e=>{filter=e.target.value;limit=24;render();};
     document.getElementById('ml').onchange=e=>{location=e.target.value;limit=24;render();};
     document.getElementById('mw').onchange=e=>{watchlist=e.target.checked;render();};
+    document.getElementById('mc').onchange=e=>{hideCitizenOnly=e.target.checked;preferences.hideCitizenOnly=hideCitizenOnly;savePreferences();syncFeed();render();};
     document.getElementById('markRead').onclick=()=>{preferences.readThrough=model.generated_at||new Date().toISOString();savePreferences();render();};
     document.getElementById('reloadMonitor').onclick=async()=>{try{await window.refreshMonitor();}catch{window.alert('Could not reload results. Keep the data folder beside this file, or open the hosted board.');}};
     document.getElementById('moreMonitor')?.addEventListener('click',()=>{limit+=24;render();});
