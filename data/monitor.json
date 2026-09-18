@@ -33265,7 +33265,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Alarm.com",
       "company_id": "s001",
-      "url": "https://alarm.com/careers"
+      "url": "https://alarm.com/careers",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "ff7a1f6b4e2ec1b8666b4155",
@@ -33273,7 +33275,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Accelevation LLC",
       "company_id": "s003",
-      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"
+      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "b6fc926ab9178cf7258f471f",
@@ -33281,21 +33285,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a9a19e94dfde3df6e2ca111b",
       "kind": "source_error",
       "company": "Audley Consulting Group",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "4d6638d7f9a566336e8ea877",
       "kind": "source_error",
       "company": "Appian Corporation",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "b5adb70448f08c33139377f8",
@@ -33303,21 +33313,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "af1d7dee83b8f19f8fafa82b",
       "kind": "source_error",
       "company": "Bank of America",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a94abe223054c2d8d9eb0fcf",
       "kind": "source_error",
       "company": "Credence Management Solutions LLC",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "0c8e8ce70a52583b5de801d7",
@@ -33325,14 +33341,18 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "874604b13ea5f6333707d332",
       "kind": "source_error",
       "company": "ESET North America",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "894637c378ae5106d9a22973",
@@ -33340,7 +33360,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a87176ec5972aae51d13a779",
@@ -33348,7 +33370,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Frontpoint Security",
       "company_id": "s043",
-      "url": "https://www.frontpointsecurity.com/careers"
+      "url": "https://www.frontpointsecurity.com/careers",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "4a77772c490b69892fad2138",
@@ -33356,21 +33380,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Deloitte",
       "company_id": "s044",
-      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy"
+      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "d13e238d9cf7bfade53fe98a",
       "kind": "source_error",
       "company": "Deloitte",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "9fc9838448b75d3c8ef1cde0",
       "kind": "source_error",
       "company": "Deloitte",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "5336505497aabdf38f2c977e",
@@ -33378,7 +33408,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Dev Technology Group Inc.",
       "company_id": "s047",
-      "url": "https://devtechnology.com/careers"
+      "url": "https://devtechnology.com/careers",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "bbfdc1686f0cda736a818ce7",
@@ -33386,21 +33418,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Global Impact",
       "company_id": "s048",
-      "url": "https://charity.org/about/careers"
+      "url": "https://charity.org/about/careers",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "f21d047e218450c5c2abec0e",
       "kind": "source_error",
       "company": "Halfaker and Associates LLC",
       "message": "HTTP Error 403: Forbidden",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a93754874e1ef370d23e7bcc",
       "kind": "source_error",
       "company": "ECS Federal",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "264d2ea1cec832aad4505962",
@@ -33408,7 +33446,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Intellias",
       "company_id": "s059",
-      "url": "https://career.intellias.com"
+      "url": "https://career.intellias.com",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "7ab2185cce5ed2465adba0c5",
@@ -33416,14 +33456,18 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "MassMutual",
       "company_id": "s069",
-      "url": "https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2"
+      "url": "https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "737ededc24e8583639449d96",
       "kind": "source_error",
       "company": "Metaformers",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "6a7c46be0b817a6331e98309",
@@ -33431,7 +33475,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "fda0205a94a5ecae2f6862ef",
@@ -33439,14 +33485,18 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "2b7e7064711e5e3c84124fef",
       "kind": "source_error",
       "company": "GEICO",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "4019ebeabb0b7c14baf56a3d",
@@ -33454,7 +33504,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "NVR Settlement Services Inc.",
       "company_id": "s080",
-      "url": "https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?cws=52&org=NVRINC"
+      "url": "https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?cws=52&org=NVRINC",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "183ed04f1a5bd6b72bea7b8e",
@@ -33462,21 +33514,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Peloton Interactive",
       "company_id": "s083",
-      "url": "https://careers.onepeloton.com/en/all-jobs?page=2"
+      "url": "https://careers.onepeloton.com/en/all-jobs?page=2",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "07b833e1958ed8a03d0d3a71",
       "kind": "source_error",
       "company": "Quadrant Strategies",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "5dc29f07b07b6973e8adb8e9",
       "kind": "source_error",
       "company": "Sherwin-Williams",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "e369699c22d86ffe97fb6503",
@@ -33484,14 +33542,18 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "3d8600dc6ad3b49b41c29c06",
       "kind": "source_error",
       "company": "Surescripts",
       "message": "HTTP Error 422: Unprocessable Entity",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a7de878e0441791ecc181831",
@@ -33499,28 +33561,36 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "da6e7400844bb3c44f711ac0",
       "kind": "source_error",
       "company": "Universal Service Administrative Company",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "a1883d5595c8e32f5d7a31a5",
       "kind": "source_error",
       "company": "Leidos",
       "message": "HTTP Error 403: Forbidden",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "843efd89e9d1be6717296958",
       "kind": "source_error",
       "company": "Lidl US",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "51f1e0cb9feac05f4c2276f1",
@@ -33528,7 +33598,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "c07556e7acd5716920afd62c",
@@ -33536,21 +33608,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "fc8ecdef2385731b3e620195",
       "kind": "source_error",
       "company": "Navy Federal Credit Union",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "7cfdb0732b3e2f3a6e8750f8",
       "kind": "source_error",
       "company": "Nestlé",
       "message": "HTTP Error 403: Forbidden",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "ca2140fa1a9aefc553aabe35",
@@ -33558,21 +33636,27 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Netimpact Strategies Inc.",
       "company_id": "s112",
-      "url": "https://careers-netimpactstrategies.icims.com/jobs/search?searchKeyword=intern&ss=1"
+      "url": "https://careers-netimpactstrategies.icims.com/jobs/search?searchKeyword=intern&ss=1",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "4b528d2224468c74f803fb4d",
       "kind": "source_error",
       "company": "Oracle",
       "message": "Page blocked or requires JavaScript; needs a site-specific adapter",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "78ea2842def3d0f6e9cd8f94",
       "kind": "source_error",
       "company": "TekSynap",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-18T16:25:42+00:00"
+      "at": "2026-09-18T16:25:42+00:00",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "6bd97e035dc838e855d13f4a",
@@ -33580,7 +33664,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "7ed38e714f2df5521e3a7060",
@@ -33588,7 +33674,9 @@
       "at": "2026-09-18T16:25:42+00:00",
       "company": "Xcelerate Solutions",
       "company_id": "s123",
-      "url": "https://jobs.jobvite.com/xceleratesolutions"
+      "url": "https://jobs.jobvite.com/xceleratesolutions",
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "64a50c4b5ce60ee382aa1483",
@@ -33602,7 +33690,9 @@
         "McLean, Virginia"
       ],
       "company_id": "s011",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "1733a774b600cd9308897695",
@@ -33616,7 +33706,9 @@
         "Pittsburgh, PA"
       ],
       "company_id": "s104",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "4ff1d544984d648875e42ed8",
@@ -33630,7 +33722,9 @@
         "Dallas, TX"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "7682db72291e970dc21362c1",
@@ -33644,7 +33738,9 @@
         "New York, NY"
       ],
       "company_id": "s104",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "aea17086a68763829dfd3c44",
@@ -33656,7 +33752,9 @@
       "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bratislava/Workplace-Support-Intern--part-time-for-students-_R00351141-1",
       "locations": [],
       "company_id": "s004",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "2ae8abf2c2f963c822e5139e",
@@ -33670,7 +33768,9 @@
         "Baltimore, MD"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "f9b0118bb955c22f8d4ffe4c",
@@ -33684,7 +33784,9 @@
         "2 Locations"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "91eb63b68239fcb23017babd",
@@ -33698,7 +33800,9 @@
         "2 Locations"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     },
     {
       "id": "971c555b31c422b02a636b8e",
@@ -33710,7 +33814,9 @@
       "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Brussels/Internship---Management-Consulting-Intern--Song-Services---As-of-February-2027_R00357681",
       "locations": [],
       "company_id": "s004",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-18T16:25:45+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/2"
     }
   ],
   "version": 1,
