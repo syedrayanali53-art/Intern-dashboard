@@ -35695,7 +35695,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Alarm.com",
       "company_id": "s001",
-      "url": "https://alarm.com/careers"
+      "url": "https://alarm.com/careers",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "7813673351269831da059f52",
@@ -35703,7 +35705,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "5574cf67e5fb01e661d699cc",
@@ -35711,14 +35715,18 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "56ff4370ae823cc4dfbff926",
       "kind": "source_error",
       "company": "EMCOR Government Services",
       "message": "HTTP Error 404: Not Found",
-      "at": "2026-09-20T16:06:34+00:00"
+      "at": "2026-09-20T16:06:34+00:00",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "296a032166471e318d9e2e8b",
@@ -35726,7 +35734,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "79d8eebe8abb550ad261a3c6",
@@ -35734,7 +35744,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "FanDuel",
       "company_id": "s038",
-      "url": "https://www.fanduel.careers/future-teammates/early-careers"
+      "url": "https://www.fanduel.careers/future-teammates/early-careers",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "8ba53bdcf39d7c58687bcf04",
@@ -35742,7 +35754,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "f8be23a0d4bd9dea392e65e7",
@@ -35750,7 +35764,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Deloitte",
       "company_id": "s044",
-      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy"
+      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "bdea760efc36352b08475907",
@@ -35758,7 +35774,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "17de09d25c345ddbf6dfab82",
@@ -35766,7 +35784,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "76466dce8ea1951963a460c2",
@@ -35774,7 +35794,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "2e8c809507356214b239ede7",
@@ -35782,7 +35804,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "2961c42798332255cd34bedc",
@@ -35790,7 +35814,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "b923ea3859322a394f8dcc46",
@@ -35798,7 +35824,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "a92fd96554b5a2ebb746c947",
@@ -35806,7 +35834,9 @@
       "at": "2026-09-20T16:06:34+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "71fa716efbaba2523ec8cfa3",
@@ -35820,7 +35850,9 @@
         "FXE-MEISA/SAU/RUHZ/RUHZ/Riyadh"
       ],
       "company_id": "s064",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "ef447be4c04047dcdf1271c2",
@@ -35832,7 +35864,9 @@
       "url": "https://www.kpmguscareers.com/jobdetail?jobId=137823",
       "locations": [],
       "company_id": "s103",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     },
     {
       "id": "44e9a35a7a415a6ff5fe503f",
@@ -35846,7 +35880,9 @@
         "GBR - Gosport, UK"
       ],
       "company_id": "s024",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-09-20T16:06:37+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/4"
     }
   ],
   "version": 1,
