@@ -74,14 +74,16 @@ class MonitorTests(unittest.TestCase):
         self.assertEqual(len(data["events"]), 1)
         self.assertEqual(data["notifications"], [])
 
-    def test_citizenship_required_job_is_not_queued_for_alerts(self):
-        role = {**ROLE, "sponsorship": "U.S. Citizenship is Required"}
-        duplicate = {**ROLE, "url": "https://example.com/jobs/43", "source_ref": "43"}
-        data = run(run(roles=[]), [role, duplicate], 2)
-        self.assertEqual(len(data["events"]), 2)
-        self.assertEqual(data["notifications"], [])
-        data["notifications"] = [{"job_id": key, "kind": "new"} for key in data["jobs"]]
-        self.assertEqual(run(data, [role, duplicate], 3)["notifications"], [])
+    def test_ineligible_job_is_not_queued_for_alerts(self):
+        for label in ("U.S. Citizenship is Required", "Does Not Offer Sponsorship"):
+            with self.subTest(label=label):
+                role = {**ROLE, "sponsorship": label}
+                duplicate = {**ROLE, "url": "https://example.com/jobs/43", "source_ref": "43"}
+                data = run(run(roles=[]), [role, duplicate], 2)
+                self.assertEqual(len(data["events"]), 2)
+                self.assertEqual(data["notifications"], [])
+                data["notifications"] = [{"job_id": key, "kind": "new"} for key in data["jobs"]]
+                self.assertEqual(run(data, [role, duplicate], 3)["notifications"], [])
 
     def test_urls_keep_identity_parameters(self):
         self.assertEqual(canonical("https://example.com/job?jobId=42&utm_source=feed#top"), "https://example.com/job?jobId=42")

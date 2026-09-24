@@ -387,8 +387,8 @@ def reconcile(old, results, sources, config, now):
                 if baseline:
                     event_eligible.add(key)
         data["sources"][sid] = meta
-    citizen_only_roles = {(normalized_company(record["company"]), record["title"].casefold()) for record in data["jobs"].values() if record.get("sponsorship") == "U.S. Citizenship is Required"}
-    citizen_only = {key for key, record in data["jobs"].items() if (normalized_company(record["company"]), record["title"].casefold()) in citizen_only_roles}
+    excluded_roles = {(normalized_company(record["company"]), record["title"].casefold()) for record in data["jobs"].values() if record.get("sponsorship") in ("U.S. Citizenship is Required", "Does Not Offer Sponsorship")}
+    excluded_jobs = {key for key, record in data["jobs"].items() if (normalized_company(record["company"]), record["title"].casefold()) in excluded_roles}
     new_events = []
     for key in changed_ids:
         record = data["jobs"][key]
@@ -402,10 +402,10 @@ def reconcile(old, results, sources, config, now):
         if event and key in event_eligible:
             entry = {"id": digest(key + event + now), "job_id": key, "kind": event, "at": now, "company": record["company"], "title": record["title"], "url": record["url"], "locations": record["locations"], "company_id": record["company_id"], "verified": record["verified"]}
             new_events.append(entry)
-            if event in ("new", "reopened") and key not in citizen_only and (record["company_id"] or not config.get("alerts_watchlist_only", True)):
+            if event in ("new", "reopened") and key not in excluded_jobs and (record["company_id"] or not config.get("alerts_watchlist_only", True)):
                 data["notifications"].append(entry)
     data["events"] = (data["events"] + sorted(new_events, key=lambda e: (e["at"], e["company"], e["title"]))) [-2000:]
-    data["notifications"] = [item for item in data["notifications"] if item.get("sent_at") or item.get("job_id") not in citizen_only]
+    data["notifications"] = [item for item in data["notifications"] if item.get("sent_at") or item.get("job_id") not in excluded_jobs]
     data.update(version=1, generated_at=now, companies=[{k: c.get(k) for k in ("id", "name", "priority", "careers_urls", "enabled")} for c in config["companies"]])
     return data
 

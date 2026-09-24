@@ -6,7 +6,13 @@
 .monitor-controls input{flex:1;min-width:160px}.monitor-controls label{font-size:13px;display:flex;align-items:center;gap:6px}
 .monitor-controls input[type=checkbox]{min-width:0;flex:none}
 .monitor-summary{display:flex;flex-wrap:wrap;gap:8px}.monitor-summary span{background:#e8edf0;border-radius:5px;padding:5px 9px;font-size:13px}
-.monitor-jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px}
+.monitor-jobs{display:grid;gap:10px}
+.monitor-company{margin:0!important;border:1px solid #b9c0c5;border-radius:8px;background:#fff;min-width:0}
+.monitor-company>summary{display:flex;justify-content:space-between;gap:12px;padding:13px 16px;list-style:none;align-items:center}
+.monitor-company>summary::-webkit-details-marker{display:none}
+.monitor-company>summary:before{content:'▸';color:#00784e}.monitor-company[open]>summary:before{content:'▾'}
+.monitor-company>summary span:first-of-type{flex:1;font-weight:700}.monitor-company>summary span:last-of-type{font-size:12px;color:#46515b}
+.monitor-company-jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px;padding:0 12px 12px}
 .monitor-job{padding:16px;border:1px solid #b9c0c5;border-radius:8px;background:white;min-width:0}
 .monitor-job h3{font-size:16px!important;margin:4px 0!important;line-height:1.4}.monitor-job p{font-size:12px!important;margin:5px 0!important}
 .monitor-job .event{font-size:11px;letter-spacing:.05em;font-weight:700;text-transform:uppercase;color:#00784e}
@@ -14,4 +20,4 @@
 #monitor details{margin-top:18px}#monitor summary{cursor:pointer;font-weight:600}.monitor-sources{max-height:360px;overflow:auto;margin-top:10px}
 .monitor-source{border-top:1px solid #d5dadd;padding:9px 0;font-size:13px;overflow-wrap:anywhere}.monitor-source small{display:block;color:#555}
 .monitor-warning{border-left:4px solid #b75a00;padding:8px 12px;background:#fff0d8}
-#monitor button:focus-visible,#monitor a:focus-visible,#monitor input:focus-visible,#monitor select:focus-visible{outline:3px solid #0078bf;outline-offset:3px}
+#monitor button:focus-visible,#monitor a:focus-visible,#monitor input:focus-visible,#monitor select:focus-visible,#monitor summary:focus-visible{outline:3px solid #0078bf;outline-offset:3px}
