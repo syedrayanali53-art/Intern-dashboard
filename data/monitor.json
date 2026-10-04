@@ -55839,7 +55839,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Alarm.com",
       "company_id": "s001",
-      "url": "https://alarm.com/careers"
+      "url": "https://alarm.com/careers",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "6ffc9098cc3842d502dd8f58",
@@ -55847,7 +55849,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "d19b051f1ba37f03a0b7e82b",
@@ -55855,7 +55859,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "b88ed299673fe5bc91bff238",
@@ -55863,7 +55869,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "a8f219e61dabf9c06ae94cf1",
@@ -55871,7 +55879,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "59603fcab0e4224884fb8fcc",
@@ -55879,7 +55889,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Lockwood Hills",
       "company_id": "s066",
-      "url": "https://careers.akima.com/jobs?_gl=1%2Aoym7fo%2A_gcl_au%2AMjExNTgyMTgxMy4xNzU0NDg2MjM1%2A_ga%2AMTcxOTA3ODYuMTc1NDQ4NjIzNg..%2A_ga_TWXK1S15BJ%2AczE3NTQ0ODYyMzYkbzEkZzEkdDE3NTQ0ODYyNDMkajUzJGwwJGgw&keywords=internship&page=1&sortBy=relevance"
+      "url": "https://careers.akima.com/jobs?_gl=1%2Aoym7fo%2A_gcl_au%2AMjExNTgyMTgxMy4xNzU0NDg2MjM1%2A_ga%2AMTcxOTA3ODYuMTc1NDQ4NjIzNg..%2A_ga_TWXK1S15BJ%2AczE3NTQ0ODYyMzYkbzEkZzEkdDE3NTQ0ODYyNDMkajUzJGwwJGgw&keywords=internship&page=1&sortBy=relevance",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "dca0cb01536d5a6cebf0cdd2",
@@ -55887,7 +55899,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "a1a39dc830df0f4773e4da2a",
@@ -55895,7 +55909,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "b55a27b42b914440a653f71f",
@@ -55903,7 +55919,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "5b9e2e6c2950bc21320539e6",
@@ -55911,7 +55929,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "cc2e7614d83c9c7621fb3c94",
@@ -55919,7 +55939,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "719daff3c3548457e10c5353",
@@ -55927,7 +55949,9 @@
       "at": "2026-10-04T16:53:22+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "b34a0e173a5ce67aef005d31",
@@ -55939,7 +55963,9 @@
       "url": "https://jobs.gartner.com/jobs/job/113095-summer-2027-it-intern-may-2028-graduates",
       "locations": [],
       "company_id": "s073",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "db0375349f1badbe714aa3d0",
@@ -55953,7 +55979,9 @@
         "Minneapolis, MN"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     },
     {
       "id": "f302bd398967a534dc94804b",
@@ -55967,7 +55995,9 @@
         "4 Locations"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-10-04T16:53:25+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/18"
     }
   ],
   "version": 1,
