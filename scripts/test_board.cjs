@@ -22,6 +22,7 @@ const fixture={jobs:Object.fromEntries(jobs.map(r=>[r.id,r])),sources:{},events:
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('https://intern.test/**',route=>{
     const name=new URL(route.request().url()).pathname.slice(1);
+    if(name==='data/monitor.json')return route.fulfill({body:JSON.stringify(fixture),contentType:'application/json'});
     const file=path.join(root,name||'intern-hunt.html');
     route.fulfill({body:fs.readFileSync(file),contentType:name.endsWith('.js')?'application/javascript':name.endsWith('.css')?'text/css':'text/html'});
   });
@@ -39,6 +40,8 @@ const fixture={jobs:Object.fromEntries(jobs.map(r=>[r.id,r])),sources:{},events:
   assert.equal(await page.locator('.monitor-job').count(),5,'Blocked job retained and revealable');
   await page.locator('#mc').uncheck();
   assert.equal(await page.locator('.monitor-job').count(),6,'Citizenship setting is independent');
+  await page.evaluate(()=>window.refreshMonitor());
+  assert.equal(await page.locator('.monitor-job').count(),6,'Refresh must resolve the page URL independently of the location filter');
   await page.locator('#trackerTab').click();
   await page.locator('#openScout').click();
   assert.equal(await page.locator('#scoutBody .scout-item').count(),4,'Scout must include silent and review');

@@ -1035,7 +1035,7 @@ function wire(){
     document.querySelectorAll('[data-track]').forEach(b=>b.onclick=()=>window.trackMonitorRole(toFeed(model.jobs[b.dataset.track])));
   }
   window.refreshMonitor=async()=>{
-    const base=location.protocol==='file:'?'https://syedrayanali53-art.github.io/Intern-dashboard/':location.href;
+    const base=window.location.protocol==='file:'?'https://syedrayanali53-art.github.io/Intern-dashboard/':window.location.href;
     const response=await fetch(new URL('data/monitor.json?t='+Date.now(),base),{cache:'no-store'});
     if(!response.ok)throw new Error('Results unavailable');
     const next=await response.json();
