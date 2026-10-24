@@ -1,0 +1,151 @@
+const {chromium}=require('playwright');
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const seed={companies:[{id:'test',name:'Test Co',priority:'P1',status:'tocheck',links:['https://example.com/blocked'],notes:'Keep my notes',blocker:'visa',referral:'Friend',applyDate:''}],xp:0,created:1};
+const raw=JSON.stringify(seed);
+const role=(id,text,title='Software Intern')=>({id,company:'Test Co',company_id:'test',title,url:'https://example.com/'+id,locations:['VA'],priority:'P1',status:'open',first_seen:'2026-10-24',posting_text:text});
+const jobs=[
+  role('blocked','We will not sponsor candidates.'),
+  role('silent','Build software with our team.'),
+  role('unread',''),
+  role('positive','F-1/OPT candidates are welcome.'),
+  role('review','No sponsorship for full-time. CPT/OPT welcome.'),
+  role('restricted','U.S. citizens only.')
+];
+const fixture={jobs:Object.fromEntries(jobs.map(r=>[r.id,r])),sources:{},events:[],companies:[],generated_at:new Date().toISOString()};
+(async()=>{
+  const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+  const errors=[];
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.route('https://intern.test/**',route=>{
+    const name=new URL(route.request().url()).pathname.slice(1);
+    const file=path.join(root,name||'intern-hunt.html');
+    route.fulfill({body:fs.readFileSync(file),contentType:name.endsWith('.js')?'application/javascript':name.endsWith('.css')?'text/css':'text/html'});
+  });
+  await page.addInitScript(({raw,fixture})=>{
+    if(!localStorage.getItem('initialized')){localStorage.setItem('internhunt.v1',raw);localStorage.setItem('initialized','1');}
+    Object.defineProperty(window,'INTERN_MONITOR',{get:()=>fixture,set:()=>{},configurable:true});
+  },{raw,fixture});
+  await page.goto('https://intern.test/intern-hunt.html');
+  await page.locator('#main .card').first().waitFor();
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('internhunt.backup.before-posting-v2')).board),raw,'Backup must preserve exact original before migration');
+  assert.equal(await page.locator('#main .card').count(),1,'Legacy company visa note must not hide company');
+  await page.locator('#discoverTab').click();
+  assert.equal(await page.locator('.monitor-job').count(),4,'Only own explicit blocker and restriction are hidden');
+  await page.locator('#ms').uncheck();
+  assert.equal(await page.locator('.monitor-job').count(),5,'Blocked job retained and revealable');
+  await page.locator('#mc').uncheck();
+  assert.equal(await page.locator('.monitor-job').count(),6,'Citizenship setting is independent');
+  await page.locator('#trackerTab').click();
+  await page.locator('#openScout').click();
+  assert.equal(await page.locator('#scoutBody .scout-item').count(),4,'Scout must include silent and review');
+  await page.locator('[data-u="https://example.com/positive"]').click();
+  await page.evaluate(()=>window.trackMonitorRole({c:'Test Co',t:'Software Intern',u:'https://example.com/positive',l:'VA',posting_text:'F-1/OPT candidates are welcome.'}));
+  await page.waitForTimeout(500);
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('internhunt.v1')));
+  assert.equal(saved.companies[0].postings.length,2,'Saved exact original URL migrates and duplicate addition is idempotent');
+  assert.equal(saved.companies[0].postings.find(p=>p.url.endsWith('/positive')).sponsorship_state,'sponsors');
+  assert.equal(saved.companies[0].postings.find(p=>p.url.endsWith('/blocked')).sponsorship_state,'blocked');
+  assert(saved.companies[0].notes.includes('Keep my notes'));
+  assert.equal(saved.companies[0].referral,'Friend');
+  await page.locator('#sheet .close').click();
+  await page.locator('#openAdd').click();
+  await page.locator('#aName').fill('Other Co');
+  await page.locator('#aSave').click();
+  await page.locator('#selectMode').click();
+  await page.locator('#selectShown').click();
+  assert.match(await page.locator('#selectionCount').textContent(),/^2 /);
+  await page.locator('#q').fill('Test Co');
+  assert.match(await page.locator('#selectionCount').textContent(),/^1 /,'Filter changes clear hidden selections');
+  await page.locator('#viewList').click();
+  assert.equal(await page.locator('[data-select="test"]').isChecked(),true,'Selection survives Board/List change');
+  page.once('dialog',dialog=>dialog.accept());
+  await page.locator('#deleteSelected').click();
+  await page.waitForTimeout(500);
+  let afterDelete=await page.evaluate(()=>JSON.parse(localStorage.getItem('internhunt.v1')));
+  assert.equal(afterDelete.companies.length,1);
+  assert.equal(afterDelete.companies[0].name,'Other Co','Delete must not affect hidden company');
+  assert.equal(afterDelete.taken['https://example.com/positive'],undefined,'Delete clears tracked-URL marker');
+  await page.reload();
+  await page.locator('#undoDelete').click();
+  await page.waitForTimeout(500);
+  let restored=await page.evaluate(()=>JSON.parse(localStorage.getItem('internhunt.v1')));
+  assert.equal(restored.companies.length,2);
+  assert.equal(restored.companies.find(c=>c.id==='test').referral,'Friend');
+  assert.equal(restored.taken['https://example.com/positive'],1);
+  await page.locator('#discoverTab').click();
+  await page.locator('#selectRoles').click();
+  await page.locator('#selectShownRoles').click();
+  page.once('dialog',dialog=>dialog.accept());
+  await page.locator('#deleteRoles').click();
+  assert.equal(await page.locator('.monitor-job').count(),0);
+  await page.reload();
+  assert.equal(await page.locator('.monitor-job').count(),0,'Deleted roles stay hidden after reload');
+  await page.locator('#discoverTab').click();
+  await page.locator('#mf').selectOption('deleted');
+  assert.equal(await page.locator('.monitor-job').count(),6,'Deleted roles remain recoverable');
+  await page.locator('#undoRoles').click();
+  await page.locator('#mf').selectOption('open');
+  assert.equal(await page.locator('.monitor-job').count(),6,'Role undo restores the set');
+  await page.locator('#trackerTab').click();
+  await page.screenshot({path:path.join(root,'../../work/board-desktop.png'),fullPage:false});
+  await page.setViewportSize({width:390,height:844});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mobile page should not overflow');
+  await page.screenshot({path:path.join(root,'../../work/board-mobile.png'),fullPage:false});
+  await page.locator('#discoverTab').click();
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Discovery should fit mobile');
+  await page.evaluate(()=>{const original=URL.createObjectURL;URL.createObjectURL=blob=>{window.lastDownloadBlob=blob;return original(blob);};});
+  await page.locator('#backupBtn').click();
+  const downloaded=JSON.parse(await page.evaluate(()=>window.lastDownloadBlob.text()));
+  assert.equal(downloaded.version,1,'Backup file version remains compatible');
+  assert.equal(downloaded.board.companies.length,2);
+  assert.equal(typeof downloaded.monitor,'object');
+  await page.locator('#exportBtn').click();
+  const csv=await page.evaluate(()=>window.lastDownloadBlob.text());
+  assert.equal(csv.split('\n')[0],'"Priority","Company","Status","Blocker","Applied","Referral","Notes","Links"','CSV columns unchanged');
+  page.once('dialog',dialog=>dialog.accept());
+  await page.locator('#restoreFile').setInputFiles({name:'legacy-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,board:seed,monitor:{jobs:{positive:'applied'}}}))});
+  await page.waitForTimeout(800);
+  assert.equal(await page.locator('#main .card').count(),1,'Old backup format restores');
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('internhunt.monitor.v1')).jobs.positive),'applied');
+  assert(await page.evaluate(()=>Object.keys(localStorage).some(k=>k.startsWith('internhunt.backup.before-restore-'))),'Restore creates recovery snapshot');
+  await page.locator('#openAdd').click();
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'aSave','Dialog traps keyboard focus');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'openAdd','Escape returns focus');
+  await page.evaluate(()=>{storageOK=false;localStorage.setItem('internhunt.v1',JSON.stringify({companies:[],xp:0,created:1}));});
+  await page.reload();
+  assert.equal(await page.locator('#main .card').count(),0,'Empty board survives reload');
+  await page.evaluate(()=>{storageOK=false;localStorage.setItem('internhunt.v1','broken-json');});
+  await page.reload();
+  await page.waitForTimeout(500);
+  assert.equal(await page.evaluate(()=>localStorage.getItem('internhunt.v1')),'broken-json','Malformed original must never be overwritten');
+  assert.deepEqual(errors,[]);
+  const quota=await browser.newPage();
+  await quota.route('https://intern.test/**',r=>r.fulfill({body:fs.readFileSync(path.join(root,'intern-hunt.html')),contentType:'text/html'}));
+  await quota.addInitScript(raw=>{
+    localStorage.setItem('internhunt.v1',raw);
+    const original=Storage.prototype.setItem;
+    Storage.prototype.setItem=function(k,v){if(k.startsWith('internhunt.backup.'))throw new DOMException('Quota exceeded','QuotaExceededError');return original.call(this,k,v);};
+  },raw);
+  await quota.goto('https://intern.test/intern-hunt.html');
+  await quota.waitForTimeout(500);
+  assert.equal(await quota.evaluate(()=>localStorage.getItem('internhunt.v1')),raw,'Failed backup must prevent migration writes');
+  assert.match(await quota.locator('#saveState').textContent(),/Backup failed/);
+  const artifact=path.join(root,'_site/intern-hunt.html');
+  if(fs.existsSync(artifact)){
+    const offline=await browser.newPage();
+    const requested=[];
+    offline.on('request',request=>{if(/^https?:/.test(request.url()))requested.push(request.url());});
+    await offline.goto('file:///'+artifact.replace(/\\/g,'/'));
+    await offline.locator('#main .card').first().waitFor();
+    assert(await offline.locator('.monitor-company').count()>0,'Built standalone file includes the job snapshot');
+    assert.deepEqual(requested,[],'Standalone file has no network dependency for initial render');
+  }
+  await browser.close();
+  console.log('PASS: eligibility, storage migration, company/role bulk deletion, filtered selection, persistent undo, empty board and corrupt storage protection');
+})().catch(e=>{console.error(e);process.exit(1)});

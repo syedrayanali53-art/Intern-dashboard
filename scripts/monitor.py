@@ -24,6 +24,42 @@ INTERN = re.compile(r"\b(intern(?:ship)?s?|co[ -]?op|summer analyst|working stud
 TRACKING = {"source", "ref", "referrer", "gh_src", "lever-source", "lever-origin", "jr_id", "srsltid"}
 CONTEXT = threading.local()
 
+# Keep these patterns aligned with the inline browser classifier; both run the
+# same eligibility_cases.json examples.
+negative = re.compile(r"""\b(?:(?:will\s+not|won't|do\s+not|does\s+not|unable\s+to|cannot|can't|not\s+able\s+to)\s+(?:currently\s+)?(?:offer\s+|provide\s+)?(?:visa\s+)?sponsor(?:ship)?|no\s+(?:visa\s+)?sponsorship(?!\s+restrictions?\b)|sponsorship\s+(?:is\s+)?(?:not\s+available|unavailable|not\s+offered|not\s+provided)|not\s+eligible\s+for\s+sponsorship|without\s+sponsorship\s+now\s+or\s+in\s+the\s+future|without\s+the\s+need\s+for\s+sponsorship|not\s+(?:currently\s+)?(?:offer|provide)\s+(?:visa\s+)?sponsorship)\b""", re.I)
+positive = re.compile(r"""\b(?:(?:will|can|we)\s+sponsor|(?:offer|offers|provide|provides)\s+(?:visa\s+)?(?:sponsorship|immigration\s+(?:support|assistance))|(?:visa\s+)?sponsorship\s+(?:is\s+|will\s+be\s+)?(?:available|offered|provided)|immigration(?:\s+(?:support|assistance))?\s+(?:is\s+|will\s+be\s+)?(?:available|offered|provided)|(?:f[- ]?1|cpt|opt)(?:\s*(?:\/|,|and|or)\s*(?:f[- ]?1|cpt|opt))*\s+(?:(?:visa|candidates?|students?|holders?|applicants?)\s+){0,3}(?:are\s+|is\s+)?(?:welcome|accepted|eligible|supported|works?)|(?:accept|accepts|welcome|welcomes|hire|hires|support|supports)\s+(?:(?:candidates?|students?|on|with|an?|the|under|using|valid|currently)\s+){0,6}(?:f[- ]?1|cpt|opt))\b""", re.I)
+negatedPositive = re.compile(r"""\b(?:(?:not|never|no\s+longer)\s+(?:currently\s+)?(?:offer|provide|accept|welcome|hire|support)\s+(?:(?:visa|immigration|candidates?|students?|on|with|an?|the|under|using|valid|currently)\s+){0,6}(?:sponsorship|support|assistance|f[- ]?1|cpt|opt)|(?:f[- ]?1|cpt|opt)(?:\s*(?:\/|,|and|or)\s*(?:f[- ]?1|cpt|opt))*\s+(?:(?:visa|candidates?|students?|holders?|applicants?)\s+){0,3}(?:are\s+|is\s+)?(?:not|never)\s+(?:welcome|accepted|eligible|supported))\b""", re.I)
+restriction = re.compile(r"""\b(?:(?:us|united\s+states)\s+(?:citizens?|persons?)\s+(?:only|required)|(?:us\s+)?citizenship\s+(?:is\s+)?required|(?:security\s+)?clearance\s+(?:is\s+)?required|must\s+be\s+(?:an?\s+)?(?:us|united\s+states)\s+(?:citizen|person)|(?:must\s+(?:have|hold|obtain|maintain)|required\s+to\s+(?:have|hold|obtain|maintain))\s+(?:an?\s+)?(?:active\s+)?(?:security\s+)?clearance|must\s+be\s+able\s+to\s+(?:obtain|maintain)\s+(?:an?\s+)?(?:security\s+)?clearance)\b""", re.I)
+noRestriction = re.compile(r"""\b(?:(?:no|without)\s+(?:(?:us|united\s+states)\s+)?(?:citizenship|(?:security\s+)?clearance)\s+(?:is\s+)?(?:required|needed)|(?:(?:us|united\s+states)\s+)?(?:citizenship|(?:security\s+)?clearance)\s+(?:is\s+)?not\s+(?:required|needed)|not\s+(?:limited|restricted)\s+to\s+(?:us|united\s+states)\s+citizens?\s+only)\b""", re.I)
+
+
+def classify_posting(record):
+    def plain(value):
+        text = posting_text(value)
+        text = text.replace("’", "'").replace("‘", "'")
+        text = re.sub(r"[‐‑–—]", "-", text)
+        return re.sub(r"\bu\.\s*s\.", "US", text, flags=re.I).strip()
+
+    body = [plain(record.get(k, "")) for k in ("posting_text", "description", "requirements", "qualifications")]
+    body = [part for part in body if part]
+    text = "\n".join([plain(record.get("title") or record.get("t", "")), *body])
+    blocked, sponsors, citizen = False, False, False
+    evidence = []
+    for sentence in re.split(r"[.!?;\n]+", text):
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        neg = bool(negative.search(sentence))
+        pos = bool(positive.search(negatedPositive.sub(" ", negative.sub(" ", sentence))))
+        restricted = bool(restriction.search(noRestriction.sub(" ", sentence)))
+        blocked |= neg
+        sponsors |= pos
+        citizen |= restricted
+        if (neg or pos or restricted) and sentence not in evidence:
+            evidence.append(sentence)
+    return {"sponsorship_state": ("review" if sponsors else "blocked") if blocked else ("sponsors" if sponsors else "silent"),
+            "sponsorship_checked": bool(body), "sponsorship_evidence": evidence, "citizenship_required": citizen}
+
 
 def stamp():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -92,8 +128,11 @@ def job(company, title, address, locations=None, **extra):
     if not isinstance(title, str) or not title.strip():
         raise ValueError("Job title missing")
     address = canonical(address)
-    return {"company": company, "title": html.unescape(title.strip()), "url": address,
-            "locations": [str(x) for x in (locations or []) if x], "active": True, **extra}
+    record = {"company": company, "title": html.unescape(title.strip()), "url": address,
+              "locations": [str(x) for x in (locations or []) if x], "active": True, **extra}
+    if "posting_text" in record:
+        record["posting_text"] = posting_text(record["posting_text"])
+    return record
 
 
 def rows(data, key):
@@ -131,8 +170,8 @@ def _ats_jobs(board, company):
     token = url.quote(token, safe="")
     if kind == "greenhouse":
         base = "boards-api.eu.greenhouse.io" if region else "boards-api.greenhouse.io"
-        data = get_json(f"https://{base}/v1/boards/{token}/jobs")
-        result = [job(company, x["title"], x["absolute_url"], [x.get("location", {}).get("name")], source_ref=str(x["id"])) for x in rows(data, "jobs")]
+        data = get_json(f"https://{base}/v1/boards/{token}/jobs?content=true")
+        result = [job(company, x["title"], x["absolute_url"], [x.get("location", {}).get("name")], source_ref=str(x["id"]), posting_text=x.get("content", "")) for x in rows(data, "jobs")]
     elif kind == "lever":
         base = "api.eu.lever.co" if region else "api.lever.co"
         result = []
@@ -140,7 +179,7 @@ def _ats_jobs(board, company):
             data = get_json(f"https://{base}/v0/postings/{token}?mode=json&skip={offset}&limit=100")
             if not isinstance(data, list):
                 raise ValueError("Invalid Lever response")
-            result.extend(job(company, x["text"], x["hostedUrl"], [x.get("categories", {}).get("location")], source_ref=x["id"], employment=x.get("categories", {}).get("commitment", "")) for x in data)
+            result.extend(job(company, x["text"], x["hostedUrl"], [x.get("categories", {}).get("location")], source_ref=x["id"], employment=x.get("categories", {}).get("commitment", ""), posting_text=[x.get("descriptionPlain") or x.get("description", ""), *[part.get("text", "") + "\n" + part.get("content", "") for part in x.get("lists", [])], x.get("additionalPlain") or x.get("additional", "")]) for x in data)
             if len(data) < 100:
                 break
             time.sleep(.3)
@@ -148,7 +187,7 @@ def _ats_jobs(board, company):
             raise ValueError("Lever pagination limit reached")
     elif kind == "ashby":
         data = get_json(f"https://api.ashbyhq.com/posting-api/job-board/{token}")
-        result = [job(company, x["title"], x["jobUrl"], [x.get("location")] + [l.get("location") for l in x.get("secondaryLocations", [])], source_ref=x["jobUrl"], employment=x.get("employmentType", ""), remote=x.get("isRemote", False), posted_at=x.get("publishedAt", "")) for x in rows(data, "jobs") if x.get("isListed", True)]
+        result = [job(company, x["title"], x["jobUrl"], [x.get("location")] + [l.get("location") for l in x.get("secondaryLocations", [])], source_ref=x["jobUrl"], employment=x.get("employmentType", ""), remote=x.get("isRemote", False), posted_at=x.get("publishedAt", ""), posting_text=x.get("descriptionPlain") or x.get("descriptionHtml", "")) for x in rows(data, "jobs") if x.get("isListed", True)]
     else:
         tenant = region.split(".")[0]
         endpoint = f"https://{region}/wday/cxs/{tenant}/{token}/jobs"
@@ -215,6 +254,18 @@ class Page(HTMLParser):
             self.ld = None
 
 
+def posting_text(value):
+    """Keep only text supplied for this posting, preserving paragraph boundaries."""
+    if isinstance(value, list):
+        return "\n".join(filter(None, (posting_text(item) for item in value)))
+    if not isinstance(value, str):
+        return ""
+    raw = re.sub(r"</?(?:p|div|li|br|h[1-6])\b[^>]*>", "\n", html.unescape(value), flags=re.I)
+    page = Page()
+    page.feed(raw)
+    return re.sub(r"[^\S\n]+", " ", " ".join(page.text)).strip()
+
+
 def walk(value):
     if isinstance(value, dict):
         yield value
@@ -260,7 +311,7 @@ def page_jobs(address, company):
                 if item.get("addressLocality"):
                     locations.append(", ".join(str(item[k]) for k in ("addressLocality", "addressRegion", "addressCountry") if item.get(k)))
             expiry = str(x.get("validThrough", ""))[:10]
-            result.append(job(company, title, url.urljoin(final, x.get("url") or final), locations, active=not(expiry and expiry < stamp()[:10]), posted_at=x.get("datePosted", "")))
+            result.append(job(company, title, url.urljoin(final, x.get("url") or final), locations, active=not(expiry and expiry < stamp()[:10]), posted_at=x.get("datePosted", ""), posting_text=[x.get(k, "") for k in ("description", "qualifications", "skills", "experienceRequirements", "educationRequirements")]))
     if result:
         return result, False, "structured page (partial coverage)"
     # A link is a discovery lead, not a verified open requisition.
@@ -294,7 +345,7 @@ def collect(source):
                     raise ValueError("Repository schema changed")
                 if not x.get("url"):
                     continue
-                result.append(job(x["company_name"], x["title"], x["url"], x.get("locations", []), active=x["active"] and x.get("is_visible", True), source_ref=str(x["id"]), season=x.get("season", ""), sponsorship=x.get("sponsorship", "Other"), posted_at=x.get("date_posted", "")))
+                result.append(job(x["company_name"], x["title"], x["url"], x.get("locations", []), active=x["active"] and x.get("is_visible", True), source_ref=str(x["id"]), season=x.get("season", ""), sponsorship=x.get("sponsorship", "Other"), posted_at=x.get("date_posted", ""), posting_text=[x.get(k, "") for k in ("description", "requirements", "qualifications")]))
             return {"jobs": result, "complete": True, "method": "repository"}
         if provider(source["url"]):
             result, complete, method = ats_jobs(source["url"], source["company"])
@@ -329,7 +380,7 @@ def reconcile(old, results, sources, config, now):
     data.setdefault("events", [])
     data.setdefault("notifications", [])
     before = {key: value["status"] for key, value in data["jobs"].items()}
-    old_details = {key: {k: value.get(k) for k in ("title", "locations", "season", "sponsorship")} for key, value in data["jobs"].items()}
+    old_details = {key: {k: {**value, **classify_posting(value)}.get(k) for k in ("title", "locations", "season", "sponsorship", "sponsorship_state", "citizenship_required")} for key, value in data["jobs"].items()}
     changed_ids, event_eligible = set(), set()
     aliases = {normalized_company(n): c for c in config["companies"] for n in [c["name"], *c.get("aliases", [])]}
     known_urls = {x["url"]: key for key, x in data["jobs"].items()}
@@ -366,7 +417,10 @@ def reconcile(old, results, sources, config, now):
             known_urls[x["url"]] = key
             record = data["jobs"].get(key, {"id": key, "first_seen": now, "observations": {}})
             matching = aliases.get(normalized_company(x["company"]))
-            record.update({k: v for k, v in x.items() if k not in ("active", "source_ref", "verified")})
+            # A community summary must not erase the same posting's employer text.
+            record.update({k: v for k, v in x.items() if k not in ("active", "source_ref", "verified", "posting_text")})
+            if x.get("posting_text") and (source["kind"] != "repo" or not record.get("posting_text") or record.get("posting_text_source") == sid):
+                record.update(posting_text=x["posting_text"], posting_text_source=sid)
             record.update(company_id=matching["id"] if matching else None, priority=matching["priority"] if matching else "P4", last_seen=now)
             record["observations"][sid] = {"state": "open" if x["active"] else "closed", "last_seen": now, "last_check": now, "missing": 0, "source_ref": x.get("source_ref"), "verified": x.get("verified", True)}
             data["jobs"][key] = record
@@ -387,8 +441,9 @@ def reconcile(old, results, sources, config, now):
                 if baseline:
                     event_eligible.add(key)
         data["sources"][sid] = meta
-    excluded_roles = {(normalized_company(record["company"]), record["title"].casefold()) for record in data["jobs"].values() if record.get("sponsorship") in ("U.S. Citizenship is Required", "Does Not Offer Sponsorship")}
-    excluded_jobs = {key for key, record in data["jobs"].items() if (normalized_company(record["company"]), record["title"].casefold()) in excluded_roles}
+    for record in data["jobs"].values():
+        record.update(classify_posting(record))
+    excluded_jobs = {key for key, record in data["jobs"].items() if record["sponsorship_state"] == "blocked" or record["citizenship_required"]}
     new_events = []
     for key in changed_ids:
         record = data["jobs"][key]

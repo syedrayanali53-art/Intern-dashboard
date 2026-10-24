@@ -13,9 +13,6 @@ on:
     paths:
       - intern-hunt.html
       - index.html
-      - monitor-ui.js
-      - monitor.css
-      - storage.js
       - scripts/**
       - data/companies.json
       - .github/workflows/update-jobs.yml
@@ -44,7 +41,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test detection rules
-        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+        run: |
+          python -m unittest discover -s scripts -p 'test_*.py' -v
+          node scripts/test_eligibility.cjs
       - name: Check feeds and careers pages
         id: check
         continue-on-error: true
@@ -72,22 +71,16 @@ jobs:
             git commit -m "Save internship alert receipts"
             git push
           fi
+      - name: Prepare GitHub Pages site
+        if: steps.check.outcome == 'success'
+        run: python scripts/publish.py
       - name: Downloadable updated board
-        if: always()
+        if: steps.check.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: intern-hunt-board
-          path: |
-            intern-hunt.html
-            storage.js
-            monitor-ui.js
-            monitor.css
-            data/monitor-data.js
+          path: _site/intern-hunt.html
           retention-days: 14
-      - name: Prepare GitHub Pages site
-        if: steps.check.outcome == 'success'
-        run: |
-          python scripts/publish.py
       - name: Configure GitHub Pages
         if: steps.check.outcome == 'success'
         uses: actions/configure-pages@v5

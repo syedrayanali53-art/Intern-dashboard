@@ -1,278 +1,155 @@
+<!doctype html>
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Intern Hunt</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600;12..96,75..100,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#F0F1EC; --panel:#FBFBF7; --ink:#16181A; --ink-soft:#5C6168;
-  --pink:#FF48B0; --orange:#FF6C2F; --blue:#0078BF; --green:#00A95C;
-  --yellow:#FFE800; --grey:#8A9099; --rule:#D6D8D0;
-  --font-d:"Bricolage Grotesque","Archivo",system-ui,sans-serif;
-  --font-b:"Archivo",system-ui,-apple-system,sans-serif;
-  --font-m:"Space Mono",ui-monospace,Menlo,monospace;
-}
+:root{--paper:#f5f6f3;--panel:#fff;--ink:#1e302c;--ink-soft:#61726c;--rule:#d9e1da;--green:#16715b;--blue:#246c9c;--orange:#a74724;--pink:#16715b;--font-b:system-ui,-apple-system,"Segoe UI",sans-serif;--font-m:var(--font-b);--font-d:var(--font-b)}
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
-body{
-  background:var(--paper);color:var(--ink);font-family:var(--font-b);
-  font-size:15px;line-height:1.45;padding:0 0 90px;
-  -webkit-font-smoothing:antialiased;
-}
-/* paper grain */
-body::after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
-}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--font-b);padding-bottom:50px}
 button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer;background:none;border:none}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
-
-.wrap{max-width:1500px;margin:0 auto;padding:0 20px}
-.mono{font-family:var(--font-m);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
-
-/* ---------- masthead ---------- */
-.masthead{padding:26px 0 16px;border-bottom:3px solid var(--ink)}
-.eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;color:var(--ink-soft)}
-.eyebrow b{color:var(--ink)}
-.title-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-top:6px}
-h1{
-  font-family:var(--font-d);font-weight:800;font-size:clamp(46px,8.4vw,104px);
-  line-height:.83;letter-spacing:-.035em;text-transform:uppercase;position:relative;
-  isolation:isolate;
-}
-h1 .ghost{position:absolute;left:-3px;top:3px;color:var(--pink);mix-blend-mode:multiply;z-index:-1;opacity:.85}
-.tagline{max-width:34ch;color:var(--ink-soft);font-size:14.5px;padding-bottom:6px}
-.tagline b{color:var(--ink);font-weight:700}
-
-/* ---------- ink bar (signature) ---------- */
-.ink-wrap{margin:20px 0 0}
-.ink-bar{position:relative;height:42px;border:2px solid var(--ink);background:var(--panel);overflow:hidden;isolation:isolate}
-.ink-seg{position:absolute;top:0;bottom:0;mix-blend-mode:multiply;transition:width .55s cubic-bezier(.2,.8,.25,1),left .55s cubic-bezier(.2,.8,.25,1)}
-.ink-seg::after{
-  content:"";position:absolute;inset:0;opacity:.34;
-  background-image:radial-gradient(currentColor 1.1px,transparent 1.2px);
-  background-size:6px 6px;color:#000;
-}
-.ink-key{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:9px}
-.key{display:flex;align-items:center;gap:7px;background:none;padding:2px 0;border-bottom:2px solid transparent}
-.key[aria-pressed="true"]{border-bottom-color:var(--ink)}
-.key .swatch{width:13px;height:13px;border:1.5px solid var(--ink)}
-.key .n{font-family:var(--font-m);font-weight:700;font-size:13px}
-.key .l{font-size:12.5px;color:var(--ink-soft)}
-
-/* ---------- toolbar ---------- */
-.toolbar{
-  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
-  padding:14px 0;border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:60;
-  background:var(--paper);
-}
-.search{
-  flex:1 1 210px;min-width:180px;display:flex;align-items:center;gap:8px;
-  border:2px solid var(--ink);background:var(--panel);padding:7px 11px;
-}
-.search input{border:none;background:none;outline:none;width:100%;font-size:14px}
-.chips{display:flex;gap:5px;flex-wrap:wrap}
-.chip{
-  border:2px solid var(--ink);padding:5px 11px;background:var(--panel);
-  font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
-  transition:transform .08s;
-}
-.chip:active{transform:translateY(1px)}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.chip.p1[aria-pressed="true"]{background:var(--pink);color:var(--ink)}
-.chip.p2[aria-pressed="true"]{background:var(--orange);color:var(--ink)}
-.chip.p3[aria-pressed="true"]{background:var(--blue);color:#fff}
-.chip.p4[aria-pressed="true"]{background:var(--grey);color:#fff}
-.btn{
-  border:2px solid var(--ink);background:var(--ink);color:var(--paper);
-  padding:7px 13px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;
-  text-transform:uppercase;box-shadow:3px 3px 0 var(--pink);transition:.1s;
-}
-.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--pink)}
-.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
-.btn.ghost{background:var(--panel);color:var(--ink);box-shadow:3px 3px 0 var(--blue)}
-.btn.ghost:hover{box-shadow:4px 4px 0 var(--blue)}
-.seg{display:flex;border:2px solid var(--ink)}
-.seg button{padding:6px 12px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;background:var(--panel)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.spacer{flex:1}
-
-/* ---------- scoreboard ---------- */
-.score{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch;padding:16px 0 4px}
-.lvl{
-  border:2px solid var(--ink);background:var(--panel);padding:11px 15px;
-  display:flex;align-items:center;gap:14px;min-width:250px;box-shadow:4px 4px 0 var(--yellow);
-}
-.lvl .num{font-family:var(--font-d);font-weight:800;font-size:42px;line-height:.8;letter-spacing:-.04em}
-.lvl .meta{flex:1}
-.xpbar{height:9px;border:1.5px solid var(--ink);background:var(--paper);margin-top:6px;position:relative;overflow:hidden}
-.xpbar i{position:absolute;inset:0 auto 0 0;background:var(--green);transition:width .6s cubic-bezier(.2,.8,.25,1)}
-.stat{border:2px solid var(--ink);background:var(--panel);padding:10px 15px;min-width:104px}
-.stat .n{font-family:var(--font-d);font-weight:800;font-size:31px;line-height:1;letter-spacing:-.03em}
-.stat .l{color:var(--ink-soft);font-size:11.5px;margin-top:2px}
-.stamps{display:flex;flex-wrap:wrap;gap:9px;align-items:center;padding:14px 0 0}
-.stamp{
-  font-family:var(--font-m);font-weight:700;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
-  border:2.5px solid var(--pink);color:#D0227F;padding:5px 10px;border-radius:3px;
-  transform:rotate(-2.5deg);opacity:.92;mix-blend-mode:multiply;white-space:nowrap;
-}
-.stamp:nth-child(even){transform:rotate(2deg);border-color:var(--blue);color:#00629C}
-.stamp:nth-child(3n){transform:rotate(-1deg);border-color:var(--green);color:#00713D}
-.stamp.locked{border-color:var(--rule);color:#979C92;transform:none;mix-blend-mode:normal}
-
-/* ---------- board ---------- */
-.board{display:flex;gap:14px;padding:20px 0 0;overflow-x:auto;align-items:flex-start;scrollbar-width:thin}
-.col{flex:0 0 268px;min-width:268px}
-.col-head{
-  border:2px solid var(--ink);padding:7px 11px;display:flex;align-items:center;gap:9px;
-}
-.col-head .dot{width:12px;height:12px;border:1.5px solid var(--ink)}
-.col-head h2{font-family:var(--font-m);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;flex:1}
-.col-head .ct{font-family:var(--font-m);font-size:12px;font-weight:700}
-.col-body{min-height:70px;padding:9px 0;display:flex;flex-direction:column;gap:9px}
-.col-body.over{background:rgba(255,72,176,.1);outline:2.5px dashed var(--pink);outline-offset:3px}
-
-.card{
-  position:relative;border:2px solid var(--ink);background:var(--panel);padding:10px 11px 9px;
-  cursor:grab;transition:transform .1s;
-}
-.card::before{
-  content:"";position:absolute;inset:0;border:2px solid var(--pink);
-  mix-blend-mode:multiply;opacity:0;transform:translate(0,0);transition:.13s;pointer-events:none;
-}
-.card:hover::before{opacity:1;transform:translate(-3px,3px)}
-.card:hover{transform:translate(1px,-1px)}
-.card.dragging{opacity:.42;cursor:grabbing}
-.card .pri{
-  position:absolute;top:-2px;right:10px;width:26px;height:16px;border:2px solid var(--ink);
-  font-family:var(--font-m);font-size:9px;font-weight:700;display:grid;place-items:center;
-}
-.card h3{font-size:14.5px;font-weight:700;line-height:1.22;padding-right:32px;letter-spacing:-.012em}
-.card .sub{color:var(--ink-soft);font-size:11.5px;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card .foot{display:flex;align-items:center;gap:7px;margin-top:8px;flex-wrap:wrap}
-.tagx{font-family:var(--font-m);font-size:9px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--rule);padding:1px 5px;color:var(--ink-soft)}
-.tagx.warn{border-color:var(--orange);color:#C0421A}
-.tagx.new{border-color:var(--green);color:#00713D}
-.card .go{margin-left:auto;font-family:var(--font-m);font-size:10px;text-decoration:none;border-bottom:1.5px solid var(--blue);color:var(--blue)}
-.empty{border:2px dashed var(--rule);padding:14px 11px;color:var(--ink-soft);font-size:12.5px;text-align:center}
-
-/* ---------- list ---------- */
-table{width:100%;border-collapse:collapse;margin-top:18px;background:var(--panel)}
-th,td{text-align:left;padding:8px 10px;border-bottom:1.5px solid var(--rule);font-size:13.5px;vertical-align:top}
-th{font-family:var(--font-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2.5px solid var(--ink);position:sticky;top:var(--tbh,68px);z-index:5;background:var(--paper);cursor:pointer;white-space:nowrap}
-tbody tr{cursor:pointer}
-tbody tr:hover{background:rgba(0,120,191,.075)}
-td.c-note{color:var(--ink-soft);font-size:12px;max-width:330px}
-.pill{display:inline-block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:1px 6px;white-space:nowrap}
-
-/* ---------- drawer / modal ---------- */
-.scrim{position:fixed;inset:0;background:rgba(22,24,26,.42);z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}
-.scrim.on{opacity:1;pointer-events:auto}
-.sheet{
-  position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--paper);
-  border-left:3px solid var(--ink);z-index:201;transform:translateX(101%);
-  transition:transform .28s cubic-bezier(.2,.85,.3,1);overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.sheet-hd{flex:0 0 auto;position:relative;padding:18px 22px 13px;border-bottom:2px solid var(--ink);background:var(--paper)}
-.sheet-bd{flex:1 1 auto;overflow-y:auto;padding:4px 22px 70px;-webkit-overflow-scrolling:touch}
-.sheet.on{transform:none}
-.sheet h2{font-family:var(--font-d);font-weight:800;font-size:29px;line-height:.98;letter-spacing:-.03em;padding-right:44px}
-.sheet .close{position:absolute;top:15px;right:18px;font-size:24px;line-height:1;width:34px;height:34px;border:2px solid var(--ink);background:var(--panel)}
-.field{margin-top:15px}
-.field > label{display:block;font-family:var(--font-m);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
-.field input,.field textarea,.field select{
-  width:100%;border:2px solid var(--ink);background:var(--panel);padding:8px 10px;font-size:14px;outline:none;
-}
-.field textarea{min-height:76px;resize:vertical;line-height:1.4}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.statgrid button{border:2px solid var(--ink);background:var(--panel);padding:7px 4px;font-family:var(--font-m);font-size:10px;letter-spacing:.04em;text-transform:uppercase}
-.statgrid button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.linklist{display:flex;flex-direction:column;gap:6px}
-.linklist a{font-family:var(--font-m);font-size:11.5px;word-break:break-all;border:2px solid var(--blue);padding:7px 9px;text-decoration:none;display:block;background:var(--panel)}
-.linklist a:hover{background:var(--blue);color:#fff}
-.rowbtns{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
-.danger{border:2px solid var(--orange);color:var(--orange);background:var(--panel);padding:7px 13px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase}
-
-/* ---------- scout ---------- */
-.tabs{display:flex;margin-top:13px}
-.tabs button{flex:1;border:2px solid var(--ink);padding:7px 5px;font-family:var(--font-m);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;background:var(--panel)}
-.tabs button+button{border-left:none}
-.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.feed-tools{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0 12px;position:sticky;top:0;background:var(--paper);padding:8px 0 7px;z-index:3;border-bottom:1.5px solid var(--rule)}
-.feed-tools input{flex:1 1 100%;border:2px solid var(--ink);background:var(--panel);padding:7px 10px;font-size:13.5px;outline:none}
-.scout-item .role{font-size:12.5px;font-weight:600;margin-top:2px;color:var(--ink)}
-.scout-item .when{font-family:var(--font-m);font-size:9.5px;color:var(--ink-soft);position:absolute;top:11px;right:12px}
-.more{width:100%;border:2px dashed var(--ink);padding:11px;font-family:var(--font-m);font-size:11px;letter-spacing:.07em;text-transform:uppercase;background:var(--panel);margin-top:4px}
-.attrib{margin-top:20px;padding-top:12px;border-top:1.5px solid var(--rule);font-size:11.5px;color:var(--ink-soft);line-height:1.55}
-.attrib a{color:var(--blue)}
-.scout-item{border:2px solid var(--ink);background:var(--panel);padding:11px 12px;margin-bottom:9px;position:relative}
-.scout-item h4{font-size:15px;font-weight:700;letter-spacing:-.01em}
-.scout-item .meta{display:flex;gap:7px;flex-wrap:wrap;margin:5px 0 6px}
-.scout-item p{font-size:12.5px;color:var(--ink-soft);line-height:1.42}
-.scout-item .acts{display:flex;gap:7px;margin-top:9px;align-items:center;flex-wrap:wrap}
-.mini{border:2px solid var(--ink);background:var(--panel);padding:4px 9px;font-family:var(--font-m);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
-.mini.add{background:var(--green);color:#fff;border-color:var(--ink)}
-.mini.done{background:var(--rule);color:var(--ink-soft);pointer-events:none}
-
-.toast{
-  position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:400;
-  background:var(--ink);color:var(--paper);padding:11px 19px;font-family:var(--font-m);
-  font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:transform .3s cubic-bezier(.2,.9,.3,1);
-  box-shadow:5px 5px 0 var(--pink);max-width:90vw;text-align:center;
-}
-.toast.on{transform:translate(-50%,0)}
-.footnote{margin-top:34px;padding-top:14px;border-top:2px solid var(--ink);color:var(--ink-soft);font-size:12px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
-
-@media (max-width:640px){
-  .wrap{padding:0 14px}
-  .col{flex:0 0 84vw;min-width:84vw}
-  .lvl{min-width:100%}
-  .stat{flex:1 1 40%}
-  th{top:0}
-  .toolbar{position:static}
-}
-@media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important}
-}
+button,summary{cursor:pointer}
+button{background:none;border:none}
+button:disabled{opacity:.5;cursor:default}
+a{color:var(--green)}
+:focus-visible{outline:3px solid #3484b5;outline-offset:3px}
+.wrap{max-width:1480px;margin:auto;padding:0 28px}
+.mono{font-size:12px;color:var(--ink-soft)}
+.masthead{padding:30px 0 22px}
+.eyebrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft)}
+.title-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:12px}
+h1{font-size:clamp(32px,5vw,48px);letter-spacing:-.045em;line-height:1.1;font-weight:750}
+.title-dot{color:var(--green)}.tagline{max-width:33ch;color:var(--ink-soft);font-size:14px}
+.score{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);border-radius:12px;background:white;overflow:hidden;margin-bottom:24px}
+.stat{padding:16px 22px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:14px}.stat:last-child{border:0}
+.stat .n{font-size:28px;font-weight:650;letter-spacing:-.04em}.stat .l{font-size:13px;color:var(--ink-soft)}
+.page-tabs{display:flex;gap:26px;border-bottom:1px solid var(--rule);margin-bottom:4px}
+.page-tabs button{padding:10px 0 14px;border-bottom:3px solid transparent;color:var(--ink-soft);font-size:15px}
+.page-tabs button[aria-pressed=true]{border-color:var(--green);color:var(--ink);font-weight:650}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:16px 0;position:sticky;top:0;background:var(--paper);z-index:60}
+.search{flex:1 1 230px;max-width:420px;min-width:180px;display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--rule);border-radius:7px;background:white}
+.search input{border:0;background:none;min-width:0;width:100%;font-size:14px;outline:none}.search:focus-within{outline:2px solid var(--green)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.spacer{flex:1}
+.chip,.btn,.mini,.danger,.seg button,.tabs button,.more{font-size:12px;padding:8px 12px;border:1px solid var(--rule);background:white;border-radius:6px;white-space:normal;line-height:1.4}
+.chip[aria-pressed=true],.seg button[aria-pressed=true],.tabs button[aria-pressed=true]{background:#e0eee8;border-color:#8db9a8;color:#154f40;font-weight:600}
+.btn,.mini.add{background:var(--green);color:white;border-color:var(--green);font-weight:600}
+.btn.ghost{background:white;color:var(--green)}
+button:hover:not(:disabled){filter:brightness(.96)}
+.danger{border-color:#e6b8a9;color:#9b3624}.mini{text-decoration:none;display:inline-block}.mini.done{color:var(--ink-soft);background:#eef2ef;pointer-events:none}
+.seg{display:flex;gap:3px;padding:3px;background:#e9ede8;border-radius:8px}.seg button{border-color:transparent}
+.filter-menu{position:relative;font-size:13px}.filter-menu>summary{padding:9px 12px;border:1px solid var(--rule);border-radius:7px;background:white;list-style:none}.filter-menu>summary:after{content:" ▾"}
+.filter-options{position:absolute;top:46px;left:0;width:300px;background:white;border:1px solid var(--rule);box-shadow:0 8px 24px #20392a18;border-radius:9px;padding:16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.filter-options small{color:var(--ink-soft);font-size:12px}
+.board{display:flex;gap:12px;overflow:auto;align-items:stretch;scrollbar-width:thin;padding-bottom:12px;max-height:65vh}
+.col{flex:1 0 238px;min-width:238px;background:#eaf0ea80;border-radius:9px;padding:0 8px 8px}
+.col-head{padding:13px 6px;display:flex;align-items:center;gap:8px;position:sticky;top:0;background:#eaf0ea!important;z-index:2;border-radius:8px}
+.col-head h2{font-size:12px;font-weight:650;flex:1}.dot{width:8px;height:8px;border-radius:50%}.ct{font-size:12px;color:var(--ink-soft)}
+.col-body{display:flex;flex-direction:column;gap:8px;min-height:140px}.col-body.over{outline:2px dashed var(--green);outline-offset:3px}
+.card{position:relative;padding:14px 12px 12px;border:1px solid var(--rule);border-radius:7px;background:white;cursor:grab}
+.card:hover{border-color:#8caf9c;box-shadow:0 2px 6px #20392a0c}.card.dragging{opacity:.4}
+.card .pri{position:absolute;top:12px;right:10px;border-radius:4px;font-size:10px;padding:1px 5px;font-weight:600}
+.card h3{font-size:14px;line-height:1.35;padding-right:32px;font-weight:650}
+.card .sub{font-size:12px;color:var(--ink-soft);margin-top:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.card .foot{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px}.card .go{font-size:12px;margin-left:auto;text-decoration:none}
+.tagx,.pill{display:inline-block;border-radius:4px;font-size:11px;padding:2px 6px;border:1px solid var(--rule);color:var(--ink-soft);background:#f8faf7}
+.tagx.warn{border-color:#efc68d;background:#fff7e7;color:#8a4f15}.tagx.new{background:#e8f3ed;color:#166148}
+.empty{padding:20px 10px;color:var(--ink-soft);font-size:13px;text-align:center;border:1px dashed var(--rule);border-radius:7px}
+#main{overflow-x:auto}.board-help{font-size:12px;color:var(--ink-soft);margin-top:10px}
+table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--rule);margin-top:4px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--rule);font-size:13px;vertical-align:top}
+th{font-size:11px;font-weight:600;color:var(--ink-soft);background:#edf2ed;white-space:nowrap}
+th[data-s]{cursor:pointer}tbody tr{cursor:pointer}tbody tr:hover{background:#f3f7f2}td.c-note{max-width:330px;font-size:12px;color:var(--ink-soft)}
+.scrim{position:fixed;inset:0;background:#142c2466;z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;inset:0 0 0 auto;width:min(560px,100%);background:var(--paper);border-left:1px solid var(--rule);z-index:201;transform:translateX(101%);transition:transform .22s;overflow:hidden;display:flex;flex-direction:column;visibility:hidden}
+.sheet.on{transform:none;visibility:visible}
+.sheet-hd{position:relative;flex:none;padding:24px;border-bottom:1px solid var(--rule);background:white}
+.sheet-bd{flex:1;overflow:auto;padding:6px 24px 50px}
+.sheet h2{font-size:26px;line-height:1.2;letter-spacing:-.025em;padding-right:36px;margin-top:6px}
+.sheet .close{position:absolute;top:20px;right:20px;width:32px;height:32px;border:1px solid var(--rule);border-radius:6px;background:white;font-size:22px}
+.field{margin-top:18px}.field>label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:9px 11px;border:1px solid #b9c9be;border-radius:6px;background:white;font-size:14px}
+.field p{font-size:12px;color:var(--ink-soft)}.field textarea{min-height:88px;resize:vertical}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.statgrid button{padding:9px 4px;border:1px solid var(--rule);border-radius:6px;background:white;font-size:12px}
+.statgrid button[aria-pressed=true]{background:#deeee4;border-color:#79a991;color:#145b42}
+.linklist{display:flex;flex-direction:column;gap:7px}.linklist a{overflow-wrap:anywhere;font-size:12px;padding:10px;border:1px solid var(--rule);border-radius:6px;background:white}
+.rowbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tabs{display:flex;gap:6px;margin-top:18px}.tabs button{flex:1}
+.feed-tools{display:flex;flex-wrap:wrap;gap:6px;position:sticky;top:-6px;background:var(--paper);padding:12px 0;z-index:3}
+.feed-tools input{flex:1 1 100%;width:100%;border:1px solid var(--rule);border-radius:6px;padding:9px;background:white;font-size:13px}
+.scout-item{position:relative;border:1px solid var(--rule);border-radius:8px;background:white;padding:16px;margin-bottom:10px}
+.scout-item h4{font-size:16px;padding-right:75px}.scout-item .role{font-size:14px;margin-top:5px}.scout-item .when{position:absolute;right:14px;top:17px;font-size:10px;color:var(--ink-soft)}
+.scout-item .meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.scout-item p,.attrib{font-size:12px;line-height:1.6;color:var(--ink-soft)}
+.scout-item .acts{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.more{width:100%;border-style:dashed}.attrib{margin-top:24px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,150%);z-index:400;background:var(--ink);color:white;border-radius:8px;padding:12px 20px;font-size:13px;max-width:90vw;text-align:center;transition:transform .2s}.toast.on{transform:translate(-50%,0)}
+.footnote{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:28px;padding-top:18px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:12px}
+@media(max-width:700px){.wrap{padding:0 16px}.masthead{padding-top:20px}.title-row{display:block}.tagline{margin-top:12px;max-width:none}.score{grid-template-columns:repeat(2,1fr)}.stat{padding:12px 16px;border-bottom:1px solid var(--rule)}.stat:nth-child(2){border-right:0}.stat:nth-child(3){border-bottom:0}.stat .n{font-size:24px}.stat .l{font-size:12px}.toolbar{position:static}.search{flex-basis:100%;max-width:none}.toolbar .spacer{display:none}.filter-options{width:280px}.col{flex:0 0 80vw;min-width:80vw}.board{max-height:65vh}.sheet-hd{padding:20px}.sheet-bd{padding:4px 18px 40px}.footnote>.spacer{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-<link rel="stylesheet" href="monitor.css">
+<style id="monitor-styles">
+#monitor{margin:20px 0;padding:0;background:transparent}
+#monitor h2{font-size:25px;margin:0 0 8px}#monitor h3{font-size:18px;margin:20px 0 10px}
+#monitor p{margin:8px 0;color:#46515b;font-size:14px;line-height:1.6}
+.monitor-controls{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;align-items:center}
+.monitor-controls input,.monitor-controls select{font:inherit;max-width:100%;padding:9px;border:1px solid #707780;border-radius:6px;background:white}
+.monitor-controls input{flex:1;min-width:160px}.monitor-controls label{font-size:13px;display:flex;align-items:center;gap:6px}
+.monitor-controls input[type=checkbox]{min-width:0;flex:none}
+.monitor-summary{display:flex;flex-wrap:wrap;gap:8px}.monitor-summary span{background:#e9efea;border-radius:5px;padding:5px 9px;font-size:12px}
+.monitor-jobs{display:grid;gap:10px}
+.monitor-company{margin:0!important;border:1px solid #b9c0c5;border-radius:8px;background:#fff;min-width:0}
+.monitor-company>summary{display:flex;justify-content:space-between;gap:12px;padding:13px 16px;list-style:none;align-items:center}
+.monitor-company>summary::-webkit-details-marker{display:none}
+.monitor-company>summary:before{content:'▸';color:#00784e}.monitor-company[open]>summary:before{content:'▾'}
+.monitor-company>summary span:first-of-type{flex:1;font-weight:700}.monitor-company>summary span:last-of-type{font-size:12px;color:#46515b}
+.monitor-company-jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px;padding:0 12px 12px}
+.monitor-job{padding:16px;border:1px solid #b9c0c5;border-radius:8px;background:white;min-width:0}
+.monitor-job h3{font-size:16px!important;margin:4px 0!important;line-height:1.4}.monitor-job p{font-size:12px!important;margin:5px 0!important}
+.monitor-job .event{font-size:11px;letter-spacing:.05em;font-weight:700;text-transform:uppercase;color:#00784e}
+.monitor-job .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.monitor-job a{font-size:13px}
+#monitor details{margin-top:18px}#monitor summary{cursor:pointer;font-weight:600}.monitor-sources{max-height:360px;overflow:auto;margin-top:10px}
+.monitor-source{border-top:1px solid #d5dadd;padding:9px 0;font-size:13px;overflow-wrap:anywhere}.monitor-source small{display:block;color:#555}
+.monitor-warning{border-left:4px solid #b75a00;padding:8px 12px;background:#fff0d8}
+#monitor button:focus-visible,#monitor a:focus-visible,#monitor input:focus-visible,#monitor select:focus-visible,#monitor summary:focus-visible{outline:3px solid #0078bf;outline-offset:3px}
+.bulk-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:12px 16px;margin:10px 0;border:1px solid var(--rule);background:#eef4f3;border-radius:8px}
+.bulk-bar[hidden]{display:none}.bulk-bar button:disabled{opacity:.45;cursor:default}
+.selection-box{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:10px}.selection-box input{width:18px;height:18px;accent-color:var(--green)}
+.posting-count{font-size:12px;color:var(--ink-soft);margin:8px 0}.saved-posting{padding:12px 0;border-top:1px solid var(--rule)}.saved-posting details{font-size:12px;margin-top:8px}
+</style>
 
 <div class="wrap">
 
   <header class="masthead">
     <div class="eyebrow mono">
-      <span>Log <b id="issueNo">Nº1</b></span>
-      <span>Compiled from your sheet</span>
+      <span>Personal internship tracker</span>
       <span id="saveState">Saving locally</span>
     </div>
     <div class="title-row">
-      <h1><span class="ghost" aria-hidden="true">Intern<br>Hunt</span>Intern<br>Hunt</h1>
+      <h1>Intern Hunt<span class="title-dot">.</span></h1>
       <p class="tagline" id="tagline"></p>
     </div>
 
-    <div class="ink-wrap">
-      <div class="ink-bar" id="inkBar" role="img" aria-label="Pipeline breakdown"></div>
-      <div class="ink-key" id="inkKey"></div>
-    </div>
   </header>
 
-  <section id="monitor" aria-label="Daily job monitor"></section>
   <div class="score" id="score"></div>
-  <div class="stamps" id="stamps"></div>
+  <nav class="page-tabs" aria-label="Dashboard sections">
+    <button id="trackerTab" aria-pressed="true">My companies</button>
+    <button id="discoverTab" aria-pressed="false">Discover internships</button>
+  </nav>
 
+  <section id="trackerPanel" aria-label="Company tracking">
   <div class="toolbar">
     <label class="search">
       <span class="mono" aria-hidden="true">⌕</span>
       <input id="q" type="search" placeholder="Search companies, notes…" aria-label="Search companies">
     </label>
-    <div class="chips" id="priChips"></div>
+    <details class="filter-menu"><summary>Filters</summary><div class="filter-options">
+    <span>Priority</span><div class="chips" id="priChips"></div>
     <button class="chip" id="hideClosed" aria-pressed="true">Hide closed</button>
-    <button class="chip" id="onlyLive" aria-pressed="false">No visa block</button>
+    <button class="chip" id="onlyLive" aria-pressed="true">Hide no sponsorship</button>
+    <button class="chip" id="showRestricted" aria-pressed="false">Show citizenship / clearance</button>
+    <small>Only a posting’s own wording affects eligibility. Unknown postings stay included.</small>
+    </div></details>
     <span class="spacer"></span>
     <div class="seg" role="group" aria-label="View">
       <button id="viewBoard" aria-pressed="true">Board</button>
@@ -280,12 +157,26 @@ td.c-note{color:var(--ink-soft);font-size:12px;max-width:330px}
     </div>
     <button class="btn ghost" id="openScout">Scout ▸</button>
     <button class="btn" id="openAdd">+ Company</button>
+    <button class="chip" id="selectMode" aria-pressed="false">Select companies</button>
   </div>
 
+  <div id="bulkBar" class="bulk-bar" hidden>
+    <span id="selectionCount" aria-live="polite"></span>
+    <button class="mini" id="selectShown">Select all shown</button>
+    <button class="mini" id="clearSelected">Clear</button>
+    <button class="danger" id="deleteSelected">Delete selected</button>
+    <button class="mini" id="finishSelection">Done</button>
+  </div>
+  <div id="undoBar" class="bulk-bar" hidden><span id="undoLabel"></span><button class="mini" id="undoDelete">Undo deletion</button></div>
   <main id="main"></main>
+  <p class="board-help">Drag companies between stages, or open a card to edit and see its saved roles.</p>
+  </section>
+  <section id="discoverPanel" aria-label="Discover internships" hidden>
+    <section id="monitor" aria-label="Daily job monitor"></section>
+  </section>
 
   <div class="footnote">
-    <span class="mono">Drag a card between columns, or click it to edit.</span>
+    <span>Saved in this browser · back up to keep a copy</span>
     <span class="spacer"></span>
     <button class="mini" id="backupBtn">Back up tracking</button>
     <button class="mini" id="restoreBtn">Restore backup</button>
@@ -299,11 +190,81 @@ td.c-note{color:var(--ink-soft);font-size:12px;max-width:330px}
 
 <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Company details"></aside>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="data/monitor-data.js"></script>
-<script src="storage.js"></script>
-<script>
+<script id="monitor-data">
+window.INTERN_MONITOR = {jobs:{},sources:{},events:[],companies:[]};
+</script>
+<script id="storage">
+// Preserve original raw values before parsing, migration, or any write.
+window.internStorageSafe = true;
+window.backupInternStorage = function(reason = 'before-posting-v2') {
+  const key = 'internhunt.backup.' + reason;
+  if (localStorage.getItem(key)) return key;
+  const raw = JSON.stringify({at:new Date().toISOString(), board:localStorage.getItem('internhunt.v1'), monitor:localStorage.getItem('internhunt.monitor.v1')});
+  localStorage.setItem(key, raw);
+  if (localStorage.getItem(key) !== raw) throw new Error('Backup could not be verified');
+  return key;
+};
+try { window.backupInternStorage(); }
+catch { window.internStorageSafe = false; }
+window.storage = {
+  async get(key) { const value = localStorage.getItem(key); return value === null ? null : {value}; },
+  async set(key, value) {
+    if (!window.internStorageSafe) throw new Error('Storage backup failed; original data left untouched');
+    localStorage.setItem(key, value); return {key};
+  }
+};
+</script>
+<script id="eligibility">
+/* Posting text only: company reputation and legacy feed labels are not evidence. */
+(() => {
+  'use strict';
+  const negative = /\b(?:(?:will\s+not|won't|do\s+not|does\s+not|unable\s+to|cannot|can't|not\s+able\s+to)\s+(?:currently\s+)?(?:offer\s+|provide\s+)?(?:visa\s+)?sponsor(?:ship)?|no\s+(?:visa\s+)?sponsorship(?!\s+restrictions?\b)|sponsorship\s+(?:is\s+)?(?:not\s+available|unavailable|not\s+offered|not\s+provided)|not\s+eligible\s+for\s+sponsorship|without\s+sponsorship\s+now\s+or\s+in\s+the\s+future|without\s+the\s+need\s+for\s+sponsorship|not\s+(?:currently\s+)?(?:offer|provide)\s+(?:visa\s+)?sponsorship)\b/gi;
+  const positive = /\b(?:(?:will|can|we)\s+sponsor|(?:offer|offers|provide|provides)\s+(?:visa\s+)?(?:sponsorship|immigration\s+(?:support|assistance))|(?:visa\s+)?sponsorship\s+(?:is\s+|will\s+be\s+)?(?:available|offered|provided)|immigration(?:\s+(?:support|assistance))?\s+(?:is\s+|will\s+be\s+)?(?:available|offered|provided)|(?:f[- ]?1|cpt|opt)(?:\s*(?:\/|,|and|or)\s*(?:f[- ]?1|cpt|opt))*\s+(?:(?:visa|candidates?|students?|holders?|applicants?)\s+){0,3}(?:are\s+|is\s+)?(?:welcome|accepted|eligible|supported|works?)|(?:accept|accepts|welcome|welcomes|hire|hires|support|supports)\s+(?:(?:candidates?|students?|on|with|an?|the|under|using|valid|currently)\s+){0,6}(?:f[- ]?1|cpt|opt))\b/i;
+  // Remove negated acceptance before looking for a positive signal, without
+  // erasing a separate positive clause such as "no sponsorship, OPT welcome".
+  const negatedPositive = /\b(?:(?:not|never|no\s+longer)\s+(?:currently\s+)?(?:offer|provide|accept|welcome|hire|support)\s+(?:(?:visa|immigration|candidates?|students?|on|with|an?|the|under|using|valid|currently)\s+){0,6}(?:sponsorship|support|assistance|f[- ]?1|cpt|opt)|(?:f[- ]?1|cpt|opt)(?:\s*(?:\/|,|and|or)\s*(?:f[- ]?1|cpt|opt))*\s+(?:(?:visa|candidates?|students?|holders?|applicants?)\s+){0,3}(?:are\s+|is\s+)?(?:not|never)\s+(?:welcome|accepted|eligible|supported))\b/gi;
+  const restriction = /\b(?:(?:us|united\s+states)\s+(?:citizens?|persons?)\s+(?:only|required)|(?:us\s+)?citizenship\s+(?:is\s+)?required|(?:security\s+)?clearance\s+(?:is\s+)?required|must\s+be\s+(?:an?\s+)?(?:us|united\s+states)\s+(?:citizen|person)|(?:must\s+(?:have|hold|obtain|maintain)|required\s+to\s+(?:have|hold|obtain|maintain))\s+(?:an?\s+)?(?:active\s+)?(?:security\s+)?clearance|must\s+be\s+able\s+to\s+(?:obtain|maintain)\s+(?:an?\s+)?(?:security\s+)?clearance)\b/i;
+  const noRestriction = /\b(?:(?:no|without)\s+(?:(?:us|united\s+states)\s+)?(?:citizenship|(?:security\s+)?clearance)\s+(?:is\s+)?(?:required|needed)|(?:(?:us|united\s+states)\s+)?(?:citizenship|(?:security\s+)?clearance)\s+(?:is\s+)?not\s+(?:required|needed)|not\s+(?:limited|restricted)\s+to\s+(?:us|united\s+states)\s+citizens?\s+only)\b/gi;
+  const flatten = value => Array.isArray(value) ? value.map(flatten).join('\n') : typeof value === 'string' ? value : '';
+  function plain(value) {
+    return flatten(value)
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<\/?(?:p|div|li|br|h[1-6])\b[^>]*>/gi, '\n')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&(?:amp|lt|gt|quot|apos|nbsp|#39);/gi, entity => ({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'",'&#39;':"'",'&nbsp;':' '})[entity.toLowerCase()])
+      .replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => {
+        const n = code[0].toLowerCase() === 'x' ? parseInt(code.slice(1),16) : Number(code);
+        return n > 0 && n <= 0x10ffff ? String.fromCodePoint(n) : ' ';
+      })
+      .replace(/[‘’]/g, "'").replace(/[‐‑–—]/g, '-')
+      .replace(/\bu\.\s*s\./gi, 'US').replace(/[^\S\n]+/g, ' ').trim();
+  }
+  function classify(record = {}) {
+    const body = ['posting_text','description','requirements','qualifications'].map(key => plain(record[key])).filter(Boolean);
+    const sentences = [plain(record.title || record.t), ...body].join('\n').split(/[.!?;\n]+/).map(s => s.trim()).filter(Boolean);
+    let blocked = false, sponsors = false, citizen = false;
+    const evidence = [];
+    for (const sentence of sentences) {
+      let negativeHere = false;
+      const unblocked = sentence.replace(negative, () => { negativeHere = true; return ' '; });
+      const positiveHere = positive.test(unblocked.replace(negatedPositive, ' '));
+      const restrictionHere = restriction.test(sentence.replace(noRestriction, ' '));
+      blocked ||= negativeHere; sponsors ||= positiveHere; citizen ||= restrictionHere;
+      if ((negativeHere || positiveHere || restrictionHere) && !evidence.includes(sentence)) evidence.push(sentence);
+    }
+    return {
+      sponsorship_state: blocked ? (sponsors ? 'review' : 'blocked') : (sponsors ? 'sponsors' : 'silent'),
+      sponsorship_checked: body.length > 0,
+      sponsorship_evidence: evidence,
+      citizenship_required: citizen
+    };
+  }
+  window.InternEligibility = {classify};
+})();
+</script>
+<script id="app">
 /* ===================== data ===================== */
 const SEED = [{"name":"38 North Security","priority":"P3","links":[],"notes":"no website","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s000"},{"name":"Alarm.com","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s001"},{"name":"Allegion","priority":"P3","links":[],"notes":"none in VA · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s002"},{"name":"Accelevation LLC","priority":"P3","links":["https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s003"},{"name":"Accenture","priority":"P1","links":[],"notes":"none · check","status":"closed","blocker":"","reason":"Applications closed","referral":"","applyDate":"","src":"sheet","id":"s004"},{"name":"Aryaka","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s005"},{"name":"Aireon LLC","priority":"P3","links":["https://aireon.pinpointhq.com/#js-careers-jobs-block"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s006"},{"name":"Amazon","priority":"P1","links":["https://amazon.jobs/en/jobs/2996918/2026-business-analyst-intern","https://amazon.jobs/en/jobs/3037587/2026-program-manager-intern"],"notes":"","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s007"},{"name":"AnaVation LLC","priority":"P2","links":["https://anavationllc.com/careers"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s008"},{"name":"Audley Consulting Group","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s009"},{"name":"Axiologic Solutions LLC","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s010"},{"name":"Appian Corporation","priority":"P2","links":["https://careers.appian.com/jobs?jobs-experience-level=jobs-experience-level%3Acampus&jobs-location=jobs-location%3Amclean--virginia"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s011"},{"name":"Apple","priority":"P1","links":["https://jobs.apple.com/en-us/details/200606142/business-marketing-and-g-a-internships?team=STDNT"],"notes":"acc issue","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s012"},{"name":"Blue Ridge ESOP Associates","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s013"},{"name":"Bluefoot Inc.","priority":"P3","links":[],"notes":"couldnt find","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s014"},{"name":"Asurion","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s015"},{"name":"AT-RISK International LLC","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s016"},{"name":"AT&T","priority":"P1","links":["https://www.att.jobs/technology-programs-and-internships"],"notes":"location issue","status":"tocheck","blocker":"location","reason":"","referral":"","applyDate":"","src":"sheet","id":"s017"},{"name":"CapCenter","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s018"},{"name":"Capital Edge Consulting","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s019"},{"name":"CLA (CliftonLarsonAllen)","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s020"},{"name":"Bank of America","priority":"P1","links":["https://careers.bankofamerica.com/en-us/students/job-detail/12943/global-technology-summer-analyst-2026-business-analyst-multiple-locations"],"notes":"visa issue","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"no","applyDate":"","src":"sheet","id":"s021"},{"name":"Creative Information Technology Inc.","priority":"P3","links":[],"notes":"no internships · check","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s022"},{"name":"Bloomberg","priority":"P1","links":["https://bloomberg.avature.net/careers/SearchJobs/?1686=%5B55479%5D&1686_format=2312&listFilterMode=1&jobRecordsPerPage=12&"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s023"},{"name":"Boeing","priority":"P1","links":[],"notes":"no internships · check/visa issue","status":"applied","blocker":"visa","reason":"","referral":"","applyDate":"","src":"sheet","id":"s024"},{"name":"Boldyn Networks","priority":"P1","links":["https://baicommunications.wd3.myworkdayjobs.com/External"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s025"},{"name":"Booz Allen Hamilton","priority":"P1","links":["https://www.boozallen.com/careers/candidate-resources/application-process-questions.html"],"notes":"check 1 / apply if not other","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s026"},{"name":"BruckEdwards","priority":"P2","links":["https://recruiting.paylocity.com/recruiting/jobs/All/7535baaa-92d9-4c38-aeaa-481adb5b1494/BruckEdwards-Inc"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s027"},{"name":"DCU Solutions","priority":"P3","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s028"},{"name":"Carahsoft","priority":"P3","links":["https://www.carahsoft.com/careers"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s029"},{"name":"Delta Consulting Group","priority":"P4","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s030"},{"name":"Construction Specialties","priority":"P1","links":["https://csgroup.taleo.net/careersection/cs_external_career_section/jobsearch.ftl?lang=en&portal=10100020157"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s031"},{"name":"Credence Management Solutions LLC","priority":"P2","links":["https://careers-credence-llc.icims.com/jobs/search?ss=1&searchKeyword=internship"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s032"},{"name":"CrowdStrike","priority":"P1","links":["https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers?Job_Family=1408861ee6e2015adbe3e7f6b000de0b"],"notes":"check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s033"},{"name":"EMCOR Government Services","priority":"P4","links":["https://recruiting.ultipro.com/EMC1002EMCGI/JobBoard/cc563430-39f7-4c82-bdfe-62f295bd857a/?q=intern&o=relevance&w=Virginia%2C+USA&wc=-78.697948713%2C37.512820504&we=-81.413998713%2C40.228870504%7C-75.98189871299999%2C34.796770504&wpst=3"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s034"},{"name":"CVS Health","priority":"P2","links":[],"notes":"no internships","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s035"},{"name":"ESET North America","priority":"P4","links":["https://jobs.eset.com/en-US/ESET_External?q=intern"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s036"},{"name":"Exor Solutions","priority":"P4","links":["https://exorsolutions.com/31-2"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s037"},{"name":"FanDuel","priority":"P4","links":["https://www.fanduel.careers/future-teammates/early-careers"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s038"},{"name":"Dark Wolf Solutions","priority":"P2","links":["https://darkwolfsolutions.com/join-the-pack#positions"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s039"},{"name":"Darktrace","priority":"P2","links":[],"notes":"no internships · check1","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s040"},{"name":"FINRA","priority":"P3","links":["https://www.finra.org/careers/internships"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s041"},{"name":"Freddie Mac","priority":"P2","links":["https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1","https://careers.freddiemac.com/us/en/c/university-jobs"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s042"},{"name":"Frontpoint Security","priority":"P4","links":["https://www.frontpointsecurity.com/careers?srsltid=AfmBOorCE99WiVsdL-DnXct66Fcw0ryh53BE9l02e7uTtHyTRhhJbRKw"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s043"},{"name":"Deloitte","priority":"P1","links":["https://apply.deloitte.com/en_US/careers/SearchJobs/?9339=%5B478%5D&9339_format=5915&listFilterMode=1&jobSort=relevancy&jobRecordsPerPage=10&jobOffset=0&sort=relevancy","https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Data-Analytics-Summer-2026/309450","https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Discovery-Intern-Sophomore-Junior-Business-Technology-Profile-Summer-2026/306703"],"notes":"checking for referral","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s044"},{"name":"Deltek","priority":"P2","links":["https://sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=25397&siteid=5259#keyWordSearch=internship&locationSearch="],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s045"},{"name":"General Atomics Aeronautical Systems Inc.","priority":"P4","links":["https://www.ga-careers.com/search-jobs"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s046"},{"name":"Dev Technology Group Inc.","priority":"P2","links":["https://devtechnology.com/careers"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s047"},{"name":"Global Impact","priority":"P4","links":["https://charity.org/about/careers"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s048"},{"name":"Goldkiang Group CPA's","priority":"P4","links":["https://ggroupcpas.com/career-planning/current-openings"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s049"},{"name":"Draper","priority":"P3","links":["https://draper.wd5.myworkdayjobs.com/Draper_Careers?q=student+&workerSubType=b9bd15164d241000cf9857a64e2e0000"],"notes":"check nov","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s050"},{"name":"GroupM","priority":"P4","links":["https://jobs.jobvite.com/groupm-na/search?r=USA&c=&s=&q="],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s051"},{"name":"Groupon","priority":"P4","links":[],"notes":"Jobs at Groupon · no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s052"},{"name":"Guidehouse","priority":"P4","links":["https://guidehouse.wd1.myworkdayjobs.com/External?q=internship&locationCountry=bc33aa3152ec42d4995f4791a106ed09&locations=56903c4a7d6b1000e2161c3768580000&locations=ed8529cfb16d100154b01576edca0000&locations=9f4c046589611000e2262c0431020000&locations=56903c4a7d6b1000e215f18d84d20000&locations=9f4c046589611000e22604de25580000&locations=56903c4a7d6b1000e214e8ad7bb40000&locations=56903c4a7d6b1000e2167ec7fdfd0000"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s053"},{"name":"Halfaker and Associates LLC","priority":"P3","links":["https://jobs.saic.com/pages/candidate-resources"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s054"},{"name":"ECS Federal","priority":"P2","links":["https://myjobs.adp.com/ecsdataandaijobs/cx/job-listing?keyword=intern"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s055"},{"name":"Ellucian","priority":"P2","links":["https://careers.ellucian.com/jobs?tags1=Intern&page=1"],"notes":"def check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s056"},{"name":"ID.me","priority":"P4","links":["https://job-boards.greenhouse.io/idme?keyword=internship"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s057"},{"name":"ImageX","priority":"P4","links":["https://imagexmedia.com/careers"],"notes":"no internship","status":"closed","blocker":"","reason":"No intern openings found","referral":"","applyDate":"","src":"sheet","id":"s058"},{"name":"Intellias","priority":"P4","links":["https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjR-JvZ8fOOAxURITQIHdmrFJAQFnoECBwQAQ&url=https%3A%2F%2Fcareer.intellias.com%2F&usg=AOvVaw34j7SAVUrGKF54ci8PhfPJ&opi=89978449"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s059"},{"name":"Epic Systems","priority":"P2","links":["https://careers.epic.com/jobs/?search=intern&educationTypeIds=&positionTypeIds="],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s060"},{"name":"Ernst & Young","priority":"P1","links":["https://usearlycareers.ey.com/search-jobs/Virginia%2C%20US/39053/3/6252001-6254928/37x54812/-77x44675/50/2"],"notes":"checking for referral","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s061"},{"name":"Kerecis","priority":"P4","links":["https://recruiting.paylocity.com/Recruiting/Jobs/All/8c93875e-3025-4992-8cf6-e0631956008f/Kerecis-LLC?location=All%20Locations&department=All%20Departments"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s062"},{"name":"Fannie Mae","priority":"P2","links":["https://www.fanniemae.com/careers/search-all-jobs#q=intern&first=10&sort=relevancy&f:@joblocation=[Reston%2C%20Virginia,Washington%2C%20District%20of%20Columbia]&f:@jobfamilycluster=[Technology,Risk%20Management,Analytics%20and%20Modeling]"],"notes":"def check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s063"},{"name":"FedEx","priority":"P2","links":["https://careers.fedex.com/career-areas/student-programs/jobs?page_size=10&sort_by=score&sort_order=DESC&page_number=1&keyword=Internships"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s064"},{"name":"Linked XL","priority":"P4","links":[],"notes":"meh","status":"idea","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s065"},{"name":"Lockwood Hills","priority":"P3","links":["https://careers.akima.com/jobs?keywords=internship&page=1&sortBy=relevance&_gl=1*oym7fo*_gcl_au*MjExNTgyMTgxMy4xNzU0NDg2MjM1*_ga*MTcxOTA3ODYuMTc1NDQ4NjIzNg..*_ga_TWXK1S15BJ*czE3NTQ0ODYyMzYkbzEkZzEkdDE3NTQ0ODYyNDMkajUzJGwwJGgw"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s066"},{"name":"Lovelytics","priority":"P3","links":["https://lovelytics.com/careers-culture"],"notes":"apply anyway, check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s067"},{"name":"Lumen","priority":"P3","links":["https://jobs.lumen.com/global/en/university-entry-level"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s068"},{"name":"MassMutual","priority":"P3","links":["https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s069"},{"name":"Metaformers","priority":"P3","links":["https://metaformers.catsone.com/careers"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s070"},{"name":"MicroHealth LLC","priority":"P3","links":["https://microhealthllc.applytojob.com/apply"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s071"},{"name":"Freeman","priority":"P3","links":["https://career8.successfactors.com/career?company=freemanP1&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH&_s.crb=7nqXXzAxCmIiH24GOz1h6eUHSl5zPQYVqlMJXhTPgZo%3d"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s072"},{"name":"Gartner","priority":"P2","links":["https://jobs.gartner.com/jobs/?search=\"internships\"&contractType=&pagesize=20"],"notes":"def check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s073"},{"name":"GDIT","priority":"P1","links":["https://www.gdit.com/careers/search/?q=internship"],"notes":"check1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s074"},{"name":"Mythics","priority":"P3","links":["https://external-mythics.icims.com/jobs/search?ss=1&searchCategory=19787"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s075"},{"name":"GEICO","priority":"P1","links":["https://careers.geico.com"],"notes":"visa issue","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s076"},{"name":"GDIT (Early Talent)","priority":"P2","links":["https://gdit.wd5.myworkdayjobs.com/GDIT_EarlyTalent"],"notes":"apply","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s077"},{"name":"Google","priority":"P1","links":["https://www.google.com/about/careers/applications/jobs/results/?company=Fitbit&company=Google&company=YouTube&distance=50&employment_type=INTERN&location=Virginia%2C%20USA&location=Washington%20D.C.%2C%20DC%2C%20USA"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s078"},{"name":"Hilton","priority":"P1","links":["https://jobs.hilton.com/us/en/us-early-talent?from=10&s=1&rk=l-us-early-talent"],"notes":"check","status":"closed","blocker":"","reason":"Rejected","referral":"","applyDate":"","src":"sheet","id":"s079"},{"name":"NVR Settlement Services Inc.","priority":"P3","links":["https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?org=NVRINC&cws=52"],"notes":"check prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s080"},{"name":"OAG Aviation Worldwide","priority":"P4","links":["https://www.oag.com/careers"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s081"},{"name":"IBM","priority":"P1","links":["https://www.ibm.com/careers/search?field_keyword_18[0]=Internship&field_keyword_05[0]=United%20States"],"notes":"def check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s082"},{"name":"Peloton Interactive","priority":"P4","links":["https://careers.onepeloton.com/en/all-jobs/?page=2#results"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s083"},{"name":"PepsiCo","priority":"P3","links":["https://www.pepsicojobs.com/internshipsprograms/jobs?page=1&keywords=intern&sortBy=relevance"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s084"},{"name":"Perfecta","priority":"P4","links":[],"notes":"Careers – Perfecta · prob not","status":"idea","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s085"},{"name":"Quadrant Strategies","priority":"P3","links":["https://quadrantstrategies.com/careers-4"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s086"},{"name":"Quorum","priority":"P3","links":["https://www.quorum.us/about/careers/#available-positions"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s087"},{"name":"Ignyte Group","priority":"P3","links":["https://ignytegroup1.applytojob.com/apply"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s088"},{"name":"JDSAT Inc.","priority":"P2","links":["https://www.jdsat.com/careers"],"notes":"defo check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s089"},{"name":"SES Networks","priority":"P3","links":["https://careers.ses.com/go/Interns-and-Students/4312101"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s090"},{"name":"Sherwin-Williams","priority":"P3","links":["https://ejhp.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=CATEGORIES&mode=job-location&selectedCategoriesFacet=300000128388599"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s091"},{"name":"Software AG","priority":"P4","links":["https://jobs.dayforcehcm.com/en-US/sagann/CANDIDATEPORTAL"],"notes":"prob not","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s092"},{"name":"Splunk","priority":"P1","links":["https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s093"},{"name":"Surescripts","priority":"P3","links":["https://surescripts.wd1.myworkdayjobs.com/surescriptscareers?q=intern"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s094"},{"name":"Kearney & Company","priority":"P1","links":["https://careers.kearneyco.com/jobs?tags3=College%20Hires%20and%20Interns"],"notes":"apply","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s095"},{"name":"TaylorMade","priority":"P3","links":["https://taylormadegolf.wd5.myworkdayjobs.com/taylormadegolf?q=internship"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s096"},{"name":"TechOp Solutions International","priority":"P3","links":["https://techopsolutions.net/careers"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s097"},{"name":"The Cobalt Company","priority":"P3","links":["https://cobalt.net/careers/open-positions"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s098"},{"name":"Vanguard","priority":"P1","links":["https://www.vanguardjobs.com/job-search-results/?level[]=Students"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s099"},{"name":"TrueNorth","priority":"P3","links":["https://truenorthcompanies.com/about-truenorth/careers"],"notes":"check","status":"closed","blocker":"location","reason":"Wrong location","referral":"","applyDate":"","src":"sheet","id":"s100"},{"name":"United Educators","priority":"P3","links":["https://www.ue.org/about-ue/careers/job-openings"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s101"},{"name":"Universal Service Administrative Company","priority":"P3","links":["https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=0c6b0a23-8ff0-4520-97d1-344989a89879&ccId=9200542707248_2&type=JS&lang=en_US"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s102"},{"name":"KPMG","priority":"P1","links":["https://www.kpmguscareers.com/job-search/?career-level=Internship%7C&career-level-parents=&spage=1"],"notes":"defo check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s103"},{"name":"Leidos","priority":"P1","links":["https://careers.leidos.com/pages/intern-jobs?ns_landing_page_jobs=/search/job-level/intern/jobs/in/country/united-states?ns_landing_page=1"],"notes":"check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s104"},{"name":"Lidl US","priority":"P1","links":["https://careers.lidl.com/job-search?page=1&query=intern&midpoint_name=McLean,%20Fairfax%20County&midpoint_lat=38.9376&midpoint_lon=-77.1838&radius=null&sort_field=location.distance&sort_order=asc&filter={\"contract_type\":[],\"employment_area\":[],\"entry_level\":[]}&with_event=true&hash="],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s105"},{"name":"Maximus","priority":"P1","links":["https://maximus.avature.net/careers/SearchJobs/intern/?listFilterMode=1&folderRecordsPerPage=6&folderOffset=24"],"notes":"defoo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s106"},{"name":"Micron Technology Inc.","priority":"P2","links":["https://careers.micron.com/careers?domain=micron.com&query=Intern&start=0&pid=27170503&sort_by=solr"],"notes":"defo check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s107"},{"name":"Microsoft","priority":"P1","links":["https://jobs.careers.microsoft.com/global/en/search?q=internships&lc=United%20States&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s108"},{"name":"MITRE","priority":"P2","links":["https://careers.mitre.org/us/en/search-results?keywords=student"],"notes":"defo check","status":"closed","blocker":"visa","reason":"Visa / citizenship requirement","referral":"","applyDate":"","src":"sheet","id":"s109"},{"name":"Navy Federal Credit Union","priority":"P1","links":["https://fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/nfcu/jobs?keyword=Interns&lastSelectedFacet=LOCATIONS&selectedCategoriesFacet=300000025815473&selectedLocationsFacet=300000010045164%3B300000010092226"],"notes":"apply","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s110"},{"name":"Nestlé","priority":"P1","links":["https://www.nestle.com/jobs/search-jobs?keyword=&country=US&location=&career_area=4711"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s111"},{"name":"Netimpact Strategies Inc.","priority":"P1","links":["https://careers-netimpactstrategies.icims.com/jobs/search?ss=1&searchKeyword=intern"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s112"},{"name":"NTT Data","priority":"P2","links":["https://careers.services.global.ntt/global/en/search-results?keywords=intern"],"notes":"defo check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s113"},{"name":"Oracle","priority":"P1","links":["https://careers.oracle.com/en/sites/jobsearch/jobs?keyword=internship&lastSelectedFacet=locations&mode=location&selectedFlexFieldsFacets=\"AttributeChar14%7CSDR\"&selectedLocationsFacet=300000000106749%3B300000000149325"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s114"},{"name":"Samsung","priority":"P1","links":["https://sec.wd3.myworkdayjobs.com/Samsung_Careers?workerSubType=189767dd6c920145d5c3e59c2c297819&workerSubType=189767dd6c92017ca7ab47a42c298419&locations=189767dd6c9201c7ec227985a529067b"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s115"},{"name":"SAP","priority":"P2","links":["https://jobs.sap.com/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=Student&optionsFacetsDD_country=US"],"notes":"defo check 1","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s116"},{"name":"SimonComputing","priority":"P2","links":["https://simoncomputing.applicantpro.com/jobs"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s117"},{"name":"SPS Consulting","priority":"P1","links":["https://spsconsult.com"],"notes":"apply","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s118"},{"name":"T-Mobile","priority":"P1","links":["https://careers.t-mobile.com/jobs?keyword=internships"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s119"},{"name":"TekSynap","priority":"P1","links":["https://www.teksynap.com/careers/internship-program"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s120"},{"name":"UPS","priority":"P1","links":["https://www.jobs-ups.com/us/en/search-results?keywords=intern"],"notes":"","status":"tocheck","blocker":"","reason":"","referral":"no reply","applyDate":"","src":"sheet","id":"s121"},{"name":"Verizon","priority":"P1","links":["https://mycareer.verizon.com/jobs/?search=internship&pagesize=20#results"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s122"},{"name":"Xcelerate Solutions","priority":"P1","links":["https://jobs.jobvite.com/xceleratesolutions"],"notes":"check","status":"applied","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s123"},{"name":"MetroStar","priority":"P1","links":["https://www.metrostar.com/internships/#internshipseason"],"notes":"check","status":"tocheck","blocker":"","reason":"","referral":"","applyDate":"","src":"sheet","id":"s124"}];
 const SCOUT = [{"name":"Capital One","area":"McLean, VA","tag":"Fintech","visa":"friendly","pri":"P1","why":"The largest tech intern program in your own zip code, and somehow not on your sheet. TDP and software tracks, 10 weeks, McLean HQ."},{"name":"Meta","area":"Remote / Bellevue / NYC","tag":"Big Tech","visa":"friendly","pri":"P1","why":"You have Google, Amazon, Apple and Microsoft but not Meta. Routinely hires F-1 interns on CPT."},{"name":"NVIDIA","area":"Santa Clara / Remote","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Huge intern class across software, hardware and AI. Known for hiring international students."},{"name":"Salesforce","area":"Remote / SF / Atlanta","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Futureforce program is one of the more structured intern pipelines, with a big non-SWE surface too."},{"name":"Adobe","area":"San Jose / Remote","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Appears consistently on CPT-friendly employer lists. Strong product and design internships, not just engineering."},{"name":"Cisco","area":"Reston, VA + San Jose","tag":"Big Tech","visa":"friendly","pri":"P1","why":"Real Reston presence, so you can stay local. Their intern program spans software, networking and security."},{"name":"Intel","area":"Remote / multiple","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Long history of hiring CPT students into engineering and IT internships."},{"name":"ServiceNow","area":"Vienna, VA + Santa Clara","tag":"Big Tech","visa":"check","pri":"P1","why":"Has an office minutes from you in Vienna and a growing early-careers program."},{"name":"Datadog","area":"NYC / Remote","tag":"Big Tech","visa":"check","pri":"P2","why":"Well-regarded, well-paid internship. Applications open early and close fast."},{"name":"Intuit","area":"Remote / Mountain View","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Runs a large summer program across software, data science and business analytics."},{"name":"PayPal","area":"Remote / San Jose","tag":"Fintech","visa":"friendly","pri":"P2","why":"Frequently listed among employers comfortable with CPT paperwork."},{"name":"Workday","area":"Remote / Pleasanton","tag":"Big Tech","visa":"check","pri":"P2","why":"Enterprise software with a structured intern program. You already use their job boards constantly."},{"name":"Atlassian","area":"Remote (US)","tag":"Big Tech","visa":"check","pri":"P2","why":"Fully distributed internships, which sidesteps the location problem that killed a few of your leads."},{"name":"Snowflake","area":"Remote / Bellevue","tag":"Big Tech","visa":"check","pri":"P2","why":"Data platform with a small but high-quality intern cohort."},{"name":"MongoDB","area":"NYC / Remote","tag":"Big Tech","visa":"check","pri":"P3","why":"Runs a well-structured summer program and hires beyond pure backend engineering."},{"name":"Databricks","area":"Remote / SF","tag":"Big Tech","visa":"friendly","pri":"P2","why":"Shows up on CPT employer lists and hires heavily into data and ML roles."},{"name":"Qualcomm","area":"San Diego / Remote","tag":"Big Tech","visa":"friendly","pri":"P3","why":"Very large intern intake, and a reliable sponsor historically."},{"name":"Dell Technologies","area":"Round Rock, TX / Remote","tag":"Big Tech","visa":"check","pri":"P3","why":"Big corporate IT and software intern program with a wide net of majors."},{"name":"Mastercard","area":"Arlington, VA","tag":"Fintech","visa":"friendly","pri":"P1","why":"Arlington tech hub, close to home, and their Launch program takes interns across data and engineering."},{"name":"JPMorgan Chase","area":"Remote / multiple","tag":"Fintech","visa":"friendly","pri":"P2","why":"Their software engineering program is enormous and they process CPT routinely."},{"name":"Cvent","area":"Tysons, VA","tag":"NoVA tech","visa":"check","pri":"P1","why":"Event-tech company right in Tysons. Local, mid-size, and far less contested than the big names on your list."},{"name":"Tenable","area":"Columbia, MD","tag":"Cyber","visa":"check","pri":"P2","why":"Cybersecurity company about 45 minutes out, and commercial rather than cleared work."},{"name":"EAB","area":"Washington, DC","tag":"NoVA tech","visa":"check","pri":"P2","why":"Education technology in DC with a genuinely good intern program and a Metro-accessible office."},{"name":"Anthology","area":"Reston, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"The old Blackboard, still headquartered in Reston. Edtech engineering and product roles."},{"name":"ICF International","area":"Reston, VA","tag":"NoVA tech","visa":"check","pri":"P2","why":"Consulting firm with real data and technology practices, and much of the work is unclassified."},{"name":"Iridium Communications","area":"McLean, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Satellite operator headquartered in McLean. Small intern cohort, so less competition."},{"name":"ATPCO","area":"Dulles, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Airline pricing data company in Dulles. Quiet, technical, and almost nobody applies."},{"name":"Volkswagen Group of America","area":"Herndon, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"US headquarters is in Herndon with IT, data and digital internships."},{"name":"PenFed Credit Union","area":"Tysons, VA","tag":"Fintech","visa":"check","pri":"P3","why":"Local credit union with a real technology org, similar shape to the Navy Federal role you applied for."},{"name":"Marriott International","area":"Bethesda, MD","tag":"Corporate IT","visa":"check","pri":"P3","why":"Big corporate technology group across the river, in the same vein as your Hilton application."},{"name":"Optum (UnitedHealth)","area":"Remote / NoVA","tag":"Corporate IT","visa":"check","pri":"P3","why":"Health technology with a large intern program and lots of remote-eligible roles."},{"name":"World Bank Group","area":"Washington, DC","tag":"International","visa":"friendly","pri":"P1","why":"Explicitly built for international candidates and runs a paid internship with data and technology tracks. Unusual fit for your situation."},{"name":"International Monetary Fund","area":"Washington, DC","tag":"International","visa":"friendly","pri":"P2","why":"Same logic as the World Bank. The Fund Internship Program sponsors its own visas and takes technology and data students."},{"name":"PwC","area":"McLean, VA + remote","tag":"Consulting","visa":"check","pri":"P2","why":"You have Deloitte, EY and KPMG but not PwC. Their digital and technology assurance tracks hire in McLean."},{"name":"RSM US","area":"McLean, VA","tag":"Consulting","visa":"check","pri":"P3","why":"Rounds out the accounting and consulting firms you are already chasing, with a technology consulting track."},{"name":"RIVA Solutions","area":"McLean, VA","tag":"NoVA tech","visa":"check","pri":"P3","why":"Small McLean IT services firm that advertises a STEM internship covering AI, cloud and analytics."},{"name":"CACI International","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Major Reston contractor, but most roles want US citizenship and a clearance. Worth a look only for their commercial side."},{"name":"Peraton","area":"Herndon, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Large Herndon contractor. Same caveat as the others in your sheet that came back as visa restrictions."},{"name":"SAIC","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"You already touched this through the Halfaker link. Almost entirely cleared work."},{"name":"Noblis","area":"Reston, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Reston research nonprofit with a good intern program, but clearance-heavy like MITRE was for you."},{"name":"Northrop Grumman","area":"Falls Church, VA","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Enormous intern class but effectively US citizens only. Listed so you can rule it out deliberately."},{"name":"Lockheed Martin","area":"Bethesda, MD","tag":"Gov contractor","visa":"uspersons","pri":"P4","why":"Same story. Included for completeness rather than as a real lead."}];
@@ -326,15 +287,19 @@ const KEY = "internhunt.v1";
 
 /* ===================== state ===================== */
 let state = null;
-const ui = {q:"",pri:new Set(),hideClosed:true,onlyLive:false,view:"board",sort:"pri"};
+window.currentBoardBackup=()=>state;
+const ui = {q:"",pri:new Set(),hideClosed:true,onlyLive:true,showRestricted:false,view:"board",sort:"pri"};
+ui.selecting=false;
+ui.selected=new Set();
 
 let storageOK = true;
 
 function freshState(){
-  return {companies:SEED.map(c=>({...c})), xp:0, created:Date.now()};
+  return {companies:SEED.map(c=>({...c,links:[...c.links],postings:[]})), xp:0, created:Date.now()};
 }
 
 async function load(){
+  storageOK = window.internStorageSafe;
   // some hosts attach the storage API after the document parses
   for(let i=0; i<20 && !window.storage; i++) await new Promise(r=>setTimeout(r,50));
   if(!window.storage){
@@ -346,35 +311,73 @@ async function load(){
     const r = await window.storage.get(KEY);
     if(r && r.value){
       const parsed = JSON.parse(r.value);
-      if(parsed && parsed.companies && parsed.companies.length){
+      if(parsed && Array.isArray(parsed.companies)){
         state = parsed;
-        document.getElementById("saveState").textContent = "Saved";
+        migratePostings();
+        if(storageOK)save();
+        document.getElementById("saveState").textContent = storageOK ? "Saved on this browser" : "Backup failed — changes cannot be saved";
         flag("Restored your saved log");
         return;
       }
+      throw new Error("Saved tracking could not be read");
     }
-  }catch(e){ /* nothing saved yet — fall through and seed */ }
+  }catch(e){
+    storageOK = false; window.internStorageSafe = false; state = freshState();
+    document.getElementById("saveState").textContent = "Saved data could not be read — original preserved. Restore a backup.";
+    return;
+  }
   state = freshState();
+  migratePostings();
   save();
+  if(!storageOK) document.getElementById("saveState").textContent = "Backup failed — changes cannot be saved";
+}
+
+function assessPosting(r){
+  const p={...r,title:r.title||r.t||"",url:r.url||r.u||""};
+  return Object.assign(p,window.InternEligibility.classify(p));
+}
+function migratePostings(){
+  const known=new Map(Object.values(window.INTERN_MONITOR?.jobs||{}).map(r=>[r.url,r]));
+  for(const c of state.companies){
+    c.postings=(c.postings||[]).map(p=>assessPosting({...p,...known.get(p.url),posting_text:known.get(p.url)?.posting_text||p.posting_text||""}));
+    for(const url of c.links||[]){
+      if(known.has(url)&&!c.postings.some(p=>p.url===url)) c.postings.push(assessPosting(known.get(url)));
+    }
+  }
+  state.postingVersion=2;
+}
+function allowedPosting(p,hideBlocked=ui.onlyLive,showRestricted=ui.showRestricted){
+  return (!hideBlocked||p.sponsorship_state!=="blocked")&&(showRestricted||!p.citizenship_required);
+}
+function eligibilityLabel(p){
+  return ({sponsors:"Sponsorship / student visa accepted",blocked:"No sponsorship",review:"Review — conflicting signals",silent:p.sponsorship_checked?"Sponsorship not mentioned":"Couldn't check"})[p.sponsorship_state];
+}
+function eligibilityHTML(p){
+  return '<span class="tagx '+(["blocked","review"].includes(p.sponsorship_state)?"warn":"")+'">'+esc(eligibilityLabel(p))+'</span>'+
+    (p.citizenship_required?'<span class="tagx warn">Citizenship/clearance required</span>':'');
+}
+function visiblePostings(c){return (c.postings||[]).filter(p=>allowedPosting(p));}
+function companyLinks(c){
+  return (c.links||[]).filter(url=>{const p=(c.postings||[]).find(p=>p.url===url);return safeHTTP(url)&&(!p||allowedPosting(p));});
 }
 
 let saveTimer=null;
+async function saveNow(){
+  if(!storageOK||!state)return;
+  clearTimeout(saveTimer);
+  const el=document.getElementById("saveState");
+  try{await window.storage.set(KEY,JSON.stringify(state));el.textContent="Saved on this browser";}
+  catch{el.textContent="Save failed — back up before closing";}
+}
 function save(){
   if(!storageOK) return;
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(async ()=>{
-    const el = document.getElementById("saveState");
-    try{
-      const ok = await window.storage.set(KEY, JSON.stringify(state));
-      el.textContent = ok ? "Saved" : "Save failed — use Export";
-    }catch(e){
-      el.textContent = "Save failed — use Export";
-    }
-  },420);
+  saveTimer=setTimeout(saveNow,300);
 }
 
 /* ===================== helpers ===================== */
 const $ = s=>document.querySelector(s);
+function safeHTTP(value){try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:"";}catch{return "";}}
 const esc = s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 function flag(msg){
   const t=$("#toast"); t.textContent=msg; t.classList.add("on");
@@ -400,7 +403,6 @@ function visible(){
   return state.companies.filter(c=>{
     if(ui.pri.size && !ui.pri.has(c.priority)) return false;
     if(ui.hideClosed && c.status==="closed") return false;
-    if(ui.onlyLive && c.blocker) return false;
     if(q){
       const hay = (c.name+" "+(c.notes||"")+" "+(c.reason||"")+" "+(c.area||"")+" "+(c.tag||"")).toLowerCase();
       if(!hay.includes(q)) return false;
@@ -417,113 +419,24 @@ function counts(){
 }
 
 function renderHeader(){
-  const c = counts(), total = state.companies.length;
-  const live = total - c.closed;
-  $("#issueNo").textContent = "Nº"+total;
-  $("#tagline").innerHTML =
-    `<b>${live}</b> live leads out of ${total}. <b>${c.applied}</b> applications sent, ` +
-    `<b>${c.tocheck}</b> still waiting on you to open the link.`;
-
-  // overprinted pipeline bar
-  const bar = $("#inkBar"); bar.innerHTML="";
-  const shown = STATUSES.filter(s=>c[s.k]>0);
-  const sum = shown.reduce((a,s)=>a+c[s.k],0) || 1;
-  let acc=0;
-  shown.forEach(s=>{
-    const pct = c[s.k]/sum*100;
-    const el=document.createElement("div");
-    el.className="ink-seg";
-    el.style.left = acc+"%";
-    el.style.width = "calc("+pct+"% + 16px)";
-    el.style.background = s.color;
-    bar.appendChild(el);
-    acc += pct;
-  });
-
-  const key=$("#inkKey"); key.innerHTML="";
-  STATUSES.forEach(s=>{
-    const b=document.createElement("button");
-    b.className="key"; b.type="button";
-    b.setAttribute("aria-pressed", String(!(ui.hideClosed && s.k==="closed")));
-    b.innerHTML = `<span class="swatch" style="background:${s.color}"></span>
-      <span class="n">${c[s.k]}</span><span class="l">${s.label}</span>`;
-    b.title = "Jump to "+s.label;
-    b.onclick=()=>{
-      if(s.k==="closed" && ui.hideClosed){
-        ui.hideClosed=false; $("#hideClosed").setAttribute("aria-pressed","false"); render();
-      }
-      const col = document.querySelector('.col[data-status="'+s.k+'"]');
-      const board = document.querySelector(".board");
-      if(col && board){
-        board.scrollTo({left: col.offsetLeft - board.offsetLeft - 8, behavior:"smooth"});
-        if(col.querySelector(".col-head").animate) col.querySelector(".col-head").animate(
-          [{transform:"translateY(0)"},{transform:"translateY(-5px)"},{transform:"translateY(0)"}],
-          {duration:420,easing:"ease-out"});
-      }
-      const m=document.getElementById("main");
-      if(m.scrollIntoView) m.scrollIntoView({behavior:"smooth",block:"nearest"});
-    };
-    key.appendChild(b);
-  });
-
-  // scoreboard
+  const c=counts();
   recalcXP();
-  const L = levelFor(state.xp);
-  const recent = state.companies.filter(c=>{const d=daysAgo(c.applyDate); return d!=null && d<=7;}).length;
-  const replies = c.interview + c.offer + state.companies.filter(x=>x.status==="closed" && x.reason==="Rejected").length;
-  const decided = total - c.idea - c.tocheck;
-  $("#score").innerHTML = `
-    <div class="lvl">
-      <div class="num">${L.lvl}</div>
-      <div class="meta">
-        <div class="mono">Level · ${state.xp} XP</div>
-        <div class="xpbar"><i style="width:${Math.round(L.into/L.need*100)}%"></i></div>
-        <div class="mono" style="margin-top:5px;color:var(--ink-soft)">${L.need-L.into} XP to next</div>
-      </div>
-    </div>
-    <div class="stat"><div class="n">${c.applied}</div><div class="l">Applied</div></div>
-    <div class="stat"><div class="n">${c.tocheck}</div><div class="l">To check</div></div>
-    <div class="stat"><div class="n">${c.interview+c.offer}</div><div class="l">In play</div></div>
-    <div class="stat"><div class="n">${recent}</div><div class="l">Sent this week</div></div>
-    <div class="stat"><div class="n">${replies}</div><div class="l">Heard back</div></div>
-    <div class="stat"><div class="n">${Math.round(decided/(total||1)*100)}%</div><div class="l">Triaged</div></div>`;
-
-  renderStamps(c);
-}
-
-const STAMPS = [
-  {id:"first",  t:"First sent",     f:c=>c.applied>=1},
-  {id:"ten",    t:"10 out",         f:c=>c.applied>=10},
-  {id:"25",     t:"25 out",         f:c=>c.applied>=25},
-  {id:"50",     t:"50 out",         f:c=>c.applied>=50},
-  {id:"triage", t:"Fully triaged",  f:c=>c.idea===0},
-  {id:"p1",     t:"P1 cleared",     f:()=>state.companies.filter(x=>x.priority==="P1"&&(x.status==="idea"||x.status==="tocheck")).length===0},
-  {id:"inbox",  t:"Nothing left to check", f:c=>c.tocheck===0},
-  {id:"talk",   t:"First interview",f:c=>c.interview+c.offer>=1},
-  {id:"offer",  t:"Offer in hand",  f:c=>c.offer>=1}
-];
-function renderStamps(c){
-  const el=$("#stamps"); el.innerHTML="";
-  STAMPS.forEach(s=>{
-    const got=s.f(c);
-    const d=document.createElement("span");
-    d.className="stamp"+(got?"":" locked");
-    d.textContent = got ? s.t : "· · ·";
-    d.title = got ? s.t+" — earned" : s.t+" — not yet";
-    el.appendChild(d);
-  });
+  $("#tagline").textContent="Keep track of every company. Find your next internship.";
+  $("#score").innerHTML=[["Companies",state.companies.length],["To check",c.tocheck],["Applied",c.applied],["Interviews & offers",c.interview+c.offer]].map(([label,n])=>`<div class="stat"><span class="n">${n}</span><span class="l">${label}</span></div>`).join("");
 }
 
 /* ===================== board ===================== */
 function cardHTML(c){
-  const link = (c.links&&c.links[0]) || (c.q ? "https://www.google.com/search?q="+encodeURIComponent(c.q) : "");
-  const sub = c.area || c.reason || (c.notes||"").slice(0,60) || "&nbsp;";
-  return `<article class="card" draggable="true" data-id="${c.id}" tabindex="0" role="button" aria-label="${esc(c.name)}">
+  const link = companyLinks(c)[0] || (c.q ? "https://www.google.com/search?q="+encodeURIComponent(c.q) : "");
+  const sub = c.area || c.reason || (c.notes||"").slice(0,60) || "No notes yet";
+  return `<article class="card" draggable="true" data-id="${esc(c.id)}" tabindex="0" role="button" aria-label="${esc(c.name)}">
+      ${ui.selecting?`<label class="selection-box"><input type="checkbox" data-select="${esc(c.id)}" aria-label="Select ${esc(c.name)}" ${ui.selected.has(c.id)?"checked":""}> Select</label>`:""}
       <span class="pri" style="background:${PCOLOR[c.priority]||"#8A9099"};color:${c.priority==="P3"||c.priority==="P4"?"#fff":"#16181A"}">${esc(c.priority)}</span>
       <h3>${esc(c.name)}</h3>
       <div class="sub">${esc(sub)}</div>
+      ${(c.postings||[]).length?'<div class="posting-count">'+visiblePostings(c).length+' of '+c.postings.length+' saved roles shown</div>':""}
       <div class="foot">
-        ${c.blocker==="visa"?'<span class="tagx warn">Visa</span>':""}
+        ${c.blocker==="visa"?'<span class="tagx">Old visa note · not a filter</span>':""}
         ${c.blocker==="location"?'<span class="tagx warn">Location</span>':""}
         ${c.src==="scout"?'<span class="tagx new">Scouted</span>':""}
         ${c.applyDate?`<span class="tagx">${esc(c.applyDate)}</span>`:""}
@@ -560,8 +473,8 @@ function wireBoard(){
       e.dataTransfer.effectAllowed="move";
     });
     el.addEventListener("dragend",()=>el.classList.remove("dragging"));
-    el.addEventListener("click",()=>openSheet(el.dataset.id));
-    el.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();openSheet(el.dataset.id);} });
+    el.addEventListener("click",e=>{if(!e.target.closest('input,label,a,button'))openSheet(el.dataset.id);});
+    el.addEventListener("keydown",e=>{ if(e.target===el&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openSheet(el.dataset.id);} });
   });
   document.querySelectorAll(".col-body").forEach(body=>{
     body.addEventListener("dragover",e=>{e.preventDefault();body.classList.add("over");});
@@ -584,12 +497,14 @@ function renderList(){
   });
   $("#main").innerHTML = `<table>
     <thead><tr>
+      ${ui.selecting?"<th>Select</th>":""}
       <th data-s="pri">Pri</th><th data-s="name">Company</th><th data-s="status">Status</th>
       <th>Flag</th><th data-s="date">Applied</th><th>Notes</th><th>Link</th>
     </tr></thead>
     <tbody>${list.map(c=>{
-      const link=(c.links&&c.links[0])||(c.q?"https://www.google.com/search?q="+encodeURIComponent(c.q):"");
-      return `<tr data-id="${c.id}">
+      const link=companyLinks(c)[0]||(c.q?"https://www.google.com/search?q="+encodeURIComponent(c.q):"");
+      return `<tr data-id="${esc(c.id)}" tabindex="0" aria-label="Edit ${esc(c.name)}">
+        ${ui.selecting?`<td><input type="checkbox" data-select="${esc(c.id)}" aria-label="Select ${esc(c.name)}" ${ui.selected.has(c.id)?"checked":""}></td>`:""}
         <td><span class="pill" style="background:${PCOLOR[c.priority]};color:${c.priority==="P3"||c.priority==="P4"?"#fff":"#16181A"}">${esc(c.priority)}</span></td>
         <td><b>${esc(c.name)}</b>${c.area?`<div style="color:var(--ink-soft);font-size:11.5px">${esc(c.area)}</div>`:""}</td>
         <td><span class="pill" style="border-color:${SMAP[c.status].color};color:${c.status==="interview"?"#8a7a00":SMAP[c.status].color}">${SMAP[c.status].label}</span></td>
@@ -598,7 +513,10 @@ function renderList(){
         <td class="c-note">${esc((c.notes||c.reason||"").slice(0,110))}</td>
         <td>${link?`<a href="${esc(link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="mono" style="font-size:10px">Open ↗</a>`:""}</td>
       </tr>`;}).join("")}</tbody></table>`;
-  document.querySelectorAll("tbody tr").forEach(tr=>tr.onclick=()=>openSheet(tr.dataset.id));
+  document.querySelectorAll("tbody tr").forEach(tr=>{
+    tr.onclick=e=>{if(!e.target.closest('input,a,button'))openSheet(tr.dataset.id);};
+    tr.onkeydown=e=>{if(e.target===tr&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openSheet(tr.dataset.id);}};
+  });
   document.querySelectorAll("th[data-s]").forEach(th=>th.onclick=()=>{ui.sort=th.dataset.s;render();});
 }
 
@@ -606,20 +524,17 @@ function renderList(){
 function setStatus(id, status){
   const c = state.companies.find(x=>x.id===id);
   if(!c || c.status===status) return;
-  const before = levelFor(state.xp).lvl;
   c.status = status;
   if(status==="applied" && !c.applyDate) c.applyDate = new Date().toISOString().slice(0,10);
   if(status!=="closed") c.reason = "";
   recalcXP(); save(); render();
-  const after = levelFor(state.xp).lvl;
-  if(after>before) flag("Level "+after+" — "+c.name+" moved to "+SMAP[status].label);
-  else flag(c.name+" → "+SMAP[status].label);
+  flag(c.name+" → "+SMAP[status].label);
 }
 
 /* ===================== detail sheet ===================== */
 function openSheet(id){
   const c = state.companies.find(x=>x.id===id); if(!c) return;
-  const links = (c.links||[]).slice();
+  const links = companyLinks(c).filter(url=>!(c.postings||[]).some(p=>p.url===url));
   if(!links.length && c.q) links.push("https://www.google.com/search?q="+encodeURIComponent(c.q));
   $("#sheet").innerHTML = `
     <div class="sheet-hd">
@@ -641,6 +556,7 @@ function openSheet(id){
     ${c.reason?`<div class="field"><label>Closed because</label><input id="fReason" value="${esc(c.reason)}"></div>`:""}
     ${links.length?`<div class="field"><label>Links</label><div class="linklist">${
       links.map(l=>`<a href="${esc(l)}" target="_blank" rel="noopener">${esc(l.length>78?l.slice(0,78)+"…":l)}</a>`).join("")}</div></div>`:""}
+    ${(c.postings||[]).length?`<div class="field"><label>Saved internships</label><p>${c.postings.length-visiblePostings(c).length} hidden by eligibility filters. Use the toolbar to show them.</p>${visiblePostings(c).map(p=>`<article class="saved-posting"><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a><div>${eligibilityHTML(p)}</div>${p.sponsorship_evidence?.length?`<details><summary>Matched posting text</summary><p>${esc(p.sponsorship_evidence.join(" · "))}</p></details>`:""}</article>`).join("")}</div>`:""}
     <div class="field"><label>Add a link</label><input id="fNewLink" placeholder="https://… then press Enter"></div>
     <div class="rowbtns">
       <button class="btn" id="saveBtn">Save changes</button>
@@ -654,7 +570,10 @@ function openSheet(id){
   });
   sheet.querySelector("#fNewLink").addEventListener("keydown",e=>{
     if(e.key==="Enter" && e.target.value.trim()){
-      c.links=c.links||[]; c.links.push(e.target.value.trim()); save(); openSheet(id); flag("Link added");
+      const url=safeHTTP(e.target.value.trim());
+      if(!url){flag("Enter an http or https link");return;}
+      c.links=c.links||[];if(!c.links.includes(url))c.links.push(url);
+      e.target.value="";save();flag("Link added");
     }
   });
   sheet.querySelector("#saveBtn").onclick=()=>{
@@ -668,14 +587,22 @@ function openSheet(id){
     closeSheet();
   };
   sheet.querySelector("#delBtn").onclick=()=>{
-    state.companies = state.companies.filter(x=>x.id!==id);
-    save(); render(); closeSheet(); flag("Removed "+c.name);
+    if(deleteCompanies([id]))closeSheet();
   };
   showSheet();
 }
 
-function showSheet(){ $("#sheet").classList.add("on"); $("#scrim").classList.add("on"); }
-function closeSheet(){ $("#sheet").classList.remove("on"); $("#scrim").classList.remove("on"); }
+let returnFocus=null;
+function showSheet(){
+  if(!$("#sheet").classList.contains("on"))returnFocus=document.activeElement;
+  $("#sheet").classList.add("on");$("#scrim").classList.add("on");$(".wrap").inert=true;
+  $("#sheet").querySelector("input,button,select,textarea")?.focus();
+}
+function closeSheet(){
+  if(!$("#sheet").classList.contains("on"))return;
+  $("#sheet").classList.remove("on");$("#scrim").classList.remove("on");$(".wrap").inert=false;
+  (returnFocus?.isConnected?returnFocus:$("#openAdd")).focus();
+}
 
 /* ===================== add + scout ===================== */
 function openAdd(){
@@ -697,6 +624,7 @@ function openAdd(){
     const n=$("#aName").value.trim();
     if(!n){ flag("Give it a name first"); return; }
     const l=$("#aLink").value.trim();
+    if(l&&!safeHTTP(l)){flag("Enter an http or https link");return;}
     state.companies.unshift({
       id:"u"+Date.now(), name:n, priority:$("#aPri").value, links:l?[l]:[],
       notes:$("#aNotes").value, status:l?"tocheck":"idea", blocker:"", reason:"",
@@ -714,10 +642,10 @@ function normName(n){
 }
 
 let feedData = REPO.slice();
-window.setMonitorFeed = jobs => { feedData = jobs; };
+window.setMonitorFeed = jobs => { feedData = jobs.map(assessPosting); };
 window.trackMonitorRole = role => { const result=addListing(role); save(); render(); flag(result.msg); };
-ui.tab = "picks";
-ui.feed = {q:"",dmv:false,rem:false,spon:false,hideUS:true,n:40};
+ui.tab = "feed";
+ui.feed = {q:"",dmv:false,rem:false,hideBlocked:true,showRestricted:false,n:40};
 
 function openScout(){
   const picks = SCOUT.length, roles = feedData.length;
@@ -741,20 +669,17 @@ function openScout(){
 
 function renderPicks(){
   const have = new Set(state.companies.map(c=>normName(c.name)));
-  const items = SCOUT.filter(s=>!(ui.scoutHideUS && s.visa==="uspersons"));
+  const items = SCOUT;
   $("#scoutBody").innerHTML = `
     <p style="color:var(--ink-soft);font-size:13px;margin-top:13px">
       Gaps I found against your list: local Northern Virginia names you missed, big tech you skipped,
       and a few unusually open to international students. Always confirm work authorisation on the posting itself.</p>
     <div class="rowbtns" style="margin-top:14px">
-      <button class="chip" id="scoutFilter" aria-pressed="${ui.scoutHideUS?"true":"false"}">Hide US-citizen-only</button>
       <button class="chip" id="addAll">Add all shown</button>
     </div>
     <div style="margin-top:16px">${items.map(s=>{
       const added = have.has(normName(s.name));
-      const badge = s.visa==="friendly" ? '<span class="tagx new">Often sponsors</span>'
-                  : s.visa==="uspersons" ? '<span class="tagx warn">Usually US citizens</span>'
-                  : '<span class="tagx">Check authorisation</span>';
+      const badge = '<span class="tagx">Check each posting</span>';
       return `<div class="scout-item">
         <h4>${esc(s.name)}</h4>
         <div class="meta"><span class="tagx">${esc(s.area)}</span><span class="tagx">${esc(s.tag)}</span>${badge}</div>
@@ -765,7 +690,6 @@ function renderPicks(){
              href="https://www.google.com/search?q=${encodeURIComponent(s.name+" internship 2027 careers")}">Find postings ↗</a>
         </div></div>`;}).join("")}</div>`;
   const bd=$("#scoutBody");
-  bd.querySelector("#scoutFilter").onclick=()=>{ ui.scoutHideUS=!ui.scoutHideUS; renderPicks(); };
   bd.querySelector("#addAll").onclick=()=>{
     let n=0; items.forEach(s=>{ if(addScout(s,true)) n++; });
     save(); render(); renderPicks(); flag(n?n+" companies added":"Already on your board");
@@ -781,8 +705,7 @@ function feedMatches(){
   return feedData.filter(r=>{
     if(f.dmv && !r.dmv) return false;
     if(f.rem && !r.rem) return false;
-    if(f.spon && r.s!=="yes") return false;
-    if(f.hideUS && (r.s==="us"||r.s==="no")) return false;
+    if(!allowedPosting(r,f.hideBlocked,f.showRestricted)) return false;
     if(q && !(r.c+" "+r.t+" "+r.l+" "+(r.g||"")).toLowerCase().includes(q)) return false;
     return true;
   });
@@ -797,15 +720,13 @@ function renderFeed(){
       <input id="fq" type="search" placeholder="Search company, role, location…" value="${esc(f.q)}">
       <button class="chip" data-f="dmv"    aria-pressed="${f.dmv}">DC · MD · VA</button>
       <button class="chip" data-f="rem"    aria-pressed="${f.rem}">Remote</button>
-      <button class="chip" data-f="spon"   aria-pressed="${f.spon}">Sponsors</button>
-      <button class="chip" data-f="hideUS" aria-pressed="${f.hideUS}">Hide US-only</button>
+      <button class="chip" data-f="hideBlocked" aria-pressed="${f.hideBlocked}">Hide no sponsorship</button>
+      <button class="chip" data-f="showRestricted" aria-pressed="${f.showRestricted}">Show citizenship / clearance</button>
     </div>
     <div class="mono" style="color:var(--ink-soft);margin-bottom:10px">${hits.length} roles${hits.length>f.n?" · showing "+shown.length:""}</div>
     ${shown.map(r=>{
       const on = !!taken[r.u];
-      const badge = r.s==="yes"?'<span class="tagx new">Offers sponsorship</span>'
-                  : r.s==="us"?'<span class="tagx warn">US citizens only</span>'
-                  : r.s==="no"?'<span class="tagx warn">No sponsorship</span>':"";
+      const badge = eligibilityHTML(r);
       const known = tracking.has(normName(r.c));
       return `<div class="scout-item">
         <span class="when">${esc(r.d)}</span>
@@ -836,10 +757,15 @@ function renderFeed(){
 }
 
 function addListing(r){
+  const posting=assessPosting(r);
   state.taken = state.taken || {};
   state.taken[r.u] = 1;
   const hit = state.companies.find(c=>normName(c.name)===normName(r.c));
   if(hit){
+    hit.postings=hit.postings||[];
+    const existing=hit.postings.findIndex(p=>p.url===posting.url);
+    if(existing>=0){hit.postings[existing]=posting;return {msg:"Already saved to "+hit.name};}
+    hit.postings.push(posting);
     hit.links = hit.links || [];
     if(!hit.links.includes(r.u)) hit.links.push(r.u);
     hit.notes = (hit.notes ? hit.notes+" · " : "") + r.t + (r.l?" ("+r.l+")":"");
@@ -851,7 +777,7 @@ function addListing(r){
     id:"r"+Math.random().toString(36).slice(2,8), name:r.c,
     priority: r.dmv ? "P1" : (r.rem ? "P2" : "P3"),
     links:[r.u], notes:r.t, status:"tocheck",
-    blocker: (r.s==="us"||r.s==="no") ? "visa" : "",
+    blocker:"", postings:[posting],
     reason:"", referral:"", applyDate:"", area:r.l, tag:r.g||"From repo", src:"repo"
   });
   recalcXP();
@@ -870,7 +796,7 @@ function addScout(s, quiet){
   state.companies.unshift({
     id:"g"+Math.random().toString(36).slice(2,8), name:s.name, priority:s.pri,
     links:[], q:s.name+" internship 2027 careers", notes:s.why, status:"tocheck",
-    blocker:s.visa==="uspersons"?"visa":"", reason:"", referral:"", applyDate:"",
+    blocker:"", postings:[], reason:"", referral:"", applyDate:"",
     area:s.area, tag:s.tag, src:"scout"
   });
   if(!quiet) recalcXP();
@@ -892,9 +818,50 @@ function exportCSV(){
 }
 
 /* ===================== wiring ===================== */
-function render(){ renderHeader(); ui.view==="board"?renderBoard():renderList(); }
+function renderSelection(){
+  const shown=new Set(visible().map(c=>c.id));
+  ui.selected=new Set([...ui.selected].filter(id=>shown.has(id)));
+  $("#bulkBar").hidden=!ui.selecting;
+  $("#selectMode").setAttribute("aria-pressed",String(ui.selecting));
+  $("#selectionCount").textContent=ui.selected.size+" companies selected";
+  $("#deleteSelected").disabled=ui.selected.size===0;
+  $("#undoBar").hidden=!state.undoDelete;
+  if(state.undoDelete)$("#undoLabel").textContent=state.undoDelete.items.length+" companies deleted";
+  document.querySelectorAll("[data-select]").forEach(box=>{
+    box.checked=ui.selected.has(box.dataset.select);
+    box.onchange=()=>{box.checked?ui.selected.add(box.dataset.select):ui.selected.delete(box.dataset.select);renderSelection();};
+    box.onkeydown=e=>e.stopPropagation();
+  });
+}
+function deleteCompanies(ids){
+  const selected=new Set(ids);
+  const items=state.companies.map((company,index)=>({company,index})).filter(x=>selected.has(x.company.id));
+  if(!items.length||!confirm("Delete "+items.length+" selected "+(items.length===1?"company":"companies")+" and their saved roles from this browser? You can undo this deletion."))return false;
+  const urls=new Set(items.flatMap(x=>[...(x.company.links||[]),...(x.company.postings||[]).map(p=>p.url)]));
+  const taken=Object.fromEntries(Object.entries(state.taken||{}).filter(([url])=>urls.has(url)));
+  state.undoDelete={items,taken};
+  state.companies=state.companies.filter(c=>!selected.has(c.id));
+  for(const url of urls)if(!state.companies.some(c=>(c.links||[]).includes(url)))delete state.taken?.[url];
+  ui.selected.clear();save();render();flag(items.length+" companies deleted — Undo is available");
+  return true;
+}
+function undoCompanyDelete(){
+  const deleted=state.undoDelete;if(!deleted)return;
+  for(const item of deleted.items){
+    if(!state.companies.some(c=>c.id===item.company.id))state.companies.splice(Math.min(item.index,state.companies.length),0,item.company);
+  }
+  state.taken={...state.taken,...deleted.taken};
+  delete state.undoDelete;save();render();flag("Deletion undone");
+}
+function render(){ renderHeader(); ui.view==="board"?renderBoard():renderList(); renderSelection(); }
 
 function wire(){
+  const showPanel=name=>{
+    $("#trackerPanel").hidden=name!=="tracker";$("#discoverPanel").hidden=name!=="discover";
+    $("#trackerTab").setAttribute("aria-pressed",String(name==="tracker"));$("#discoverTab").setAttribute("aria-pressed",String(name==="discover"));
+  };
+  $("#trackerTab").onclick=()=>showPanel("tracker");
+  $("#discoverTab").onclick=()=>showPanel("discover");
   const pc=$("#priChips");
   ["P1","P2","P3","P4"].forEach(p=>{
     const b=document.createElement("button");
@@ -906,14 +873,22 @@ function wire(){
   $("#q").addEventListener("input",e=>{ui.q=e.target.value;render();});
   $("#hideClosed").onclick=e=>{ui.hideClosed=!ui.hideClosed;e.currentTarget.setAttribute("aria-pressed",String(ui.hideClosed));render();};
   $("#onlyLive").onclick=e=>{ui.onlyLive=!ui.onlyLive;e.currentTarget.setAttribute("aria-pressed",String(ui.onlyLive));render();};
+  $("#showRestricted").onclick=e=>{ui.showRestricted=!ui.showRestricted;e.currentTarget.setAttribute("aria-pressed",String(ui.showRestricted));render();};
   $("#viewBoard").onclick=()=>{ui.view="board";$("#viewBoard").setAttribute("aria-pressed","true");$("#viewList").setAttribute("aria-pressed","false");render();};
   $("#viewList").onclick=()=>{ui.view="list";$("#viewList").setAttribute("aria-pressed","true");$("#viewBoard").setAttribute("aria-pressed","false");render();};
   $("#openAdd").onclick=openAdd;
   $("#openScout").onclick=openScout;
+  $("#selectMode").onclick=()=>{ui.selecting=!ui.selecting;ui.selected.clear();render();};
+  $("#finishSelection").onclick=()=>{ui.selecting=false;ui.selected.clear();render();};
+  $("#selectShown").onclick=()=>{ui.selected=new Set(visible().map(c=>c.id));renderSelection();};
+  $("#clearSelected").onclick=()=>{ui.selected.clear();renderSelection();};
+  $("#deleteSelected").onclick=()=>deleteCompanies([...ui.selected]);
+  $("#undoDelete").onclick=undoCompanyDelete;
   $("#scrim").onclick=closeSheet;
   $("#exportBtn").onclick=exportCSV;
   $("#resetBtn").onclick=()=>{
     if(!confirm("Reset the board to your original sheet? Everything you've changed here is lost.")) return;
+    try{window.backupInternStorage("before-reset-"+Date.now());}catch{flag("Could not back up tracking. Reset cancelled.");return;}
     state=freshState(); save(); render(); flag("Back to the original sheet");
   };
   const tb=document.querySelector(".toolbar");
@@ -924,10 +899,18 @@ function wire(){
 
   document.addEventListener("keydown",e=>{
     if(e.key==="Escape") closeSheet();
-    if(e.key==="/" && document.activeElement.tagName!=="INPUT" && document.activeElement.tagName!=="TEXTAREA"){
+    if(e.key==="Tab"&&$("#sheet").classList.contains("on")){
+      const items=[...$("#sheet").querySelectorAll('button:not(:disabled),input,select,textarea,a[href],summary')].filter(el=>el.offsetParent!==null);
+      const first=items[0],last=items.at(-1);
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}
+    }
+    if(e.key==="/"&&!$("#sheet").classList.contains("on")&&!document.activeElement.matches("input,textarea,select,[contenteditable]")&&!$("#trackerPanel").hidden){
       e.preventDefault(); $("#q").focus();
     }
   });
+  window.addEventListener("pagehide",saveNow);
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)saveNow();});
 }
 
 (async function init(){
@@ -937,4 +920,155 @@ function wire(){
 })();
 </script>
 
-<script src="monitor-ui.js"></script>
+<script id="monitor-ui">
+(() => {
+  'use strict';
+  const KEY = 'internhunt.monitor.v1';
+  const safe = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const webURL = value => { try {const u=new URL(value);return ['https:','http:'].includes(u.protocol)?u.href:'#';} catch{return '#';} };
+  let preferences = {};
+  try { preferences = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { window.internStorageSafe=false; }
+  let model = window.INTERN_MONITOR || {jobs:{},sources:{},events:[],companies:[]};
+  let query='', filter='open', watchlist=true, location='all', hideCitizenOnly=preferences.hideCitizenOnly!==false, hideNoSponsor=preferences.hideNoSponsor!==false, limit=8;
+  const openCompanies=new Set(), selectedRoles=new Set();
+  let selectingRoles=false;
+  const savePreferences = () => {try {if(!window.internStorageSafe)throw new Error('Backup unavailable');localStorage.setItem(KEY,JSON.stringify(preferences));} catch {window.alert('Browser storage is unavailable. Tracking cannot be saved here.');}};
+  const date = value => value ? new Date(value).toLocaleString() : 'Never';
+  const classifyModel=()=>{for(const r of Object.values(model.jobs))Object.assign(r,window.InternEligibility.classify(r));};
+  classifyModel();
+  const excluded = r => (hideCitizenOnly&&r.citizenship_required)||(hideNoSponsor&&r.sponsorship_state==='blocked');
+  const toFeed = r => ({id:r.id,c:r.company,t:r.title,u:r.url,l:r.locations.join(' · '),m:r.season||'Season not confirmed',g:'',posting_text:r.posting_text||'',description:r.description||'',requirements:r.requirements||'',qualifications:r.qualifications||'',d:r.first_seen.slice(0,10),dmv:r.locations.some(l=>/\b(VA|Virginia|DC|MD|Maryland|Arlington|Reston|McLean|Herndon|Bethesda)\b/i.test(l))?1:0,rem:r.remote||r.locations.some(l=>/remote/i.test(l))?1:0,...window.InternEligibility.classify(r)});
+  function syncFeed(){window.setMonitorFeed(Object.values(model.jobs).filter(j=>j.status==='open'&&!preferences.deleted?.[j.id]).map(toFeed));}
+  function render(){
+    const all=Object.values(model.jobs), sources=Object.values(model.sources).filter(s=>s.enabled!==false);
+    const latest=new Map();
+    for(const event of model.events) if(event.job_id) latest.set(event.job_id,event);
+    const unread=model.events.filter(e=>['new','reopened'].includes(e.kind)&&e.at>(preferences.readThrough||'')&&!preferences.deleted?.[e.job_id]&&(!watchlist||e.company_id)&&(!model.jobs[e.job_id]||!excluded(model.jobs[e.job_id])));
+    const ignored=preferences.ignored||{};
+    const selected=all.filter(r=>{
+      if(watchlist&&!r.company_id)return false;
+      if(filter==='deleted')return !!preferences.deleted?.[r.id]&&(r.company+' '+r.title).toLowerCase().includes(query.toLowerCase());
+      if(preferences.deleted?.[r.id])return false;
+      if(excluded(r))return false;
+      if(filter==='ignored')return !!ignored[r.id];
+      if(ignored[r.id])return false;
+      if(filter==='open'&&r.status!=='open')return false;
+      if(filter==='closed'&&r.status!=='closed')return false;
+      if(filter==='new'&&!unread.some(e=>e.job_id===r.id))return false;
+      if(location==='dmv'&&!toFeed(r).dmv)return false;
+      if(location==='remote'&&!toFeed(r).rem)return false;
+      return (r.company+' '+r.title+' '+r.locations.join(' ')).toLowerCase().includes(query.toLowerCase());
+    }).sort((a,b)=>a.priority.localeCompare(b.priority)||(latest.get(b.id)?.at||b.first_seen).localeCompare(latest.get(a.id)?.at||a.first_seen));
+    const groups=new Map();
+    for(const role of selected){const key=role.company_id?'id:'+role.company_id:'name:'+role.company.toLowerCase();if(!groups.has(key))groups.set(key,{name:role.company,jobs:[]});groups.get(key).jobs.push(role);}
+    const shownRoles=[...groups.values()].slice(0,limit).flatMap(g=>g.jobs), shownIds=new Set(shownRoles.map(r=>r.id));
+    for(const id of selectedRoles)if(!shownIds.has(id))selectedRoles.delete(id);
+    const ok=sources.filter(s=>s.status==='ok').length, partial=sources.filter(s=>s.status==='partial').length, failed=sources.filter(s=>s.status==='error');
+    const pageWatches=sources.filter(s=>s.status==='page_watch');
+    const pageChanges=model.events.filter(e=>e.kind==='page_changed'&&e.at>(preferences.readThrough||''));
+    const missing=model.companies.filter(c=>c.enabled!==false&&!c.careers_urls?.length);
+    const stale=model.generated_at && Date.now()-Date.parse(model.generated_at)>36*3600000;
+    document.getElementById('monitor').innerHTML=`
+      <h2>Daily job monitor</h2>
+      <p>${model.generated_at?'Last check: '+safe(date(model.generated_at)):'Run the checker to start monitoring.'} · Your application statuses stay under your control.</p>
+      ${stale?'<p class="monitor-warning">These results are more than 36 hours old. Run the daily workflow and reload the latest board data.</p>':''}
+      <div class="monitor-summary"><span>${unread.length} unread role updates</span><span>${all.filter(j=>j.status==='open'&&!excluded(j)).length} open or discovered roles</span><span>${ok} complete sources</span><span>${partial} partial sources</span><span>${pageWatches.length} page watches</span><span>${failed.length+missing.length} need attention</span></div>
+      ${pageChanges.length?`<p class="monitor-warning">${pageChanges.length} careers pages changed. Review: ${pageChanges.slice(0,12).map(e=>`<a href="${safe(webURL(e.url))}" target="_blank" rel="noopener">${safe(e.company)}</a>`).join(', ')}. These changes are not confirmed new roles.</p>`:''}
+      <div class="monitor-controls">
+        <input id="mq" aria-label="Search monitored jobs" placeholder="Search roles, companies, locations" value="${safe(query)}">
+        <select id="mf" aria-label="Job status"><option value="open">Open roles</option><option value="new">Unread updates</option><option value="closed">Closed roles</option><option value="ignored">Ignored roles</option><option value="deleted">Deleted roles</option></select>
+        <select id="ml" aria-label="Job location"><option value="all">All locations</option><option value="dmv">DC / MD / VA</option><option value="remote">Remote</option></select>
+        <label><input type="checkbox" id="mw" ${watchlist?'checked':''}>My companies only</label>
+        <label><input type="checkbox" id="mc" ${hideCitizenOnly?'checked':''}>Hide citizenship / clearance required</label>
+        <label><input type="checkbox" id="ms" ${hideNoSponsor?'checked':''}>Hide explicit no sponsorship</label>
+        <button class="mini" id="selectRoles" aria-pressed="${selectingRoles}">${selectingRoles?'Done selecting':'Select roles'}</button><button class="mini" id="markRead">Mark updates read</button><button class="mini" id="reloadMonitor">Reload results</button>
+      </div>
+      <p>${selected.length} matching roles across ${groups.size} companies. Alerts start after a source’s first successful check. “Open” means last reported open by a source.</p>
+      <div class="bulk-bar" ${selectingRoles?'':'hidden'}><span id="roleSelectionCount" aria-live="polite">${selectedRoles.size} roles selected</span><button class="mini" id="selectShownRoles">Select displayed roles (${shownRoles.length})</button><button class="mini" id="clearRoles">Clear</button><button class="danger" id="deleteRoles" ${!selectedRoles.size||filter==='deleted'?'disabled':''}>Delete selected roles</button></div>
+      ${preferences.undoDelete?.length?`<div class="bulk-bar"><span>${preferences.undoDelete.length} roles deleted from this browser</span><button class="mini" id="undoRoles">Undo deletion</button></div>`:''}
+      <div class="monitor-jobs">${[...groups].slice(0,limit).map(([key,group])=>`<details class="monitor-company" data-company="${safe(key)}" ${query||openCompanies.has(key)?'open':''}>
+        <summary><span>${safe(group.name)}</span><span>${group.jobs.length} ${group.jobs.length===1?'internship':'internships'}</span></summary>
+        <div class="monitor-company-jobs">${group.jobs.map(r=>{
+        const event=latest.get(r.id), fresh=event&&event.at>(preferences.readThrough||'');
+        const staleJob=!r.last_verified||Date.now()-Date.parse(r.last_verified)>36*3600000;
+        const saved=preferences.jobs?.[r.id]||'not_started';
+        return `<article class="monitor-job">${selectingRoles?`<label class="selection-box"><input type="checkbox" data-select-role="${safe(r.id)}" aria-label="Select ${safe(r.company+' '+r.title)}" ${selectedRoles.has(r.id)?'checked':''}> Select role</label>`:''}<span class="event">${safe(fresh?event.kind:r.priority+' · '+r.status)}</span>
+          <h3>${safe(r.title)}</h3><p>${safe(r.locations.slice(0,3).join(' · ')||'Location not supplied')}${r.locations.length>3?' · +'+(r.locations.length-3)+' more':''}</p>
+          ${r.locations.length>3?`<details><summary>All locations</summary><p>${safe(r.locations.join(' · '))}</p></details>`:''}
+          <p>${safe(r.season||'Season not confirmed')} · ${eligibilityHTML(r)}</p>
+          ${r.sponsorship_evidence?.length?`<details><summary>Matched posting text</summary><p>${safe(r.sponsorship_evidence.join(' · '))}</p></details>`:''}
+          <p>${r.verified?'Last reported open: '+safe(date(r.last_verified)):'Unverified posting link — check employer page'}${staleJob&&r.status==='open'?' · Needs a fresh check':''}</p>
+          <label>My application <select data-app="${r.id}" aria-label="Application status for ${safe(r.company+' '+r.title)}">${[['not_started','Not started'],['saved','Saved'],['applied','Applied'],['interview','Interview'],['offer','Offer'],['rejected','Rejected']].map(([v,l])=>`<option value="${v}" ${saved===v?'selected':''}>${l}</option>`).join('')}</select></label>
+          <div class="actions"><a href="${safe(webURL(r.url))}" target="_blank" rel="noopener noreferrer">Open posting ↗</a><button class="mini" data-track="${r.id}">Add to company</button><button class="mini" data-ignore="${r.id}">${ignored[r.id]?'Unignore':'Ignore'}</button>${preferences.deleted?.[r.id]?`<button class="mini" data-restore-role="${r.id}">Restore role</button>`:''}</div></article>`;
+      }).join('')}</div></details>`).join('')||'<p>No roles match these filters.</p>'}</div>
+      ${groups.size>limit?'<button class="mini" id="moreMonitor" style="margin-top:12px">Show more companies</button>':''}
+      <details><summary>Source coverage and problems (${sources.length+missing.length})</summary><p>Partial sources discover jobs but never infer closures from missing listings. Page watches alert when visible page content changes; they cannot verify individual jobs and may flag unrelated text changes. Companies without a careers URL can still match the community feed.</p><div class="monitor-sources">${[...failed,...sources.filter(s=>s.status!=='error')].map(s=>`<div class="monitor-source"><strong>${safe(s.company)}</strong> — ${safe(s.status.replace('_',' '))}${s.count!==undefined&&s.status!=='page_watch'?' · '+s.count+' roles':''}<small>${safe(s.error||s.method||'')} · Last success: ${safe(date(s.last_success))}</small><a href="${safe(webURL(s.url))}" target="_blank" rel="noopener">Source page</a></div>`).join('')}${missing.map(c=>`<div class="monitor-source"><strong>${safe(c.name)}</strong> — careers URL needed</div>`).join('')}</div></details>`;
+    document.getElementById('selectRoles').onclick=()=>{selectingRoles=!selectingRoles;selectedRoles.clear();render();};
+    const updateSelection=()=>{document.getElementById('roleSelectionCount').textContent=selectedRoles.size+' roles selected';document.getElementById('deleteRoles').disabled=!selectedRoles.size||filter==='deleted';document.querySelectorAll('[data-select-role]').forEach(box=>box.checked=selectedRoles.has(box.dataset.selectRole));};
+    document.querySelectorAll('[data-select-role]').forEach(box=>box.onchange=()=>{box.checked?selectedRoles.add(box.dataset.selectRole):selectedRoles.delete(box.dataset.selectRole);updateSelection();});
+    document.getElementById('selectShownRoles').onclick=()=>{for(const r of shownRoles)selectedRoles.add(r.id);updateSelection();};
+    document.getElementById('clearRoles').onclick=()=>{selectedRoles.clear();updateSelection();};
+    document.getElementById('deleteRoles').onclick=()=>{
+      if(!selectedRoles.size||!confirm('Delete '+selectedRoles.size+' selected roles from this browser’s view? They remain available under Deleted roles.'))return;
+      preferences.undoDelete=[...selectedRoles];preferences.deleted=preferences.deleted||{};
+      for(const id of selectedRoles)preferences.deleted[id]=true;
+      selectedRoles.clear();savePreferences();syncFeed();render();
+    };
+    document.getElementById('undoRoles')?.addEventListener('click',()=>{
+      for(const id of preferences.undoDelete||[])delete preferences.deleted[id];
+      delete preferences.undoDelete;savePreferences();syncFeed();render();
+    });
+    document.querySelectorAll('[data-restore-role]').forEach(button=>button.onclick=()=>{delete preferences.deleted[button.dataset.restoreRole];savePreferences();syncFeed();render();});
+    document.getElementById('mf').value=filter;document.getElementById('ml').value=location;
+    document.getElementById('mq').oninput=e=>{const cursor=e.target.selectionStart;query=e.target.value;limit=24;render();const box=document.getElementById('mq');box.focus();box.setSelectionRange(cursor,cursor);};
+    document.getElementById('mf').onchange=e=>{filter=e.target.value;limit=24;render();};
+    document.getElementById('ml').onchange=e=>{location=e.target.value;limit=24;render();};
+    document.getElementById('mw').onchange=e=>{watchlist=e.target.checked;render();};
+    document.getElementById('mc').onchange=e=>{hideCitizenOnly=e.target.checked;preferences.hideCitizenOnly=hideCitizenOnly;savePreferences();syncFeed();render();};
+    document.getElementById('ms').onchange=e=>{hideNoSponsor=e.target.checked;preferences.hideNoSponsor=hideNoSponsor;savePreferences();syncFeed();render();};
+    document.getElementById('markRead').onclick=()=>{preferences.readThrough=model.generated_at||new Date().toISOString();savePreferences();render();};
+    document.getElementById('reloadMonitor').onclick=async()=>{try{await window.refreshMonitor();}catch{window.alert('Could not reload results. Keep the data folder beside this file, or open the hosted board.');}};
+    document.getElementById('moreMonitor')?.addEventListener('click',()=>{limit+=24;render();});
+    document.querySelectorAll('.monitor-company').forEach(group=>group.addEventListener('toggle',()=>{if(query)return;if(group.open)openCompanies.add(group.dataset.company);else openCompanies.delete(group.dataset.company);}));
+    document.querySelectorAll('[data-app]').forEach(b=>b.onchange=()=>{preferences.jobs=preferences.jobs||{};preferences.jobs[b.dataset.app]=b.value;savePreferences();});
+    document.querySelectorAll('[data-ignore]').forEach(b=>b.onclick=()=>{preferences.ignored=preferences.ignored||{};preferences.ignored[b.dataset.ignore]=!preferences.ignored[b.dataset.ignore];savePreferences();render();});
+    document.querySelectorAll('[data-track]').forEach(b=>b.onclick=()=>window.trackMonitorRole(toFeed(model.jobs[b.dataset.track])));
+  }
+  window.refreshMonitor=async()=>{
+    const base=location.protocol==='file:'?'https://syedrayanali53-art.github.io/Intern-dashboard/':location.href;
+    const response=await fetch(new URL('data/monitor.json?t='+Date.now(),base),{cache:'no-store'});
+    if(!response.ok)throw new Error('Results unavailable');
+    const next=await response.json();
+    if(!next.jobs||!next.sources||!Array.isArray(next.events)||!Array.isArray(next.companies))throw new Error('Invalid results');
+    model=next;window.INTERN_MONITOR=model;classifyModel();syncFeed();render();
+  };
+  function download(name,data){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+  document.getElementById('backupBtn').onclick=async()=>{download('intern-hunt-backup.json',{version:1,board:window.currentBoardBackup(),monitor:preferences});};
+  document.getElementById('restoreBtn').onclick=()=>document.getElementById('restoreFile').click();
+  document.getElementById('restoreFile').onchange=async e=>{
+    const file=e.target.files[0];if(!file)return;
+    try{
+      const backup=JSON.parse(await file.text());
+      if(backup.version!==1||!Array.isArray(backup.board?.companies)||!backup.monitor||typeof backup.monitor!=='object')throw new Error('Not an Intern Hunt backup');
+      for(const c of backup.board.companies){if(typeof c.name!=='string'||typeof c.id!=='string'||!Array.isArray(c.links)||c.links.some(l=>webURL(l)==='#'))throw new Error('Invalid company or URL in backup');}
+      if(!confirm('Replace this browser’s tracking with the selected backup?'))return;
+      await saveNow();
+      const snapshotKey=window.backupInternStorage('before-restore-'+Date.now());
+      const original=JSON.parse(localStorage.getItem(snapshotKey));
+      try {
+        localStorage.setItem('internhunt.v1',JSON.stringify(backup.board));
+        localStorage.setItem(KEY,JSON.stringify(backup.monitor));
+      } catch(error) {
+        for(const [key,value] of [['internhunt.v1',original.board],[KEY,original.monitor]]) {
+          try {if(value===null)localStorage.removeItem(key);else localStorage.setItem(key,value);}catch{}
+        }
+        throw new Error('Restore failed. Original data is preserved in '+snapshotKey);
+      }
+      clearTimeout(saveTimer);storageOK=false;
+      window.location.reload();
+    }catch(error){window.alert('Could not restore: '+error.message);}
+  };
+  syncFeed();render();
+})();
+</script>
+</html>
