@@ -87,9 +87,7 @@ jobs:
       - name: Prepare GitHub Pages site
         if: steps.check.outcome == 'success'
         run: |
-          mkdir -p _site/data
-          cp index.html intern-hunt.html monitor-ui.js monitor.css storage.js _site/
-          cp data/monitor-data.js _site/data/
+          python scripts/publish.py
       - name: Configure GitHub Pages
         if: steps.check.outcome == 'success'
         uses: actions/configure-pages@v5
