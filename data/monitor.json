@@ -204562,7 +204562,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Accelevation LLC",
       "company_id": "s003",
-      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"
+      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "e64c4d00db2af3c981ea4a1c",
@@ -204570,7 +204572,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "89b930afae8dd9df1ca38c58",
@@ -204578,7 +204582,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "4602d6b5a8212b9b7efe5cbc",
@@ -204586,7 +204592,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "CapCenter",
       "company_id": "s018",
-      "url": "https://www.capcenter.com/about-us"
+      "url": "https://www.capcenter.com/about-us",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "17aa9b4195e0f0cb1e67914b",
@@ -204594,7 +204602,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "cfce0df596b338822aec06af",
@@ -204602,7 +204612,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "FanDuel",
       "company_id": "s038",
-      "url": "https://www.fanduel.careers/future-teammates/early-careers"
+      "url": "https://www.fanduel.careers/future-teammates/early-careers",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "c8b1b0e7e854b7b736f7be3f",
@@ -204610,7 +204622,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "35cf549acaad356e14015f8e",
@@ -204618,7 +204632,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Intellias",
       "company_id": "s059",
-      "url": "https://career.intellias.com"
+      "url": "https://career.intellias.com",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "8a90477dfc15424ce79d49c6",
@@ -204626,7 +204642,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "961b50cd495d4d3dd0285082",
@@ -204634,7 +204652,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "90d9d982137a065dbffc795b",
@@ -204642,7 +204662,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "d6e1b2b524ee0d06445357c8",
@@ -204650,7 +204672,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "91aeb5d172376c222042acde",
@@ -204658,7 +204682,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "3858db415b2e2f5f51ae022c",
@@ -204666,7 +204692,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "e240c1c7315f28dad6c14d1e",
@@ -204674,7 +204702,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "SAP",
       "company_id": "s116",
-      "url": "https://jobs.sap.com/search?createNewAlert=false&optionsFacetsDD_country=US&optionsFacetsDD_customfield3=Student"
+      "url": "https://jobs.sap.com/search?createNewAlert=false&optionsFacetsDD_country=US&optionsFacetsDD_customfield3=Student",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "e0450daf614a230d6a07731a",
@@ -204682,7 +204712,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "SPS Consulting",
       "company_id": "s118",
-      "url": "https://spsconsult.com"
+      "url": "https://spsconsult.com",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "81d37876f00069d9b229331e",
@@ -204690,7 +204722,9 @@
       "at": "2026-11-08T17:57:06+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "95e28d53a4d94418214de140",
@@ -204704,7 +204738,9 @@
         "Bellevue, WA"
       ],
       "company_id": "s119",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "58d808817a57bdb65d5d10b7",
@@ -204716,7 +204752,9 @@
       "url": "https://www.kpmguscareers.com/jobdetail?jobId=138174",
       "locations": [],
       "company_id": "s103",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "b6ab86d29cfd81f9e5a23851",
@@ -204730,7 +204768,9 @@
         "Dayton, OH"
       ],
       "company_id": "s026",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "ca89d9657cba16a8b65fb9db",
@@ -204742,7 +204782,9 @@
       "url": "https://www.kpmguscareers.com/jobdetail?jobId=137268",
       "locations": [],
       "company_id": "s103",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     },
     {
       "id": "c1558286cbe431d9f510624a",
@@ -204756,7 +204798,9 @@
         "Atlanta, GA"
       ],
       "company_id": "s119",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-08T17:57:10+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/53"
     }
   ],
   "version": 1,
