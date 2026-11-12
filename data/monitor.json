@@ -224512,7 +224512,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Accelevation LLC",
       "company_id": "s003",
-      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05"
+      "url": "https://recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0930d0e990193413b00b52d05",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "84153fc3f93ec36cd0facca6",
@@ -224520,7 +224522,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "852455ea939321bd2d0c601f",
@@ -224528,7 +224532,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "535a06c1b92a6c02b14370f5",
@@ -224536,7 +224542,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Bloomberg",
       "company_id": "s023",
-      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1"
+      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "09ccf210a893e19442aa1add",
@@ -224544,7 +224552,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "05532b230b8a275ffcbcf7d9",
@@ -224552,7 +224562,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "c6548ccedba8999d5d537716",
@@ -224560,7 +224572,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Deloitte",
       "company_id": "s044",
-      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy"
+      "url": "https://apply.deloitte.com/en_US/careers/SearchJobs?9339=%5B478%5D&9339_format=5915&jobOffset=0&jobRecordsPerPage=10&jobSort=relevancy&listFilterMode=1&sort=relevancy",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "b505665526ab9074de3ed39d",
@@ -224568,7 +224582,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Dev Technology Group Inc.",
       "company_id": "s047",
-      "url": "https://devtechnology.com/careers"
+      "url": "https://devtechnology.com/careers",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "ce5dc93f84aeca9b41ba8aee",
@@ -224576,7 +224592,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Intellias",
       "company_id": "s059",
-      "url": "https://career.intellias.com"
+      "url": "https://career.intellias.com",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "cfc44665ebf5a7f8685f15fa",
@@ -224584,7 +224602,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Metaformers",
       "company_id": "s070",
-      "url": "https://metaformers.catsone.com/careers"
+      "url": "https://metaformers.catsone.com/careers",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "70e179dd1b2d72c78bf634bf",
@@ -224592,7 +224612,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "MicroHealth LLC",
       "company_id": "s071",
-      "url": "https://microhealthllc.applytojob.com/apply"
+      "url": "https://microhealthllc.applytojob.com/apply",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "f4aabcb721da9429007146a2",
@@ -224600,7 +224622,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "f02db8e6946937372a8a1348",
@@ -224608,7 +224632,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "406a6d272f3997bcb7b70f45",
@@ -224616,7 +224642,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "NVR Settlement Services Inc.",
       "company_id": "s080",
-      "url": "https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?cws=52&org=NVRINC"
+      "url": "https://phg.tbe.taleo.net/phg01/ats/careers/v2/searchResults?cws=52&org=NVRINC",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "9adccb03c0f2ad802fd1f6d5",
@@ -224624,7 +224652,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "edb3e29ef3cfb30d4b325ffb",
@@ -224632,7 +224662,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "TrueNorth",
       "company_id": "s100",
-      "url": "https://truenorthcompanies.com/about-truenorth/careers"
+      "url": "https://truenorthcompanies.com/about-truenorth/careers",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "fd196db1ca496a80b6802c88",
@@ -224640,7 +224672,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "dd37dd715cb308a91a214e89",
@@ -224648,7 +224682,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "SPS Consulting",
       "company_id": "s118",
-      "url": "https://spsconsult.com"
+      "url": "https://spsconsult.com",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "0a8747821051bdf89cb471e6",
@@ -224656,7 +224692,9 @@
       "at": "2026-11-12T19:55:40+00:00",
       "company": "Xcelerate Solutions",
       "company_id": "s123",
-      "url": "https://jobs.jobvite.com/xceleratesolutions"
+      "url": "https://jobs.jobvite.com/xceleratesolutions",
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "aeb77f3f3c78ce2aa7719ec6",
@@ -224670,7 +224708,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "c1b06c370e41e39433c88ade",
@@ -224684,7 +224724,9 @@
         "Boise, ID - ID1"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "9373ab26f6f76a29879be15e",
@@ -224698,7 +224740,9 @@
         "5 Locations"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "33cc0c60260254d1f6651b62",
@@ -224712,7 +224756,9 @@
         "United Kingdom - Reading"
       ],
       "company_id": "s033",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "b6043ccc4b3e85902f7ac150",
@@ -224726,7 +224772,9 @@
         "CO - MEDELLIN II GLOBAL BUSINESS SERVICES-GBS (COMEL)"
       ],
       "company_id": "s121",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "0d303ad3f45b16afa0155d9f",
@@ -224740,7 +224788,9 @@
         "Penang, Malaysia - Grande"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "915e569ecdf1c508f7886f37",
@@ -224754,7 +224804,9 @@
         "Redmond, WA"
       ],
       "company_id": "s108",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "8a4305020f55998e563a21dc",
@@ -224768,7 +224820,9 @@
         "Bellevue, WA"
       ],
       "company_id": "s119",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "20caade96135eda52d55ed2a",
@@ -224782,7 +224836,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "05a1b7cc01a41126558d040e",
@@ -224796,7 +224852,9 @@
         "3 Locations"
       ],
       "company_id": "s020",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "f98bc4d7c5af9b87a6b92f1e",
@@ -224810,7 +224868,9 @@
         "Boise, ID - Main Site"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "336e6d9c20f1f5e0493fab03",
@@ -224824,7 +224884,9 @@
         "USA NC Raleigh"
       ],
       "company_id": "s077",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "c7e8b655b10c0410b023e89a",
@@ -224838,7 +224900,9 @@
         "Bellevue, Washington"
       ],
       "company_id": "s119",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "27c51a7242ce9674286519ba",
@@ -224852,7 +224916,9 @@
         "FXE_APAC/MYS/MYKULHQ/KL Headquarters"
       ],
       "company_id": "s064",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "612fd8a2efc461afbdea03c3",
@@ -224866,7 +224932,9 @@
         "Fab 10A, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "78483b1b08d123d4a0ef94c5",
@@ -224880,7 +224948,9 @@
         "Fab 10A, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     },
     {
       "id": "2ef7f1d2c03aff798acff168",
@@ -224894,7 +224964,9 @@
         "3 Locations"
       ],
       "company_id": "s033",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-12T19:55:47+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/57"
     }
   ],
   "version": 1,
