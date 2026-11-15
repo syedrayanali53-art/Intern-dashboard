@@ -231641,7 +231641,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "52bd93b6c0786d20dfa6c2e8",
@@ -231649,7 +231651,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "22356749058834e17f8f841e",
@@ -231657,7 +231661,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Bloomberg",
       "company_id": "s023",
-      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1"
+      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "e1e608ec6f370301000a4d44",
@@ -231665,7 +231671,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "ca34616dbeeb2f7196ce9081",
@@ -231673,7 +231681,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "e442a4516386a7de62b4bccf",
@@ -231681,7 +231691,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "5a9164e79852f2eed7337f23",
@@ -231689,7 +231701,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "fbc9c430910a007d293b75c2",
@@ -231697,7 +231711,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "358bc531598215fa1363f150",
@@ -231705,7 +231721,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "1d87e13e7398261b9bd6fc45",
@@ -231713,7 +231731,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "ecd342362d539405ee823c97",
@@ -231721,7 +231741,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "SPS Consulting",
       "company_id": "s118",
-      "url": "https://spsconsult.com"
+      "url": "https://spsconsult.com",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "bcdba2013d869a2bfe458370",
@@ -231729,7 +231751,9 @@
       "at": "2026-11-15T18:51:27+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     },
     {
       "id": "8e54101268317138d26c38e3",
@@ -231741,7 +231765,9 @@
       "url": "https://www.kpmguscareers.com/jobdetail?jobId=137288",
       "locations": [],
       "company_id": "s103",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-15T18:51:35+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/60"
     }
   ],
   "version": 1,
