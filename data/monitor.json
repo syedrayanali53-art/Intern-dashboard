@@ -247321,7 +247321,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "48bf143eb7e4637130652fbb",
@@ -247329,7 +247331,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "caa02772ae5db7d6f619c714",
@@ -247337,7 +247341,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "9b86fa05aa53543eb3821bf2",
@@ -247345,7 +247351,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "FanDuel",
       "company_id": "s038",
-      "url": "https://www.fanduel.careers/future-teammates/early-careers"
+      "url": "https://www.fanduel.careers/future-teammates/early-careers",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "d64edd0ee7dcb2c7015c51a7",
@@ -247353,7 +247361,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "f3ce26756b1beb66b3b6502d",
@@ -247361,7 +247371,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Intellias",
       "company_id": "s059",
-      "url": "https://career.intellias.com"
+      "url": "https://career.intellias.com",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "4317b0744e9d5b8f3858acb3",
@@ -247369,7 +247381,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "ee857bbde995f2414ab2f7ce",
@@ -247377,7 +247391,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "ce22cb6d1bc510470093a8ba",
@@ -247385,7 +247401,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "2f033abe9a389da9aef6210e",
@@ -247393,7 +247411,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "54f6fbd591aaf891a9e22088",
@@ -247401,7 +247421,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "f3a60bbb731c390304052d17",
@@ -247409,7 +247431,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "bc84ec0add549cfcfb0e74b4",
@@ -247417,7 +247441,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "SPS Consulting",
       "company_id": "s118",
-      "url": "https://spsconsult.com"
+      "url": "https://spsconsult.com",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "a4fa985fdb60eb96f32454f6",
@@ -247425,7 +247451,9 @@
       "at": "2026-11-22T19:37:50+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     },
     {
       "id": "c127c6de42b90cc4aaa4eeb9",
@@ -247439,7 +247467,9 @@
         "FXE_APAC/MYS/MYKULHQ/KL Headquarters"
       ],
       "company_id": "s064",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-22T19:37:55+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/67"
     }
   ],
   "version": 1,
