@@ -259627,7 +259627,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Amazon",
       "company_id": "s007",
-      "url": "https://www.amazon.jobs/en/search?base_query=internship"
+      "url": "https://www.amazon.jobs/en/search?base_query=internship",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "fd65964f6eff3ebf73b8a5ab",
@@ -259635,7 +259637,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Asurion",
       "company_id": "s015",
-      "url": "https://careers.asurion.com/us/en"
+      "url": "https://careers.asurion.com/us/en",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "65272e1cd009a4bd220abc5b",
@@ -259643,7 +259647,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Bloomberg",
       "company_id": "s023",
-      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1"
+      "url": "https://bloomberg.avature.net/careers/SearchJobs?1686=%5B55479%5D&1686_format=2312&jobRecordsPerPage=12&listFilterMode=1",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "800ac560f6341ec23fb1d78c",
@@ -259651,7 +259657,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "CVS Health",
       "company_id": "s035",
-      "url": "https://jobs.cvshealth.com/us/en"
+      "url": "https://jobs.cvshealth.com/us/en",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "08023500eec272857658f6b4",
@@ -259659,7 +259667,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Freddie Mac",
       "company_id": "s042",
-      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1"
+      "url": "https://careers.freddiemac.com/us/en/c/technology-jobs?from=30&s=1",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "8d70a4ed22447ffc88f44833",
@@ -259667,7 +259677,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Intellias",
       "company_id": "s059",
-      "url": "https://career.intellias.com"
+      "url": "https://career.intellias.com",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "f002be70375e4002504d4ba0",
@@ -259675,7 +259687,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "MassMutual",
       "company_id": "s069",
-      "url": "https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2"
+      "url": "https://careers.massmutual.com/search-jobs/internship/Virginia%2C%20US/724/1/3/6252001-6254928/37x54812/-77x44675/50/2",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "27d2260427b2a02044dce0e6",
@@ -259683,7 +259697,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Gartner",
       "company_id": "s073",
-      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22"
+      "url": "https://jobs.gartner.com/jobs?pagesize=20&search=%22internships%22",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "272f4e837347bba31387cb07",
@@ -259691,7 +259707,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Mythics",
       "company_id": "s075",
-      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1"
+      "url": "https://external-mythics.icims.com/jobs/search?searchCategory=19787&ss=1",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "4066a59dfa2b4eea00a1a3b6",
@@ -259699,7 +259717,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Splunk",
       "company_id": "s093",
-      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern"
+      "url": "https://www.splunk.com/en_us/careers/search-jobs.html?page=1&type=Intern",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "fb66af32adb4c3851a8bc9e5",
@@ -259707,7 +259727,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Vanguard",
       "company_id": "s099",
-      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students"
+      "url": "https://www.vanguardjobs.com/job-search-results?level%5B%5D=Students",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "c8894feeb8e13eef7353b205",
@@ -259715,7 +259737,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Maximus",
       "company_id": "s106",
-      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1"
+      "url": "https://maximus.avature.net/careers/SearchJobs/intern?folderOffset=24&folderRecordsPerPage=6&listFilterMode=1",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "88a11e04843e522cbd00858a",
@@ -259723,7 +259747,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "Microsoft",
       "company_id": "s108",
-      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships"
+      "url": "https://jobs.careers.microsoft.com/global/en/search?flt=true&l=en_us&lc=United+States&o=Relevance&pg=1&pgSz=20&q=internships",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "4a9b75ddfad20777c0107278",
@@ -259731,7 +259757,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "SPS Consulting",
       "company_id": "s118",
-      "url": "https://spsconsult.com"
+      "url": "https://spsconsult.com",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "b4133cbb302aa8149c6a9097",
@@ -259739,7 +259767,9 @@
       "at": "2026-11-27T21:16:46+00:00",
       "company": "UPS",
       "company_id": "s121",
-      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern"
+      "url": "https://www.jobs-ups.com/us/en/search-results?keywords=intern",
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "174f13900bdd7aa4862e3d7f",
@@ -259753,7 +259783,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "8ff79b44f1e710c9e989f1bf",
@@ -259767,7 +259799,9 @@
         "Fab 10W, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "ef55de0a48e9d90b92837909",
@@ -259781,7 +259815,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "2bb31ce236cb16eb75753111",
@@ -259793,7 +259829,9 @@
       "url": "https://jobs.sap.com/en/jobs/744000164034508/diploma-student-intern-sap-ai-development-intern-oil-gas-field-logistics",
       "locations": [],
       "company_id": "s116",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "e259408236db3ec6dff85410",
@@ -259807,7 +259845,9 @@
         "United States"
       ],
       "company_id": "s119",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "d841a2d0867d0a55cb95d49c",
@@ -259821,7 +259861,9 @@
         "Mountain View, CA"
       ],
       "company_id": "s115",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "e11e7ae397d327ec615096c5",
@@ -259835,7 +259877,9 @@
         "Plano, TX"
       ],
       "company_id": "s115",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "d6ff63779cd48d8822068776",
@@ -259847,7 +259891,9 @@
       "url": "https://jobs.sap.com/en/jobs/744000164027321/sap-intern-intelligent-contracting-automation",
       "locations": [],
       "company_id": "s116",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "9f6a05c27e8f0daa4d4e8ecb",
@@ -259861,7 +259907,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "d1a1d4c840ccde8dfef0179a",
@@ -259875,7 +259923,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "5c808ef723bf3f6f82264893",
@@ -259889,7 +259939,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "c94612e2d4bc67d9adbc1878",
@@ -259903,7 +259955,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "b59ff0800b312317a66447cc",
@@ -259917,7 +259971,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "798ead7df70d8feb49c132dc",
@@ -259929,7 +259985,9 @@
       "url": "https://jobs.sap.com/en/jobs/744000164058979/sap-ixp-intern-it-end-user-support-associate-limited-full-time",
       "locations": [],
       "company_id": "s116",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "c59c096f7240d12fd6d8f95f",
@@ -259943,7 +260001,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "ff901c7250fc505e0be353ea",
@@ -259957,7 +260017,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "ff0a7e680091a58d2a81405b",
@@ -259971,7 +260033,9 @@
         "Fab 10N/X, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "bc28a1ed95637f82eca81be8",
@@ -259983,7 +260047,9 @@
       "url": "https://jobs.sap.com/en/jobs/744000164043023/sap-ixp-intern-fmd-hcm-human-capital-management-solution-advisory",
       "locations": [],
       "company_id": "s116",
-      "verified": false
+      "verified": false,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "17514aa4f58b2c9f7e5adc02",
@@ -259997,7 +260063,9 @@
         "MSB, Singapore"
       ],
       "company_id": "s107",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     },
     {
       "id": "626bafb577de4937de3c5b62",
@@ -260011,7 +260079,9 @@
         "POL - Gdansk, Poland"
       ],
       "company_id": "s024",
-      "verified": true
+      "verified": true,
+      "sent_at": "2026-11-27T21:16:53+00:00",
+      "issue_url": "https://github.com/syedrayanali53-art/Intern-dashboard/issues/72"
     }
   ],
   "version": 1,
